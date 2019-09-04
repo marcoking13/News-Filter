@@ -14,11 +14,12 @@
 .main{
   margin-top: 2.5%;
 }
-.col-2{
+.col-2B{
   padding:0;
   background:black;
 
 }
+
 @keyframes goRed{
   0%{
     border-color:black;
@@ -52,7 +53,7 @@
   text-align: left;
 
 }
-.row{
+.rowB{
   margin-top:2.5%;
 
 }

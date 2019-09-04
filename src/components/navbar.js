@@ -6,13 +6,15 @@ class Navbar extends React.Component{
   constructor(props){
     super(props);
   }
+
   openNav() {
       document.getElementById("mySidenav").style.width = "175px";
    }
- /* Set the width of the side navigation to 0 */
+
   closeNav() {
      document.getElementById("mySidenav").style.width = "0";
    }
+
   render(){
     return(
       <div>
@@ -39,13 +41,13 @@ class Navbar extends React.Component{
           </div>
 
       <span className="menuIC"onClick={()=>{this.openNav()}}>
-
         <div className="menuBarI"></div>
         <div className="menuBarI"></div>
         <div className="menuBarI"></div>
-
       </span>
+
         <div id="main"></div>
+        
       </div>
     )
   }

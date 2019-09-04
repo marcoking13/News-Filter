@@ -15,7 +15,7 @@ class SignupDesktop extends React.Component{
               <div className="col-10 jumbotron loginDJumbotron right">
                 <div className="logoBoxD">
                   <img className="logoLoginD w5"src="assets/images/logo.png" />
-                  <p className="logoNameD "  >Music Bender</p>
+                  <p className="logoNameD ">Music Bender</p>
                 </div>
                 <div className="row">
                   <div className="col-6 mt5 bbr2 crt offset2">

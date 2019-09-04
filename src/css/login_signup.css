@@ -8,8 +8,9 @@
   animation:right .4s 1 ease-in;
 }
 .loginDJumbotron{
-  margin-top:2.5%;
+  margin-top:.5%;
   background:white;
+  padding-bottom:200px;
   border:2px solid black
 }
 @keyframes left {
@@ -23,10 +24,11 @@
   }
 }
 .crt{
-  background: #009488;
-  padding-bottom:10%;
+  background: #ffa64d;
+  padding-bottom:12%;
   position: relative;
-  bottom:8px;
+  bottom:4px;
+
   color:white !important;
 }
 @keyframes right {
@@ -85,7 +87,7 @@
 .titleLoginD{
 
   font-family:monospace;
-  color:#009488;
+  color:#ffa64d;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -105,16 +107,16 @@
 .loginButtonD:hover{
   color:white;
   border:2px solid white;
-  background:#009488;
+  background:#ffa64d;
 }
 .titleLoginD{
   font-family: monospace;
-  color:#009488;
+  color:#ff8c1a;
 }
 .loginButtonD{
   border-radius:15px;
   height:40px;
-  border:2px solid #009488
+  border:2px solid #ff8c1a;
 }
 .mt75{
   margin-top:7.5%;
