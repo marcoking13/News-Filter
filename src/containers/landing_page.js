@@ -44,8 +44,8 @@ class LandingPage extends React.Component {
 
             <div className="col-3">
             <ul className="options ">
-                <li className="optionM hbr brg" onClick = {()=>{this.props.changeURL("login")}}>Signup</li>
-                <li className="optionM  hbr"onClick = {()=>{this.props.changeURL("login")}}>Login</li>
+                <a href = "/login"><li className="optionM hbr brg" onClick = {()=>{this.props.changeURL("login")}}>Signup</li></a>
+                <a href = "/login"><li className="optionM  hbr"onClick = {()=>{this.props.changeURL("login")}}>Login</li></a>
             </ul>
             </div>
 

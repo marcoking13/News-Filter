@@ -3,35 +3,53 @@ import SignupLogin from "./containers/signup_login_page.js";
 import Navbar from "./components/navbar.js";
 import HomePage  from "./containers/home_page.js";
 import LandingPage from "./containers/landing_page.js";
+import DummyComponent from "./components/dummy_component.js";
+import {BrowserRouter,Route,History} from "react-router-dom";
+import cookie from "react-cookies";
 class App extends React.Component {
+
 
   constructor(props){
 
     super(props);
-
+    var url = "landing";
+    if(cookie.load("url",{path:"/"})){
+        url = cookie.load("url",{path:"/"});
+    }
     this.state = {
-      url:"landing"
+      url:url,
+      isSpotify:true,
+      isUserLoggedIn:false
     }
     this.changeURL = this.changeURL.bind(this);
+      this.didSpot = this.didSpot.bind(this);
   }
 
+
   changeURL(url){
+      cookie.remove("url",{path:"/"});
+      cookie.save("url",url,{path:"/"});
       this.setState({url:url})
   }
 
+  didSpot(bool){
+    this.setState({didSpotify:bool});
+  }
+
   render(){
-      if(this.state.url === "login"){
-        return <SignupLogin changeURL = {this.changeURL}/>
-      }
-      if(this.state.url === "home"){
-        return <HomePage changeURL = {this.changeURL}/>
-      }
-      if(this.state.url === "landing"){
-        return <LandingPage changeURL = {this.changeURL}/>
-      }
-      else{
-        return <div />
-      }
+    return(
+      <div>
+        <BrowserRouter>
+          <div>
+
+            <Route path = "/" exact component = {LandingPage}></Route>
+            <Route path = "/home/#"  exact component = {HomePage}></Route>
+            <Route path = "/login"  exact component = {SignupLogin}></Route>
+          </div>
+        </BrowserRouter>
+
+      </div>
+    )
   }
 
 }

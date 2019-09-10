@@ -1,13 +1,11 @@
 import React from "react";
 import Navbar from "./../components/navbar.js";
-import Spotify from "node-spotify-api";
 import "./../css/home.css";
+import axios from "axios";
 
 class HomePage extends React.Component{
-  constructor(props){
-    super(props);
-    console.log(Spotify);
-  }
+
+  
   renderSongs(){
     var html = [];
     for(var i = 0; i<6; i++){
@@ -30,6 +28,7 @@ class HomePage extends React.Component{
     return(
       <div  className="homeBody container-fluid">
         <Navbar />
+
         <div className="main">
 
           <div classname="songCatagories">

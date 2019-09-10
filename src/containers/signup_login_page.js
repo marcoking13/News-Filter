@@ -62,9 +62,9 @@ class SignupLogin extends React.Component{
         password: this.state.newPassword
       }
 
-      axios.post("/api/accounts",newAccount).then((res)=>{console.log(res)});
+      axios.get("/api/account").then((response)=>{console.log(response)});
 
-      this.props.changeURL("home");
+      window.location.assign("http://localhost:5000/spotify-login");
 
     }else{
       alert("Passwords do not Match");
@@ -78,7 +78,7 @@ class SignupLogin extends React.Component{
       password:this.state.password
     }
 
-    axios.get("/api/accounts").then((response)=>{
+   axios.get("/api/accounts").then((response)=>{
 
       var data = response.data;
       var c = 0;
@@ -86,7 +86,9 @@ class SignupLogin extends React.Component{
       data.map((loopedAccount)=>{
 
         if(loopedAccount.username === account.username && loopedAccount.password === account.password){
-            return this.props.changeURL("home");
+
+          window.location.assign("http://localhost:5000/spotify-login");
+
         }
 
         c++;
@@ -98,6 +100,9 @@ class SignupLogin extends React.Component{
 
     });
 
+    axios.post("/api/accounts",account)
+    .then((data)=>{console.log(data)})
+    .catch((erre)=>{console.log(erre)});
   }
 
   render(){
