@@ -54,8 +54,8 @@ class App extends React.Component {
           <div>
 
             <Route path = "/" exact component = {LandingPage}></Route>
-            <Route path = "/home/:accessToken/:refreshToken" render={props => <HomePage UpdateToken = {this.UpdateToken}  />} ></Route>
-            <Route path = "/sear/:accessToken/"  render={(props) => <SearchPage {...props} token={0} />} />} />
+            <Route path = "/home/:accessToken/:email" render={props => <HomePage UpdateToken = {this.UpdateToken}  />} ></Route>
+            <Route path = "/sear/:accessToken/:email"  render={(props) => <SearchPage {...props} token={0} />} />} />
             <Route path = "/search2" exact component = {SearchBar} />
           </div>
         </BrowserRouter>

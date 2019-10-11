@@ -29,7 +29,7 @@ class Navbar extends React.Component{
             <p >Browse</p>
             <p >Discover</p>
             <p >Radio</p>
-            <Link to = {"/sear/accessToken="+this.props.token}><p >Search</p></Link>
+            <Link to = {"/sear/access_token="+this.props.token}><p >Search</p></Link>
 
 
               <div className="navBarr"/>

@@ -20,13 +20,7 @@ class SearchPage extends React.Component {
       albums:null
 
     }
-    console.log(this.props);
-    var url = window.location.href;
 
-
-    var accessToken = url.slice(39,208);
-
-    console.log(accessToken);
     this.CallArtistAndAlbums = this.CallArtistAndAlbums.bind(this);
     this.changeData = this.changeData.bind(this);
 
@@ -47,9 +41,7 @@ class SearchPage extends React.Component {
 
       var accessToken = url.slice(40,208);
 
-      console.log(accessToken);
 
-      console.log(accessToken);
       var options = {
         method:"GET",
         headers:{
@@ -63,7 +55,7 @@ class SearchPage extends React.Component {
         .then(response =>response.json())
 
         .then(json => {
-
+          console.log(json);
           var id = json.artists.items[0].id;
 
           const BASE_URL = `https://api.spotify.com/v1/artists/${id}/albums?`;

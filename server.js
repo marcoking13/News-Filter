@@ -166,9 +166,9 @@ app.get('/callback', function(req, res) {
             }
 
         });
-        res.redirect(`http://localhost:3000/home/${"access_token="+access_token}/${"refresh_token="+refresh_token}/${body.email}`);
+        res.redirect(`http://localhost:3000/home/${"access_token="+access_token}/${body.email}`);
 
-          
+
         });
 
 
