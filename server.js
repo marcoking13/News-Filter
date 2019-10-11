@@ -9,7 +9,7 @@ const cors = require('cors');
 const querystring = require('querystring');
 const cookieParser = require("cookie-parser");
 
-const collections = ["accounts"];
+const collections = ["accounts","currentAccount"];
 const mongojs = require("mongojs");
 const database = "news_db";
 const db = mongojs(database,collections);
@@ -72,6 +72,9 @@ app.use(express.static(__dirname + '/public'))
 app.get('/spotify-login', function(req, res) {
   // state is random code
   var state = generateRandomString(16);
+
+
+
   // saves state to cookie
   res.cookie(stateKey, state);
    console.log("spotify");
@@ -133,19 +136,47 @@ app.get('/callback', function(req, res) {
           headers: { 'Authorization': 'Bearer ' + access_token },
           json: true
         };
-          // console logs user sportify data
+          // This will get the user's spotify data and use it to make an account for this app
         request.get(options, function(error, response, body) {
-          console.log(body);
+
+
+          const id = generateRandomString(10)
+          var userData = {
+            followers:body.followers.total,
+            email:body.email,
+            image:body.images[0],
+            playlist:[],
+            songs:[],
+            artists:[],
+            id:id
+          }
+
+          db.accounts.find({},(err,data)=>{
+            for(var i = 0; i <= data.length - 1; i++ ){
+              console.log(body.email,data[i].email);
+              if(data[i].email === body.email){
+                console.log("User already exists");
+
+                break;
+              }
+              if(i >= data.length - 1){
+                  db.accounts.insert(userData,(e,data)=>{console.log("Instert New User")});
+
+              }
+            }
+
         });
+        res.redirect(`http://localhost:3000/home/${"access_token="+access_token}/${"refresh_token="+refresh_token}/${body.email}`);
+
+          
+        });
+
 
         // logs in the returned data
         // use the access token to access the Spotify Web API
         // we can also pass the token to the browser to make requests from there
-        res.redirect('http://localhost:3000/home/' +
-          querystring.stringify({
-            access_token: access_token,
-            refresh_token: refresh_token
-          }));
+
+
       } // if there is an error redirect user to same url and send error message
       else {
         res.redirect('/#' +
@@ -181,35 +212,74 @@ app.get('/refresh_token', function(req, res) {
   });
 });
 
+
+
+app.get("/api/accounts",(req,res)=>{
+  db.accounts.find({},(err,response)=>{
+    res.json(response);
+  });
+});
+
+
+app.get("/api/current_account",(req,res)=>{
+  db.currentAccount.find({},(err,response)=>{
+    res.json(response);
+  });
+});
+
+app.post("/api/accounts",(req,res)=>{
+  var email = req.body.email;
+  console.log(email);
+  db.currentAccount.find({},(er,current)=>{
+    db.accounts.find({},(err,accounts)=>{
+        console.log(current[0].email,accounts[0].email);
+        for(var i =1; i<= accounts.length;i++){
+            console.log(current[0].email,accounts)
+          if(current[0].id === accounts[i].id){
+            var newAccount = {
+              email:email,
+              id:current[0].id,
+              songs:current[0].songs,
+              artists:current[0].artists,
+              followers:0,
+              image:null,
+              playlist:current[0].playlist
+            }
+
+            db.accounts.remove({email:accounts[i].email},(err,data)=>{console.log(data)});
+            db.accounts.insert(newAccount);
+            db.currentAccount.remove({});
+            db.currentAccount.insert(newAccount);
+              break;
+          }
+
+        }
+    });
+  });
+});
 //---------------End of Oauth Spotify---------------
 
 app.listen(port,(req,res)=>{
   MongoStartup();
-  request.get("https://cnn.com",(err,data,html)=>{
-      const $ = cheerio.load(html);
-
-     var HTML = $(html).find().text();
-     console.log(HTML);
-     $("div").each((i,data)=>{
-      var paragraph = $(data).find().text();
-      console.log(paragraph);
-
-     })
-  });
   console.log("App is running on localhost:"+port);
 });
 
 
 const MongoStartup = ()=>{
   db.accounts.find({},(err,resp)=>{
-    console.log(resp);
+
     if(resp.length > 0){
       console.log("Accounts are in database");
     }else{
       db.accounts.insert({
-        username:"lopunny1",
-        password:"pitaj1",
-        name:"Jayne Wayne"
+        followers:0,
+        email:"dum",
+        image:null,
+        playlist:[],
+        songs:[],
+        artists:[],
+        id:"30o230o0303032003230ek2dodewmwecmwepcmcm"
+
       },(err,data)=>{
         console.log(data);
 
@@ -218,31 +288,3 @@ const MongoStartup = ()=>{
 
   });
 }
-
-app.post("/api/accounts",(req,res)=>{
-  var account = req.body;
-    db.accounts.find({},(err,data)=>{
-      var found = false;
-      for(var i = 0; i < data.length; i++){
-        if(account.username === data[i].username){
-          console.log("User already exists");
-          found = true;
-          break;
-        }
-      }
-      if (!found){
-        console.log("User is entered");
-        db.accounts.insert(account);
-
-      }
-    });
-
-});
-
-
-app.get("/api/accounts",(req,res)=>{
-  db.accounts.find({},(err,data)=>{
-    res.json(data);
-
-  });
-});

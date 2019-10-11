@@ -1,69 +1,77 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
+import "./../css/search.css";
 import "./../css/landing.css";
+
+
+import Navbar from "./../components/landing/navbar.js";
+import NavbarMobile from "./../components/landing/mobile_navbar.js";
+
+import Features from "./../components/landing/features.js";
+import MobileFeatures from "./../components/landing/mobile_features.js";
+
+import Register from "./../components/landing/register.js";
+
+import Showcase from "./../components/landing/showcase.js";
+import ShowcaseMobile from "./../components/landing/mobile_showcase.js";
+
+import Albums from "./../components/landing/albums.js";
+import MobileAlbums from "./../components/landing/mobile_albums.js";
 
 class LandingPage extends React.Component {
 
-  renderMusicSamples(){
-    var html = [];
-    for(var i =1; i<7; i++){
+  renderDesktopPage(){
+    return(
+        <div>
+            <Navbar />
+          <div>
+            <Showcase />
+          </div>
+          <div>
+            <Albums offset = {0} title = "Newest Artists"/>
+            <Albums offset = {5} title = "Most Popular"/>
+          </div>
+          <div className="bbBW pb2_5">
+            <Features/>
+          </div>
 
-      html.push(
-        <div className="col-2 mt25">
-            <img className="landingCoverSong" src={"assets/images/sample"+i+".jpg"}/>
-            <p className="songNL">Song:</p>
-            <p className="songNL">Artist:</p>
+          <div className="bbBW pb2_5">
+            <Register />
+          </div>
         </div>
-      )
-
-    }
-    return html;
+    );
   }
 
-  render(){
-    var background = `url("assets/images/landing.jpg")`;
+  renderMobilePage(){
     return(
-        <div className="container-fluid"style={{background:background}}>
+        <div>
+            <NavbarMobile />
+          <div>
+            <ShowcaseMobile />
+          </div>
+          <div>
+            <MobileAlbums offset = {0} title = "Newest Artists"/>
+            <MobileAlbums offset = {5} title = "Most Popular"/>
+          </div>
+          <div className="bbBW pb2_5">
+            <MobileFeatures/>
+          </div>
 
-          <div className="row bb o7">
-
-              <div className="col-2">
-                <img className="logoLanding" src="assets/images/logo.png"/>
-                <p className="titleL"> Music Bender</p>
-              </div>
-
-              <div className="col-4"/>
-
-            <div className="col-3">
-                <ul className="ml5">
-                    <li className="optionM mt10 hbr">Download</li>
-                    <li className="optionM  mt10 hbr">About</li>
-                    <li className="optionM mt10 hbr">Credits</li>
-                </ul>
-            </div>
-
-            <div className="col-3">
-            <ul className="options ">
-                <a href = "/login"><li className="optionM hbr brg" onClick = {()=>{this.props.changeURL("login")}}>Signup</li></a>
-                <a href = "/login"><li className="optionM  hbr"onClick = {()=>{this.props.changeURL("login")}}>Login</li></a>
-            </ul>
-            </div>
-
+          <div className="bbBW pb2_5">
+            <Register />
+          </div>
         </div>
-
-
-        <div className="pb50" >
-            <h1 className="headingL"> Find your Favorite Music Here!</h1>
-            <p className="headingLL">Millions of users are already on it</p>
-            <button className="btn landingBtn"onClick = {()=>{this.props.changeURL("login")}}>Create Account</button>
-        </div>
-
-        <div className="row  bb">
-          {this.renderMusicSamples()}
-        </div>
-
-      </div>
     );
+  }
+  // mae the navbar with bootstrap features and sematic ui
+  render(){
+
+      if(window.innerWidth <= 580){
+        return <div>{this.renderMobilePage()}</div>
+      }else{
+       return <div>{this.renderDesktopPage()}</div>
+      }
   }
 }
 

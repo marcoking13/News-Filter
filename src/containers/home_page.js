@@ -4,8 +4,40 @@ import "./../css/home.css";
 import axios from "axios";
 
 class HomePage extends React.Component{
+    constructor(props){
+      super(props);
+      console.log(this.props.token);
+      // this.state.nowPlaying.name
+        const params = this.getHashParams();
+        console.log(params);
+        this.state = {
+          loggedIn: params.access_token ? true:false,
+          nowPlaying:{
+            name:"",
+            artist:''
+          }
 
-  
+        }
+        console.log(this.state.loggedIn);
+
+    }
+
+    componentDidMount(){
+        this.props.UpdateToken(window.location.href.slice(40,208));
+
+    }
+
+   getHashParams() {
+      var hashParams = {};
+      var e, r = /([^&;=]+)=?([^&;]*)/g,
+          q = window.location.href.substring(1);
+      while ( e = r.exec(q)) {
+         hashParams[e[1]] = decodeURIComponent(e[2]);
+      }
+      return hashParams;
+    }
+
+
   renderSongs(){
     var html = [];
     for(var i = 0; i<6; i++){
@@ -27,7 +59,7 @@ class HomePage extends React.Component{
   render(){
     return(
       <div  className="homeBody container-fluid">
-        <Navbar />
+        <Navbar token = {window.location.href.slice(40,208)}/>
 
         <div className="main">
 

@@ -1,10 +1,13 @@
 import React from 'react';
-import SignupLogin from "./containers/signup_login_page.js";
+
 import Navbar from "./components/navbar.js";
 import HomePage  from "./containers/home_page.js";
 import LandingPage from "./containers/landing_page.js";
-import DummyComponent from "./components/dummy_component.js";
-import {BrowserRouter,Route,History} from "react-router-dom";
+import SearchBar from "./components/search_bar.js";
+import SearchPage from "./containers/search_page";
+import ProfilePage from "./containers/profile_page";
+
+import {BrowserRouter,Route,Link} from "react-router-dom";
 import cookie from "react-cookies";
 class App extends React.Component {
 
@@ -19,12 +22,19 @@ class App extends React.Component {
     this.state = {
       url:url,
       isSpotify:true,
+      token:null,
       isUserLoggedIn:false
     }
-    this.changeURL = this.changeURL.bind(this);
+      this.changeURL = this.changeURL.bind(this);
+      this.UpdateToken = this.UpdateToken.bind(this);
       this.didSpot = this.didSpot.bind(this);
+
   }
 
+  UpdateToken(token){
+    console.log(token);
+    this.setState({token:token});
+  }
 
   changeURL(url){
       cookie.remove("url",{path:"/"});
@@ -37,14 +47,16 @@ class App extends React.Component {
   }
 
   render(){
+    console.log(this.state.token);
     return(
       <div>
         <BrowserRouter>
           <div>
 
             <Route path = "/" exact component = {LandingPage}></Route>
-            <Route path = "/home/#"  exact component = {HomePage}></Route>
-            <Route path = "/login"  exact component = {SignupLogin}></Route>
+            <Route path = "/home/:accessToken/:refreshToken" render={props => <HomePage UpdateToken = {this.UpdateToken}  />} ></Route>
+            <Route path = "/sear/:accessToken/"  render={(props) => <SearchPage {...props} token={0} />} />} />
+            <Route path = "/search2" exact component = {SearchBar} />
           </div>
         </BrowserRouter>
 

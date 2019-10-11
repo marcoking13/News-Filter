@@ -2,7 +2,7 @@ import React from "react";
 import "./../css/navbar.css";
 import {Link} from "react-router-dom";
 
-class Navbar extends React.Component{
+class NavbarMobile extends React.Component{
   constructor(props){
     super(props);
   }
@@ -29,8 +29,7 @@ class Navbar extends React.Component{
             <p >Browse</p>
             <p >Discover</p>
             <p >Radio</p>
-            <Link to = {"/sear/accessToken="+this.props.token}><p >Search</p></Link>
-
+            <Link to = {"/search/access_token="+this.props.token}><p >Search</p></Link>
 
               <div className="navBarr"/>
 
@@ -54,4 +53,4 @@ class Navbar extends React.Component{
   }
 }
 
-export default Navbar;
+export default NavbarMobile;

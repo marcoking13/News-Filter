@@ -1,0 +1,33 @@
+
+
+
+
+
+@media screen and (max-width:580px){
+  .changeAccount{
+    font-size: 11px !important;
+  }
+  .followBox{
+      padding-right: 0px !important;
+
+      border-right:0px #262626 solid !important;
+  }
+  .followRow{
+    background:black !important;
+    padding-bottom:10px;
+    border-bottom:1px solid grey;
+  }
+  .spacer{
+    margin-top:15%;
+  }
+  .favB{
+    width:120%;
+    margin-top:15% !important;
+
+  }
+}
+
+
+.bbRB{
+  border-right:1px solid black;
+}

@@ -1,8 +1,152 @@
-.logoLanding{
-  width:40%;
-  float:left;
-  margin-left: 5%;
-  margin-top:5%;
+
+@keyframes enlarge{
+  0%{
+    width:70%;
+  }
+  100%{
+
+    width:72%;
+  }
+}
+
+@keyframes minimize{
+  0%{
+    width:72%;
+
+  }
+  100%{
+    width:70%;
+
+  }
+}
+.featureL{
+  height:400px;
+  margin-top:.5%;
+  padding:0;
+  margin-left:2.5%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.turnBold:hover{
+  font-weight: bold !important; 
+}
+.turn26:hover{
+  background:#262626 !important;
+}
+.turnWhite:hover{
+  background:white !important;
+  border-color:white !important;
+  color:black !important;
+}
+.w100{
+  width:100%;
+}
+.ml25{
+  margin-left: 25%;
+}
+.ml50{
+  margin-left: 50%;
+}
+@keyframes orangeC{
+  0%{
+    background:#ff8000;
+  }
+  50%{
+    background: #ff9933;
+  }
+  100%{
+      background:#ff8000;
+  }
+}
+.mt40{
+  margin-top: 40%;
+}
+.ml50{
+  margin-left: 50% !important;
+}
+.ml40{
+  margin-left: 40% !important;
+}
+.ml35{
+  margin-left: 40% !important;
+}
+.pb2_5{
+  padding-bottom:2.5%;
+}
+.mt10{
+  margin-top: 100%;
+}
+.mt25{
+  margin-top: 25%;
+}
+body{
+  padding-bottom: 35%;
+}
+.changeSize{
+  animation: minimize .2s 1 ease-out;
+  width:70%;
+
+}
+.underline {
+  font-style: underline;
+}
+.changeSize:hover{
+  animation:enlarge .2s 1 ease-in;
+  width:71%;
+}
+.br10{
+  border-radius:10px;
+}
+.orangeChange {
+  animation:orangeC 5s infinite ease-in-out;
+}
+.oB{
+  background:orange
+}
+.bbBW{
+  border-bottom:.5px solid white;
+}
+.fr{
+  float:right;
+}
+.nol{
+  list-style-type: none;
+}
+.Lato{
+  font-family: "Lato";
+}
+.ml2_5{
+  margin-left: 2.5%;
+}
+.mt10{
+  margin-top:10%;
+}
+.ml10{
+  margin-left:10%;
+}
+.cb{
+  color:black;
+}
+.w50{
+  width:50%;
+}
+.pB10{
+  padding-bottom:10%;
+}
+
+.landingBtn{
+  width:30%;
+  border-radius:15px;
+  background:#262626;
+  color:white;
+  margin-left: 40%;
+}
+.landingBtn:hover{
+  background:white;
+  border-color:white;
+}
+.LogWithSpotify:hover{
+  background:red;
 }
 .bb{
   background:black !important;
@@ -16,104 +160,4 @@
 }
 .mt10{
   margin-top: 10% !important;
-}
-@keyframes enlarge{
-  0%{
-    width:100%;
-    height:50%;
-  }
-  100%{
-    width:101%;
-    height:52%;
-  }
-}
-@keyframes minimize{
-  0%{
-    width:101%;
-    height:52%;
-  }
-  100%{
-    width:100%;
-    height:50%;
-  }
-}
-.landingBtn:hover{
-  border:1px solid white;
-  color:white;
-  opacity:1;
-}
-.landingCoverSong{
-  animation:minimize .2s 1 ease-in;
-}
-.landingCoverSong:hover{
-  animation:enlarge .2s 1 ease-in;
-  width:101%;
-  height:52%;
-}
-.titleL{
-  float:left;
-
-  color:white;
-  font-family: monospace;
-  margin-top: 12.5%;
-  font-size: 16px;
-}
-.optionM{
-  list-style-type: none;
-  float: left;
-  margin-left: 5%;
-  color:grey;
-}
-.optionM{
-  margin-top: 8%;
-}
-.brg{
-  border-right:2px solid grey !important;
-  padding-right: 10px;
-}
-.pb50{
-  padding-bottom: 7% !important;
-
-}
-.hbr:hover{
-color:white;
-}
-.headingL{
-  text-align: center;
-  margin-top: 5%;
-  color:white;
-  font-weight:bold;
-  font-family: monospace;
-}
-.landingCoverSong{
-  width:100%;
-  height:50%;
-  border:2px solid black;
-}
-.landingCoverSong:hover{
-  border-color:red;
-}
-.songNL{
-  color:white;
-  margin-top: 2%;
-}
-.mt25{
-  margin-top: 2.5%;
-}
-.landingBtn{
-  border:2px solid black;
-  border-radius:10px;
-  margin-left: 37.5%;
-  width:25%;
-  background:black;
-  color:white;
-  opacity:.7;
-  margin-top: 2%;
-}
-.headingLL{
-  text-align: center;
-  margin-top: 2%;
-  color:white;
-  font-weight:bold;
-  font-family: monospace;
 }
