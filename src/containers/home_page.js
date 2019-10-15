@@ -23,7 +23,7 @@ class HomePage extends React.Component{
     }
 
     componentDidMount(){
-        console.log(window.location.href.slice(210,233));
+        console.log();
         this.props.UpdateToken(window.location.href.slice(40,208));
 
     }
@@ -60,7 +60,7 @@ class HomePage extends React.Component{
   render(){
     return(
       <div  className="homeBody container-fluid">
-        <Navbar token = {window.location.href.slice(40,208)}/>
+        <Navbar token = {window.location.href.slice(40,208)} email = {window.location.href.slice(209,233)}/>
 
         <div className="main">
 

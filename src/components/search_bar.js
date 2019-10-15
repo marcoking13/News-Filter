@@ -12,7 +12,7 @@ class SearchBarMusic extends React.Component {
           <div className="col-2"></div>
           <div className="col-10">
             <form>
-              <input className="form-control w50" placeholder = "Search Artist"  onChange = {(e)=>{
+              <input className="form-control w100" placeholder = "Search Artist"  onChange = {(e)=>{
                   this.props.changeData(e.target.value);
                   }}style={{background:"#262626",color:"white",width:"80%",textAlign:"center",float:"left"}}/>
                 <button className="btn btn-primary bb bwH "

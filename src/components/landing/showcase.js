@@ -4,7 +4,8 @@ export default class Showcase extends React.Component {
   render(){
     var background = `url("assets/images/faded.jpg")`
     return(
-      <div className="row  pB10 oB"style={{background:background}}>
+      <div className="row pb10 oB"style={{background:background}}>
+
         <div className="col-3"/>
           <div className="col-6">
 
@@ -16,7 +17,10 @@ export default class Showcase extends React.Component {
                 </div>
                 <div className="col-4"/>
               </div>
+              <br/>
+              <br/>
           </div>
+
       </div>
       );
   }

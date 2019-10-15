@@ -33,9 +33,9 @@ export default class Albums extends React.Component {
 
   render(){
     return(
-        <div className="container-fluid bbBW mt5">
+        <div className=" bbBW ">
           <br />
-          <p className="catagoryName mt5 underline bold cw">{this.props.title}</p>
+          <p className="catagoryName underline bold ml2_5 cw">{this.props.title}</p>
           <div className="row">
             <div className="col-1"/>
               {this.renderMusicSamples()}

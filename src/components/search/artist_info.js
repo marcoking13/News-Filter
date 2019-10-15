@@ -4,7 +4,7 @@ import React from "react";
 
 class ArtistInfo extends React.Component {
   render(){
-    console.log(this.props.artist);
+
     return(
 
       <div className="row">
@@ -27,7 +27,7 @@ class ArtistInfo extends React.Component {
       </div>
     )
   }
-}
+  }
 
 
 

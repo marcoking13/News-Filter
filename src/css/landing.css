@@ -28,10 +28,13 @@
   background-size: cover;
 }
 .turnBold:hover{
-  font-weight: bold !important; 
+  font-weight: bold !important;
 }
 .turn26:hover{
   background:#262626 !important;
+}
+.pb5{
+  padding-bottom: 5%;
 }
 .turnWhite:hover{
   background:white !important;

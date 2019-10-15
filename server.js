@@ -148,26 +148,35 @@ app.get('/callback', function(req, res) {
             playlist:[],
             songs:[],
             artists:[],
-            id:id
+            id:body.id
           }
+          console.log(body.id);
 
           db.accounts.find({},(err,data)=>{
             for(var i = 0; i <= data.length - 1; i++ ){
-              console.log(body.email,data[i].email);
-              if(data[i].email === body.email){
+              console.log(body.id,data[i].id);
+              if(data[i].id === body.id ){
                 console.log("User already exists");
 
                 break;
               }
               if(i >= data.length - 1){
-                  db.accounts.insert(userData,(e,data)=>{console.log("Instert New User")});
+                  db.accounts.insert(userData,(e,data)=>{console.log("Insert New User")});
 
               }
             }
 
         });
-        res.redirect(`http://localhost:3000/home/${"access_token="+access_token}/${body.email}`);
 
+
+        db.accounts.find({},(err,data)=>{
+          for(var i = 0; i <= data.length - 1; i++ ){
+              console.log(data[i])
+              if(data[i].id === body.id){
+                res.redirect(`http://localhost:3000/home/${"access_token="+access_token}/${data[i].id}`);
+                }
+            }
+          });
 
         });
 
@@ -228,34 +237,40 @@ app.get("/api/current_account",(req,res)=>{
 });
 
 app.post("/api/accounts",(req,res)=>{
-  var email = req.body.email;
-  console.log(email);
-  db.currentAccount.find({},(er,current)=>{
+  var id = req.body.id;
+
+  var newData = {
+    email:req.body.email,
+    displayName:req.body.email
+  }
+  console.log(req.params,req.body,req.body.id);
     db.accounts.find({},(err,accounts)=>{
-        console.log(current[0].email,accounts[0].email);
-        for(var i =1; i<= accounts.length;i++){
-            console.log(current[0].email,accounts)
-          if(current[0].id === accounts[i].id){
+
+        for(var i =0; i<= accounts.length;i++){
+
+          if(id === accounts[i].id){
+
             var newAccount = {
-              email:email,
-              id:current[0].id,
-              songs:current[0].songs,
-              artists:current[0].artists,
+              email:newData.email,
+              id:accounts[i].id,
+              songs:accounts[i].songs,
+              artists:accounts[i].artists,
               followers:0,
               image:null,
-              playlist:current[0].playlist
+              playlist:accounts[i].playlist
             }
 
-            db.accounts.remove({email:accounts[i].email},(err,data)=>{console.log(data)});
-            db.accounts.insert(newAccount);
-            db.currentAccount.remove({});
-            db.currentAccount.insert(newAccount);
-              break;
+            db.accounts.remove({email:accounts[i].email},(err,data)=>{console.log(data,"Removed Old Data")});
+            db.accounts.insert(newAccount,()=>{console.log("ll")});
+
+          break;
+
           }
 
         }
-    });
+
   });
+
 });
 //---------------End of Oauth Spotify---------------
 

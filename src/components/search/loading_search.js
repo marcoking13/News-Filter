@@ -11,8 +11,8 @@ class ArtistInfo extends React.Component {
 
       <div className="col-3"></div>
         <div className="col-6">
-          <p className="searchT bold mono text-center c26 mt10 ml5">Search any song or artist!</p>
-          <img src="assets/images/record.png" className="searchIcoP"/>
+          <p className="searchT bold mono text-center c26 mt10 ml5">{this.props.text}</p>
+          <img src={this.props.image} className="searchIcoP"/>
 
          </div>
       <div className="col-3"></div>
