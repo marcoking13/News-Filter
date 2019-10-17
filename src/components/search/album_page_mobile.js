@@ -3,22 +3,22 @@ import Disc from "./../../images/disc.png";
 import Play from "./../../images/play.png";
 
 class AlbumPageMobile extends React.Component {
-  constructor(props){
-    super(props);
 
-  }
   renderSongs(songs){
+
     return songs.map((song)=>{
+
         return (
           <div>
+
               <div className="row">
                 <div className="col-2">
-                  <img className="w100" src = {song.images[0]} />
+                  <img className="w100" src =  {this.props.albums.images[Math.floor(Math.random() * this.props.albums.images.length)].url}/>
               </div>
 
               <div className="col-3">
                     <p className="cw text-center">{"Name: " + song.name  }</p>
-                      <p className="cw text-center">{"Name: " + song.artists[0].name  }</p>
+                      <p className="cw text-center">{"Name: " + song.name  }</p>
 
               </div>
               <div className="col-3">
@@ -30,17 +30,20 @@ class AlbumPageMobile extends React.Component {
               </div>
           </div>
         )
+
     });
+
   }
+
+
   render(){
       return(
-        <div>
+        <div className="mt5">
+          <br />
             {this.renderSongs(this.props.songs)}
-
         </div>
       )
   }
 }
-
 
 export default AlbumPageMobile;

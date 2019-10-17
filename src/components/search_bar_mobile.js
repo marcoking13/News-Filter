@@ -3,6 +3,7 @@ import "./../css/search.css";
 import ArtistInfo from "./search/artist_info.js";
 import Navbar from "./navbar.js";
 
+
 class MobileSearchBar extends React.Component {
   render(){
     return(
@@ -12,7 +13,7 @@ class MobileSearchBar extends React.Component {
           <div className="col-2"></div>
           <div className="col-10">
             <form>
-              <input className="form-control redlineInput w50" placeholder = "Search Artist"  onChange = {(e)=>{
+              <input className="form-control redlineInput w100" placeholder = "Search Artist"  onChange = {(e)=>{
                   this.props.changeData(e.target.value);
                   }}style={{background:"#262626",color:"white",width:"80%",textAlign:"center",float:"left"}}/>
                 <button className="btn btn-primary bb  o0 bwH "

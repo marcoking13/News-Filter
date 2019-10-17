@@ -73,7 +73,6 @@ class SearchPage extends React.Component {
           fetch(FETCH_URL,options).then(album => album.json())
           .then(album =>{
 
-              console.log(album);
             this.setState({
               albums:album.items,
               artist:json.artists.items[0],
@@ -94,10 +93,6 @@ class SearchPage extends React.Component {
           const FETCH_URL = BASE_URL + "limit=5";
           var url = window.location.href;
           var accessToken = url.slice(40,208);
-
-
-
-          console.log(id);
 
           var options = {
             method:"GET",
@@ -140,7 +135,7 @@ class SearchPage extends React.Component {
     renderResultsMobile(){
       if(!this.state.artist && !this.state.albums ){
 
-          return <LoadingMobile artist = {this.state.artist}/>
+          return <LoadingMobile artist = {this.state.artist} image = {Disc}/>
 
       }else{
         return(
@@ -149,8 +144,9 @@ class SearchPage extends React.Component {
               <ArtistInfoMobile artist = {this.state.artist}/>
             </div>
             <div>
-              <AlbumsInfoMobile  artist = {this.state.artist} albums = {this.state.albums}/>
+              <AlbumsInfoMobile   currentAlbum = {this.state.currentAlbum}  songs = {this.state.songs}  GetSongs = {this.SearchSongsFromAlbum} artist = {this.state.artist} albums = {this.state.albums}/>
             </div>
+
           </div>
         )
       }
@@ -173,7 +169,7 @@ class SearchPage extends React.Component {
           <div>
               {this.renderAlbumPage()}
           </div>
-
+          {this.renderAlbumPage()}
 
 
         </div>
@@ -187,6 +183,7 @@ class SearchPage extends React.Component {
         return <p className="cw">....</p>
       }
     }
+
 
     renderMobile(){
       return(
@@ -202,7 +199,7 @@ class SearchPage extends React.Component {
           </div>
 
           <div>
-              {this.renderAlbumPage()}
+              
           </div>
 
         </div>
@@ -210,7 +207,7 @@ class SearchPage extends React.Component {
     }
 
   render(){
-    console.log(this.state.currentAlbum);
+
     if(window.innerWidth <= 580){
       return <div>{this.renderMobile()}</div>
     }else{

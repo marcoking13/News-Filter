@@ -18,10 +18,13 @@ class AlbumPage extends  React.Component {
 
         return(
           <li className="list-group-item bb bWW">
+
             <audio className="au">
-                <source src = {song.prevew_url} type="audio/mp3"/>
+                <source src = {song.preview_url} type="audio/mp3"/>
             </audio>
+
               <div className="row">
+
                   <div className="col-2">
                     <img className="w100" src = {this.props.albums.images[Math.floor(Math.random() * this.props.albums.images.length)].url} />
                   </div>
@@ -36,7 +39,14 @@ class AlbumPage extends  React.Component {
                       <div className="row">
 
                         <div className="col-3">
-                          <img src ={Play}  className="w100 mt10" onClick = {()=>{window.open(song.preview_url, '_blank')}}/>
+                          <img src ={Play}  className="w100 mt10" onClick = {()=>{
+
+                            // {window.open(song.preview_url, '_blank')
+
+                            var audio = document.querySelector(".au");
+                            audio.play();
+
+                          }}/>
                        </div>
 
                        </div>
@@ -45,39 +55,36 @@ class AlbumPage extends  React.Component {
 
                   <div className="col-2">
                     <p className="cw f13">{"Views: "+Math.floor(Math.random() * 9000)}</p>
-
                   </div>
 
               </div>
 
           </li>
-        )
-      })
-  }
+        );
+      });
+   }
 
   render(){
-    console.log(this.props.albums);
 
     return(
         <div className="container-fluid">
 
-          <p className="text-center cw">Songs</p>
-
           <div className="row">
+
             <div className="col-3"/>
             <div className="col-6">
+
               <li className="list-group">
                 {this.renderSongs(this.props.songs)}
               </li>
-            </div>
-          </div>
 
+            </div>
+
+          </div>
 
         </div>
     )
   }
 }
-
-
 
 export default AlbumPage;

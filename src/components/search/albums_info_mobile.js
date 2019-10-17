@@ -1,8 +1,19 @@
 import React from "react";
 
+import AlbumPage from "./album_page_mobile.js";
 
 
 class AlbumInfoMobile extends React.Component {
+
+
+  renderAlbumPageMobile(){
+    if(this.props.currentAlbum){
+      return <AlbumPage albums= {this.props.currentAlbum} songs = {this.props.songs} />
+    }else{
+      return <p className="cw">....</p>
+    }
+  }
+
 
   renderAlbums(){
     if(this.props.artist && this.props.albums){
@@ -12,7 +23,7 @@ class AlbumInfoMobile extends React.Component {
         var imageURL = album.images[0].url;
 
         return (
-          <li className="list-group-item bb">
+          <li className="list-group-item bb" onClick = {()=>{this.props.GetSongs(album.id,album)}}>
             <div className="row">
               <div className="col-4">
                 <img className="rounded albumRowImage" src={imageURL}/>
@@ -24,6 +35,9 @@ class AlbumInfoMobile extends React.Component {
 
               </div>
 
+            </div>
+            <div className="container-fluid">
+                {this.renderAlbumPageMobile()}
             </div>
           </li>
         )
