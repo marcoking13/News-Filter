@@ -168,7 +168,7 @@ app.get('/callback', function(req, res) {
           MongoClient.connect(url,(err,db)=>{
             if(err) throw err;
 
-          var dbO = db.db("heroku_hv748b6s");
+          var dbO = db.db("heroku_08xmn3nc");
           var userData = {
             followers:body.followers.total,
             email:body.email,
@@ -255,7 +255,7 @@ app.get('/refresh_token', function(req, res) {
 app.get("/api/accounts",(req,res)=>{
   MongoClient.connect(url,(err,db)=>{
     if(err) throw err;
-  var dbO = db.db("");
+  var dbO = db.db("heroku_08xmn3nc");
     dbO.collection("accounts").find({},(err,response)=>{
       res.json(response);
     });
@@ -265,7 +265,7 @@ app.get("/api/accounts",(req,res)=>{
 
 app.get("/api/current_account",(req,res)=>{
     MongoClient.connect(url,(err,db)=>{
-      var dbO = db.db("heroku_hv748b6s");
+      var dbO = db.db("heroku_08xmn3nc");
       if(err) throw err;
       dbO.collection("currentUser").find({},(err,response)=>{
         res.json(response);
@@ -274,7 +274,7 @@ app.get("/api/current_account",(req,res)=>{
 
 app.post("/api/accounts",(req,res)=>{
   MongoClient.connect(url,(err,db)=>{
-    var dbO = db.db("");
+    var dbO = db.db("heroku_08xmn3nc");
     var id = req.body.id;
 
     var newData = {
@@ -321,7 +321,7 @@ app.listen(port,(req,res)=>{
 const MongoStartup = ()=>{
 
   MongoClient.connect((url,err)=>{
-  var dbO = db.db("heroku_hv748b6s");
+  var dbO = db.db("heroku_08xmn3nc");
   dbO.collection("accounts").find({},(err,resp)=>{
 
     if(resp.length > 0){
