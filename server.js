@@ -2,17 +2,14 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const morgan = require("morgan");
-const MongoClient = require("mongodb").MongoClient;
-
-var url = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/news_db" ;
-
 const cheerio = require("cheerio");
 const bodyParser = require("body-parser");
 const request = require("request");
 const cors = require('cors');
 const querystring = require('querystring');
 const cookieParser = require("cookie-parser");
-
+const MongoClient = require("mongodb").MongoClient;
+var url = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/news_db";
 const collections = ["accounts","currentAccount"];
 const mongojs = require("mongojs");
 const database = "news_db";
@@ -26,26 +23,6 @@ var client_id = "6c08366188224e3fa487627b7964b6ee";
 var client_secret = "312856c068854046b564c9817dcc12eb";
 var redirect_uri = "http://localhost:5000/callback";
 var stateKey = 'spotify_auth_state';
-
-const proxy = require("http-proxy-middleware");
-app.use(proxy(["/api/accounts","/api/currentAccount"], { target: "http://localhost:5000" }));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /**
  * Generates a random string containing numbers and letters
@@ -163,12 +140,9 @@ app.get('/callback', function(req, res) {
           // This will get the user's spotify data and use it to make an account for this app
         request.get(options, function(error, response, body) {
 
-
-          const id = generateRandomString(10);
-          MongoClient.connect(url,(err,db)=>{
-            if(err) throw err;
-
+        MongoClient.connect(url,(err,db)=>{
           var dbO = db.db("heroku_08xmn3nc");
+          const id = generateRandomString(10)
           var userData = {
             followers:body.followers.total,
             email:body.email,
@@ -178,7 +152,7 @@ app.get('/callback', function(req, res) {
             artists:[],
             id:body.id
           }
-
+          console.log(body.id);
 
           dbO.collection("accounts").find({},(err,data)=>{
             for(var i = 0; i <= data.length - 1; i++ ){
@@ -189,7 +163,7 @@ app.get('/callback', function(req, res) {
                 break;
               }
               if(i >= data.length - 1){
-                  db.collection("accounts").insert(userData,(e,data)=>{console.log("Insert New User")});
+                  dbO.collection("accounts").insert(userData,(e,data)=>{console.log("Insert New User")});
 
               }
             }
@@ -198,7 +172,6 @@ app.get('/callback', function(req, res) {
 
 
         dbO.collection("accounts").find({},(err,data)=>{
-
           for(var i = 0; i <= data.length - 1; i++ ){
               console.log(data[i])
               if(data[i].id === body.id){
@@ -209,7 +182,7 @@ app.get('/callback', function(req, res) {
 
         });
 
-
+      });
         // logs in the returned data
         // use the access token to access the Spotify Web API
         // we can also pass the token to the browser to make requests from there
@@ -253,35 +226,34 @@ app.get('/refresh_token', function(req, res) {
 
 
 app.get("/api/accounts",(req,res)=>{
-  MongoClient.connect(url,(err,db)=>{
-    if(err) throw err;
-  var dbO = db.db("heroku_08xmn3nc");
-    dbO.collection("accounts").find({},(err,response)=>{
-      res.json(response);
+    MongoClient.connect(url,(err,db)=>{
+      var dbO = db.db("heroku_08xmn3nc");
+      dbO.collection("accounts").find({},(err,response)=>{
+        res.json(response);
+      });
     });
-  });
 });
 
 
 app.get("/api/current_account",(req,res)=>{
-    MongoClient.connect(url,(err,db)=>{
-      var dbO = db.db("heroku_08xmn3nc");
-      if(err) throw err;
-      dbO.collection("currentUser").find({},(err,response)=>{
-        res.json(response);
+  MongoClient.connect(url,(err,db)=>{
+    var dbO = db.db("heroku_08xmn3nc");
+    dbO.collection("currentAccount").find({},(err,response)=>{
+    res.json(response);
+  });
   });
 });
 
 app.post("/api/accounts",(req,res)=>{
   MongoClient.connect(url,(err,db)=>{
     var dbO = db.db("heroku_08xmn3nc");
-    var id = req.body.id;
+  var id = req.body.id;
 
-    var newData = {
-      email:req.body.email,
-      displayName:req.body.email
-    }
-    console.log(req.params,req.body,req.body.id);
+  var newData = {
+    email:req.body.email,
+    displayName:req.body.email
+  }
+  console.log(req.params,req.body,req.body.id);
     dbO.collection("accounts").find({},(err,accounts)=>{
 
         for(var i =0; i<= accounts.length;i++){
@@ -308,6 +280,7 @@ app.post("/api/accounts",(req,res)=>{
         }
 
   });
+});
 
 });
 //---------------End of Oauth Spotify---------------
@@ -319,10 +292,9 @@ app.listen(port,(req,res)=>{
 
 
 const MongoStartup = ()=>{
-
-  MongoClient.connect((url,err)=>{
-  var dbO = db.db("heroku_08xmn3nc");
-  dbO.collection("accounts").find({},(err,resp)=>{
+  MongoClient.connect(url,(err,db)=>{
+    var dbO = db.db("heroku_08xmn3nc");
+    dbO.collection("accounts").find({},(err,resp)=>{
 
     if(resp.length > 0){
       console.log("Accounts are in database");
@@ -343,4 +315,5 @@ const MongoStartup = ()=>{
     }
 
   });
+});
 }
