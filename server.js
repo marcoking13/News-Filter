@@ -17,7 +17,13 @@ const db = mongojs(database,collections);
 const app = express();
 const port = 5000;
 
+
+
 app.use(bodyParser());
+
+const proxy = require("http-proxy-middleware");
+app.use(proxy(["/api/currentAccount","/api/accounts"], { target: "http://localhost:5000","secure": false,
+"changeOrigin": true }));
 
 var client_id = "6c08366188224e3fa487627b7964b6ee";
 var client_secret = "312856c068854046b564c9817dcc12eb";
@@ -163,7 +169,7 @@ app.get('/callback', function(req, res) {
                 break;
               }
               if(i >= data.length - 1){
-                  dbO.collection("accounts").insert(userData,(e,data)=>{console.log("Insert New User")});
+                  dbO.collection("accounts").insertOne(userData,(e,data)=>{console.log("Insert New User")});
 
               }
             }
@@ -271,7 +277,7 @@ app.post("/api/accounts",(req,res)=>{
             }
 
             dbO.collection("accounts").remove({email:accounts[i].email},(err,data)=>{console.log(data,"Removed Old Data")});
-            dbO.collection("accounts").insert(newAccount,()=>{console.log("ll")});
+            dbO.collection("accounts").insertOne(newAccount,()=>{console.log("ll")});
 
           break;
 
@@ -299,7 +305,7 @@ const MongoStartup = ()=>{
     if(resp.length > 0){
       console.log("Accounts are in database");
     }else{
-      dbO.collection("accounts").insert({
+      dbO.collection("accounts").insertOne({
         followers:0,
         email:"dum",
         image:null,
@@ -309,7 +315,7 @@ const MongoStartup = ()=>{
         id:"30o230o0303032003230ek2dodewmwecmwepcmcm"
 
       },(err,data)=>{
-        console.log(data);
+        console.log("data");
 
       });
     }
