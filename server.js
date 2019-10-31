@@ -2,6 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const morgan = require("morgan");
+const MongoClient = require("mongodb").MongoClient;
+
+var url = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/eater_db" ;
+
 const cheerio = require("cheerio");
 const bodyParser = require("body-parser");
 const request = require("request");
@@ -22,6 +26,26 @@ var client_id = "6c08366188224e3fa487627b7964b6ee";
 var client_secret = "312856c068854046b564c9817dcc12eb";
 var redirect_uri = "http://localhost:5000/callback";
 var stateKey = 'spotify_auth_state';
+
+const proxy = require("http-proxy-middleware");
+app.use(proxy(["/api/currentUser","/api/foodtrucks","/api/users"], { target: "http://localhost:5000" }));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Generates a random string containing numbers and letters
@@ -140,7 +164,11 @@ app.get('/callback', function(req, res) {
         request.get(options, function(error, response, body) {
 
 
-          const id = generateRandomString(10)
+          const id = generateRandomString(10);
+          MongoClient.connect(url,(err,db)=>{
+            if(err) throw err;
+
+          var dbO = db.db("");
           var userData = {
             followers:body.followers.total,
             email:body.email,
@@ -150,9 +178,9 @@ app.get('/callback', function(req, res) {
             artists:[],
             id:body.id
           }
-          console.log(body.id);
 
-          db.accounts.find({},(err,data)=>{
+
+          dbO.collection("accounts").find({},(err,data)=>{
             for(var i = 0; i <= data.length - 1; i++ ){
               console.log(body.id,data[i].id);
               if(data[i].id === body.id ){
@@ -161,7 +189,7 @@ app.get('/callback', function(req, res) {
                 break;
               }
               if(i >= data.length - 1){
-                  db.accounts.insert(userData,(e,data)=>{console.log("Insert New User")});
+                  db.collection("accounts").insert(userData,(e,data)=>{console.log("Insert New User")});
 
               }
             }
@@ -169,7 +197,7 @@ app.get('/callback', function(req, res) {
         });
 
 
-        db.accounts.find({},(err,data)=>{
+        dbO.collection("accounts").find({},(err,data)=>{
           for(var i = 0; i <= data.length - 1; i++ ){
               console.log(data[i])
               if(data[i].id === body.id){
@@ -224,27 +252,36 @@ app.get('/refresh_token', function(req, res) {
 
 
 app.get("/api/accounts",(req,res)=>{
-  db.accounts.find({},(err,response)=>{
-    res.json(response);
+  MongoClient.connect(url,(err,db)=>{
+    if(err) throw err;
+  var dbO = db.db("");
+    dbO.collection("accounts").find({},(err,response)=>{
+      res.json(response);
+    });
   });
 });
 
 
 app.get("/api/current_account",(req,res)=>{
-  db.currentAccount.find({},(err,response)=>{
-    res.json(response);
+    MongoClient.connect(url,(err,db)=>{
+      var dbO = db.db("");
+      if(err) throw err;
+      dbO.collection("currentUser").find({},(err,response)=>{
+        res.json(response);
   });
 });
 
 app.post("/api/accounts",(req,res)=>{
-  var id = req.body.id;
+  MongoClient.connect(url,(err,db)=>{
+    var dbO = db.db("");
+    var id = req.body.id;
 
-  var newData = {
-    email:req.body.email,
-    displayName:req.body.email
-  }
-  console.log(req.params,req.body,req.body.id);
-    db.accounts.find({},(err,accounts)=>{
+    var newData = {
+      email:req.body.email,
+      displayName:req.body.email
+    }
+    console.log(req.params,req.body,req.body.id);
+    dbO.collection("accounts").find({},(err,accounts)=>{
 
         for(var i =0; i<= accounts.length;i++){
 
@@ -260,8 +297,8 @@ app.post("/api/accounts",(req,res)=>{
               playlist:accounts[i].playlist
             }
 
-            db.accounts.remove({email:accounts[i].email},(err,data)=>{console.log(data,"Removed Old Data")});
-            db.accounts.insert(newAccount,()=>{console.log("ll")});
+            dbO.collection("accounts").remove({email:accounts[i].email},(err,data)=>{console.log(data,"Removed Old Data")});
+            dbO.collection("accounts").insert(newAccount,()=>{console.log("ll")});
 
           break;
 
@@ -281,12 +318,15 @@ app.listen(port,(req,res)=>{
 
 
 const MongoStartup = ()=>{
-  db.accounts.find({},(err,resp)=>{
+
+  MongoClient.connect((url,err)=>{
+  var dbO = db.db("");
+  dbO.collection("accounts").find({},(err,resp)=>{
 
     if(resp.length > 0){
       console.log("Accounts are in database");
     }else{
-      db.accounts.insert({
+      dbO.collection("accounts").insert({
         followers:0,
         email:"dum",
         image:null,

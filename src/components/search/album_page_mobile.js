@@ -17,9 +17,8 @@ class AlbumPageMobile extends React.Component {
               </div>
 
               <div className="col-3">
-                    <p className="cw text-center">{"Name: " + song.name  }</p>
-                      <p className="cw text-center">{"Name: " + song.name  }</p>
-
+                  <p className="cw text-center">{"Name: " + song.name  }</p>
+                  <p className="cw text-center">{"Name: " + song.name  }</p>
               </div>
               <div className="col-3">
                 <img className="w100" src = {Play}/>
