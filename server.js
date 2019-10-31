@@ -4,7 +4,7 @@ const path = require("path");
 const morgan = require("morgan");
 const MongoClient = require("mongodb").MongoClient;
 
-var url = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/eater_db" ;
+var url = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/news_db" ;
 
 const cheerio = require("cheerio");
 const bodyParser = require("body-parser");
@@ -28,7 +28,7 @@ var redirect_uri = "http://localhost:5000/callback";
 var stateKey = 'spotify_auth_state';
 
 const proxy = require("http-proxy-middleware");
-app.use(proxy(["/api/currentUser","/api/foodtrucks","/api/users"], { target: "http://localhost:5000" }));
+app.use(proxy(["/api/accounts","/api/currentAccount"], { target: "http://localhost:5000" }));
 
 
 
@@ -168,7 +168,7 @@ app.get('/callback', function(req, res) {
           MongoClient.connect(url,(err,db)=>{
             if(err) throw err;
 
-          var dbO = db.db("");
+          var dbO = db.db("heroku_hv748b6s");
           var userData = {
             followers:body.followers.total,
             email:body.email,
@@ -198,6 +198,7 @@ app.get('/callback', function(req, res) {
 
 
         dbO.collection("accounts").find({},(err,data)=>{
+
           for(var i = 0; i <= data.length - 1; i++ ){
               console.log(data[i])
               if(data[i].id === body.id){
@@ -264,7 +265,7 @@ app.get("/api/accounts",(req,res)=>{
 
 app.get("/api/current_account",(req,res)=>{
     MongoClient.connect(url,(err,db)=>{
-      var dbO = db.db("");
+      var dbO = db.db("heroku_hv748b6s");
       if(err) throw err;
       dbO.collection("currentUser").find({},(err,response)=>{
         res.json(response);
@@ -320,7 +321,7 @@ app.listen(port,(req,res)=>{
 const MongoStartup = ()=>{
 
   MongoClient.connect((url,err)=>{
-  var dbO = db.db("");
+  var dbO = db.db("heroku_hv748b6s");
   dbO.collection("accounts").find({},(err,resp)=>{
 
     if(resp.length > 0){
