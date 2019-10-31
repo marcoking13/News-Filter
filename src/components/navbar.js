@@ -27,15 +27,16 @@ class Navbar extends React.Component{
           <div className="list">
 
             <Link to = {"/prof/access_token="+this.props.token+"/"+this.props.email}><p >Profile</p></Link>
-            <p >Discover</p>
+            <p >My Playlists</p>
             <p >Radio</p>
             <Link to = {"/sear/access_token="+this.props.token+"/"+this.props.email}><p >Search</p></Link>
 
 
               <div className="navBarr"/>
 
-              <p >My Playlists</p>
-              <p >My Songs</p>
+              <p >My Artists</p>
+			   <p >My Artists</p>
+              
               <p className="g">+ Add Playlist</p>
 
             </div>
