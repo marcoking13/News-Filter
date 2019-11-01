@@ -21,9 +21,9 @@ const port = 5000;
 
 app.use(bodyParser());
 
-const proxy = require("http-proxy-middleware");
-app.use(proxy(["/api/currentAccount","/api/accounts"], { target: "http://localhost:5000","secure": false,
-"changeOrigin": true }));
+// const proxy = require("http-proxy-middleware");
+// app.use(proxy(["/api/currentAccount","/api/accounts"], { target: "http://localhost:5000","secure": false,
+// "changeOrigin": true }));
 
 var client_id = "6c08366188224e3fa487627b7964b6ee";
 var client_secret = "312856c068854046b564c9817dcc12eb";
@@ -132,6 +132,8 @@ app.get('/callback', function(req, res) {
     };
     // use request npm to pass auth variable
     request.post(authOptions, function(error, response, body) {
+      if (error) throw error;
+
       if (!error && response.statusCode === 200) {
           // get the returned access tokens
           // body contains the user's data
@@ -149,6 +151,7 @@ app.get('/callback', function(req, res) {
         MongoClient.connect(url,(err,db)=>{
           var dbO = db.db("heroku_08xmn3nc");
           const id = generateRandomString(10)
+
           var userData = {
             followers:body.followers.total,
             email:body.email,
@@ -158,12 +161,13 @@ app.get('/callback', function(req, res) {
             artists:[],
             id:body.id
           }
-          console.log(body.id);
 
-          dbO.collection("accounts").find({},(err,data)=>{
+
+          dbO.collection("accounts").find({}).toArray((err,data)=>{
             for(var i = 0; i <= data.length - 1; i++ ){
-              console.log(body.id,data[i].id);
+
               if(data[i].id === body.id ){
+                console.log(data[i])
                 console.log("User already exists");
 
                 break;
@@ -174,17 +178,16 @@ app.get('/callback', function(req, res) {
               }
             }
 
+
+
+          res.redirect(`http://localhost:3000/home/${"access_token="+access_token}/${data[i].id}`);
+
+
+
         });
 
 
-        dbO.collection("accounts").find({},(err,data)=>{
-          for(var i = 0; i <= data.length - 1; i++ ){
-              console.log(data[i])
-              if(data[i].id === body.id){
-                res.redirect(`http://localhost:3000/home/${"access_token="+access_token}/${data[i].id}`);
-                }
-            }
-          });
+
 
         });
 
@@ -234,8 +237,9 @@ app.get('/refresh_token', function(req, res) {
 app.get("/api/accounts",(req,res)=>{
     MongoClient.connect(url,(err,db)=>{
       var dbO = db.db("heroku_08xmn3nc");
-      dbO.collection("accounts").find({},(err,response)=>{
-        res.json(response);
+        dbO.collection("accounts").find({}).toArray((err,result)=>{
+
+        res.json(result);
       });
     });
 });
@@ -244,8 +248,8 @@ app.get("/api/accounts",(req,res)=>{
 app.get("/api/current_account",(req,res)=>{
   MongoClient.connect(url,(err,db)=>{
     var dbO = db.db("heroku_08xmn3nc");
-    dbO.collection("currentAccount").find({},(err,response)=>{
-    res.json(response);
+   dbO.collection("currentAccount").find({}).toArray((err,result)=>{
+    res.json(result);
   });
   });
 });
@@ -260,7 +264,7 @@ app.post("/api/accounts",(req,res)=>{
     displayName:req.body.email
   }
   console.log(req.params,req.body,req.body.id);
-    dbO.collection("accounts").find({},(err,accounts)=>{
+    dbO.collection("accounts").find({}).toArray((err,accounts)=>{
 
         for(var i =0; i<= accounts.length;i++){
 
@@ -300,9 +304,9 @@ app.listen(port,(req,res)=>{
 const MongoStartup = ()=>{
   MongoClient.connect(url,(err,db)=>{
     var dbO = db.db("heroku_08xmn3nc");
-    dbO.collection("accounts").find({},(err,resp)=>{
-
-    if(resp.length > 0){
+    dbO.collection("accounts").find({}).toArray((err,result)=>{
+      console.log(result.length);
+    if(result.length > 0){
       console.log("Accounts are in database");
     }else{
       dbO.collection("accounts").insertOne({
@@ -315,7 +319,7 @@ const MongoStartup = ()=>{
         id:"30o230o0303032003230ek2dodewmwecmwepcmcm"
 
       },(err,data)=>{
-        console.log("data");
+        console.log("Inserted Account");
 
       });
     }
