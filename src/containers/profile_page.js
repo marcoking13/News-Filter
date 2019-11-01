@@ -15,12 +15,12 @@ class ProfilePage extends React.Component {
       emailChange:null,
       displayNameChange:null
   }
-
+  console.log(this.state.id);
 }
   componentDidMount(){
       axios.get("http://localhost:5000/api/accounts").then((response)=>{
         var data = response.data;
-
+          console.log(data);
         for(var i = 0; i<data.length;i++){
 
           if(this.state.id === data[i].id){
