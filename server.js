@@ -21,9 +21,9 @@ const port = 5000;
 
 app.use(bodyParser());
 
-// const proxy = require("http-proxy-middleware");
-// app.use(proxy(["/api/currentAccount","/api/accounts"], { target: "http://localhost:5000","secure": false,
-// "changeOrigin": true }));
+const proxy = require("http-proxy-middleware");
+app.use(proxy(["/api/currentAccount","/api/accounts"], { target: "http://localhost:5000","secure": false,
+"changeOrigin": true }));
 
 var client_id = "6c08366188224e3fa487627b7964b6ee";
 var client_secret = "312856c068854046b564c9817dcc12eb";
