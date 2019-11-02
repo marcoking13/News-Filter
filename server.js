@@ -294,6 +294,7 @@ app.post("/api/accounts",(req,res)=>{
 
 app.listen(port,(req,res)=>{
   MongoStartup();
+  console.log(url);
   console.log("App is running on localhost:"+port);
 });
 
