@@ -18,7 +18,7 @@ class HomePage extends React.Component{
           }
 
         }
-        console.log(this.state.loggedIn);
+        console.log(window.location.href.slice(226,240));
 
     }
 
