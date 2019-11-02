@@ -24,7 +24,8 @@ app.use(express.static('build'));
 
 var client_id = "6c08366188224e3fa487627b7964b6ee";
 var client_secret = "312856c068854046b564c9817dcc12eb";
-var redirect_uri = "http://localhost:5000/callback";
+var redirect_uri = process.env.REDIRECT_URI || "http://localhost:5000/callback";
+
 var stateKey = 'spotify_auth_state';
 
 /**
