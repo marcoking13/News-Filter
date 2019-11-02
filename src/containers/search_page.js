@@ -47,7 +47,7 @@ class SearchPage extends React.Component {
       var url = window.location.href;
 
 
-      var accessToken = url.slice(76,241);
+      var accessToken = url.slice(76,244);
       accessToken = accessToken.replace('/','');
       console.log(accessToken);
 
@@ -96,7 +96,7 @@ class SearchPage extends React.Component {
           const FETCH_URL = BASE_URL + "limit=5";
           var url = window.location.href;
 
-          var accessToken = url.slice(76,241);
+          var accessToken = url.slice(76,244);
           accessToken = accessToken.replace('/','');
           console.log(accessToken);
 
