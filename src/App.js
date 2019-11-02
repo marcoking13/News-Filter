@@ -32,7 +32,7 @@ class App extends React.Component {
   }
 
   UpdateToken(token){
-    console.log(token);
+
     this.setState({token:token});
   }
 
