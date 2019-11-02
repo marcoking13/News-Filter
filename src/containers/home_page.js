@@ -23,7 +23,7 @@ class HomePage extends React.Component{
     }
 
     componentDidMount(){
-        console.log();
+        console.log(window.location.href.slice(50,208));
         this.props.UpdateToken(window.location.href.slice(40,208));
 
     }
