@@ -48,7 +48,7 @@ class SearchPage extends React.Component {
 
 
       var accessToken = url.slice(76,244);
-      accessToken = accessToken.replace('/','');
+      accessToken = accessToken.replace('/','Q');
       console.log(accessToken);
 
       console.log(accessToken);
