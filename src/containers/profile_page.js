@@ -10,7 +10,7 @@ class ProfilePage extends React.Component {
 
 
     this.state = {
-      id:window.location.href.slice(230,243),
+      id:window.location.href.slice(227,243),
       account:null,
       emailChange:null,
       displayNameChange:null
