@@ -29,7 +29,7 @@ class NavbarMobile extends React.Component{
             <p >Browse</p>
             <p >Discover</p>
             <p >Radio</p>
-            <Link to = {"/search/access_token="+this.props.token}><p >Search</p></Link>
+            <Link to = {"/sear/access_token="+this.props.token}><p >Search</p></Link>
 
               <div className="navBarr"/>
 

@@ -31,6 +31,7 @@ class SearchPage extends React.Component {
     this.CallArtistAndAlbums = this.CallArtistAndAlbums.bind(this);
     this.changeData = this.changeData.bind(this);
     this.SearchSongsFromAlbum = this.SearchSongsFromAlbum.bind(this);
+    console.log(this.props.token);
   }
 
   changeData(data){
@@ -56,7 +57,7 @@ class SearchPage extends React.Component {
       var options = {
         method:"GET",
         headers:{
-          "Authorization": "Bearer "+ accessToken
+          "Authorization": "Bearer "+ "BQCdKaLtcV4706mmcNWS7P-EeeZRXhdb_W2S-muMl1QbOmnEZZn0bjevheyIy9Dku0J_xA5wJxyygKMw04zqVrfPZocq1lJptMTmlihFu9CjryipV-m1OhNNwIx47qG7PDCEnfprKJazesQ1TZz_kye_znktFHz6t0kDpHx7"
         },
         mode:"cors",
         cache:"default"
@@ -97,13 +98,13 @@ class SearchPage extends React.Component {
           var url = window.location.href;
 
           var accessToken = url.slice(76,244);
-          accessToken = accessToken.replace('/','');
+          accessToken = accessToken.replace('/','Q');
           console.log(accessToken);
 
           var options = {
             method:"GET",
             headers:{
-              "Authorization": "Bearer "+ accessToken
+              "Authorization": "Bearer "+ "BQCdKaLtcV4706mmcNWS7P-EeeZRXhdb_W2S-muMl1QbOmnEZZn0bjevheyIy9Dku0J_xA5wJxyygKMw04zqVrfPZocq1lJptMTmlihFu9CjryipV-m1OhNNwIx47qG7PDCEnfprKJazesQ1TZz_kye_znktFHz6t0kDpHx7"
             },
             mode:"cors",
             cache:"default"
