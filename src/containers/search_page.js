@@ -49,6 +49,7 @@ class SearchPage extends React.Component {
 
       var accessToken = url.slice(40,208);
 
+      console.log(accessToken);
 
       var options = {
         method:"GET",
@@ -199,7 +200,7 @@ class SearchPage extends React.Component {
           </div>
 
           <div>
-              
+
           </div>
 
         </div>
