@@ -52,12 +52,12 @@ class SearchPage extends React.Component {
       accessToken = accessToken.replace('/','Q');
       console.log(accessToken);
 
-      console.log(accessToken);
+  
 
       var options = {
         method:"GET",
         headers:{
-          "Authorization": "Bearer "+ "BQCdKaLtcV4706mmcNWS7P-EeeZRXhdb_W2S-muMl1QbOmnEZZn0bjevheyIy9Dku0J_xA5wJxyygKMw04zqVrfPZocq1lJptMTmlihFu9CjryipV-m1OhNNwIx47qG7PDCEnfprKJazesQ1TZz_kye_znktFHz6t0kDpHx7"
+          "Authorization": "Bearer "+ this.props.token
         },
         mode:"cors",
         cache:"default"
