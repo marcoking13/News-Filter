@@ -47,7 +47,9 @@ class SearchPage extends React.Component {
       var url = window.location.href;
 
 
-      var accessToken = url.slice(76,226);
+      var accessToken = url.slice(76,241);
+      accessToken = accessToken.replace('/','');
+      console.log(accessToken);
 
       console.log(accessToken);
 
@@ -93,7 +95,10 @@ class SearchPage extends React.Component {
           const BASE_URL = "https://api.spotify.com/v1/albums/"+id+"/tracks?";
           const FETCH_URL = BASE_URL + "limit=5";
           var url = window.location.href;
-          var accessToken = url.slice(76,226);
+
+          var accessToken = url.slice(76,241);
+          accessToken = accessToken.replace('/','');
+          console.log(accessToken);
 
           var options = {
             method:"GET",
