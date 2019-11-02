@@ -29,9 +29,9 @@
     "spotify-web-api-js": "^1.2.0",
     "unfluff": "^3.2.0"
   },
-  "proxy": "http://localhost:5000",
   "scripts": {
-    "start": "react-scripts start",
+    "build:w": "react-scripts start",
+    "start":"npm run build && node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

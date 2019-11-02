@@ -15,11 +15,11 @@ const mongojs = require("mongojs");
 const database = "news_db";
 const db = mongojs(database,collections);
 const app = express();
-const port = 5000;
-
-
+const port = process.env.PORT || 5000;
 
 app.use(bodyParser());
+
+app.use(express.static('build'));
 
 
 var client_id = "6c08366188224e3fa487627b7964b6ee";
@@ -145,9 +145,9 @@ app.get('/callback', function(req, res) {
           // This will get the user's spotify data and use it to make an account for this app
         request.get(options, function(error, response, body) {
 
-        MongoClient.connect(url,(err,db)=>{
-          var dbO = db.db("heroku_08xmn3nc");
-          const id = generateRandomString(10)
+          MongoClient.connect(url,(err,db)=>{
+            var dbO = db.db("heroku_08xmn3nc");
+            const id = generateRandomString(10)
 
           var userData = {
             followers:body.followers.total,
@@ -177,7 +177,7 @@ app.get('/callback', function(req, res) {
 
 
 
-          res.redirect(`http://localhost:3000/home/${"access_token="+access_token}/${data[i].id}`);
+          res.redirect(`/home/${"access_token="+access_token}/${data[i].id}`);
 
 
 
@@ -291,12 +291,18 @@ app.post("/api/accounts",(req,res)=>{
 
 });
 //---------------End of Oauth Spotify---------------
+app.get('/*', (req, res) => {
+
+  res.sendFile(__dirname + '/build/index.html');
+});
 
 app.listen(port,(req,res)=>{
   MongoStartup();
   console.log(url);
   console.log("App is running on localhost:"+port);
 });
+
+
 
 
 const MongoStartup = ()=>{
