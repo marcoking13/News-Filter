@@ -25,7 +25,7 @@ export default class Navbar extends React.Component {
                     <li className="cw nol ml2_5 fl"> Download</li>
                     <li className="cw nol ml2_5 fl"> Spotify</li>
                   </ul>
-                <a href="http://localhost:5000/spotify-login">  <button className="ui turnWhite button orange ml10  fr f10 ">Login with Spotify</button></a>
+                <a href="/spotify-login">  <button className="ui turnWhite button orange ml10  fr f10 ">Login with Spotify</button></a>
                 </div>
 
               </div>
