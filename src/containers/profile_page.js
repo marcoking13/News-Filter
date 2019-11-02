@@ -10,7 +10,7 @@ class ProfilePage extends React.Component {
 
 
     this.state = {
-      id:window.location.href.slice(209,233),
+      id:window.location.href.slice(230,243),
       account:null,
       emailChange:null,
       displayNameChange:null
@@ -25,6 +25,8 @@ class ProfilePage extends React.Component {
 
           if(this.state.id === data[i].id){
             this.setState({account:data[i],emailChange:data[i].email,displayNameChange:data[i].email});
+          }else{
+            console.log("not found");
           }
 
         }
