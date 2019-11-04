@@ -1,8 +1,10 @@
 import React from "react";
+import Bar from "./progress_bar";
 import BackArrow from "./../../images/backArrow.png";
 import Disc from "./../../images/disc.png";
 import Play from "./../../images/play.png";
 import axios from "axios";
+
 
 class AlbumPage extends  React.Component {
   constructor(props){
@@ -47,9 +49,10 @@ class AlbumPage extends  React.Component {
                             audio.play();
 
                           }}/>
-                          <div class="progress">
-                            <div class="progress-bar" role="progressbar" style={{width: "25%"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
+
+                       </div>
+                       <div className="col-5">
+                          <Bar />
                        </div>
 
                        </div>

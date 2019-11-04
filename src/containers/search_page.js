@@ -52,7 +52,7 @@ class SearchPage extends React.Component {
       accessToken = accessToken.replace('/','Q');
 
       console.log(this.props.token + " Props Token")
-  
+
 
 
       var options = {
@@ -188,7 +188,7 @@ class SearchPage extends React.Component {
       if(this.state.currentAlbum){
         return <AlbumPage albums= {this.state.currentAlbum} songs = {this.state.songs} />
       }else{
-        return <p className="cw">....</p>
+        return <p></p>
       }
     }
 
