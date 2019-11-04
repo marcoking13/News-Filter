@@ -50,9 +50,10 @@ class SearchPage extends React.Component {
 
       var accessToken = url.slice(76,244);
       accessToken = accessToken.replace('/','Q');
-      console.log(accessToken);
 
+      console.log(this.props.token + " Props Token")
   
+
 
       var options = {
         method:"GET",
@@ -67,7 +68,7 @@ class SearchPage extends React.Component {
         .then(response =>response.json())
 
         .then(json => {
-          console.log(json);
+
           if(json.artists.items.length > 1 ){
           var id = json.artists.items[0].id;
 
@@ -104,7 +105,7 @@ class SearchPage extends React.Component {
           var options = {
             method:"GET",
             headers:{
-              "Authorization": "Bearer "+ "BQCdKaLtcV4706mmcNWS7P-EeeZRXhdb_W2S-muMl1QbOmnEZZn0bjevheyIy9Dku0J_xA5wJxyygKMw04zqVrfPZocq1lJptMTmlihFu9CjryipV-m1OhNNwIx47qG7PDCEnfprKJazesQ1TZz_kye_znktFHz6t0kDpHx7"
+              "Authorization": "Bearer "+ this.props.token
             },
             mode:"cors",
             cache:"default"
@@ -214,7 +215,7 @@ class SearchPage extends React.Component {
     }
 
   render(){
-
+    console.log(this.state.token = "token");
     if(window.innerWidth <= 580){
       return <div>{this.renderMobile()}</div>
     }else{

@@ -6,10 +6,10 @@ import axios from "axios";
 class HomePage extends React.Component{
     constructor(props){
       super(props);
-      console.log(this.props.token);
+    
       // this.state.nowPlaying.name
         const params = this.getHashParams();
-        console.log(params);
+
         this.state = {
           loggedIn: params.access_token ? true:false,
           nowPlaying:{
