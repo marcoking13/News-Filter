@@ -1,7 +1,7 @@
 import React from "react";
 
 
-class Bar extends React.Component{
+export default class Bar extends React.Component{
   constructor(props){
     super(props);
     this.state = {
