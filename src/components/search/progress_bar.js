@@ -11,7 +11,7 @@ export default class Bar extends React.Component{
   }
 
   LoadingTimer(){
-    if(moving){
+    if(this.state.moving){
       this.timer = setInterval(()=>{
           this.setState({
             width: this.state.width + (100 / 60)
