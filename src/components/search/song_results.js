@@ -92,7 +92,7 @@ renderPlayer(song){
     return(
         <div className="row ">
 
-            <div className="col-1 mt10 p0">
+            <div className="col-2 mt10 p0">
               <img src ={Play}  className="w100 " onClick = {()=>{
                 this.PlaySong(song);
               }}/>
@@ -109,7 +109,7 @@ renderPlayer(song){
         return(
           <div className="row ">
 
-            <div className="col-1 p0 mt10">
+            <div className="col-2 p0 mt10">
               <img src ={Pause}  className="w100 " onClick = {()=>{
                 this.PlaySong(song);
               }}/>
