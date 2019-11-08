@@ -56,7 +56,7 @@ class SearchPage extends React.Component {
       var options = {
         method:"GET",
         headers:{
-          "Authorization": "Bearer "+ "BQDLR_UUNoEj795qiFHFwj03-EizDAKhCeD_Afxia6APT9W59zPdatJX3mjpdZqRkp4J_BhMw_dmsG50AlRGjAU5Wr9iQ65mbA0RLxUlyMzATz3uZy2mRvnN0ync4fpTITmu1I44FfEYx_uNMHUNi407UyvA3ivo1zcqtzNS"
+          "Authorization": "Bearer "+ this.props.token
         },
         mode:"cors",
         cache:"default"
@@ -98,7 +98,7 @@ class SearchPage extends React.Component {
           }
 
     SearchSongsFromAlbum(id,album){
-
+          console.log(this.props.token);
           const BASE_URL = "https://api.spotify.com/v1/albums/"+id+"/tracks?";
           const FETCH_URL = BASE_URL + "limit=5";
           var url = window.location.href;
@@ -109,7 +109,7 @@ class SearchPage extends React.Component {
           var options = {
             method:"GET",
             headers:{
-              "Authorization": "Bearer "+ "BQDLR_UUNoEj795qiFHFwj03-EizDAKhCeD_Afxia6APT9W59zPdatJX3mjpdZqRkp4J_BhMw_dmsG50AlRGjAU5Wr9iQ65mbA0RLxUlyMzATz3uZy2mRvnN0ync4fpTITmu1I44FfEYx_uNMHUNi407UyvA3ivo1zcqtzNS"
+              "Authorization": "Bearer "+ this.props.token
             },
             mode:"cors",
             cache:"default"
