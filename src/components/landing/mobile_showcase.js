@@ -12,7 +12,7 @@ export default class ShowcaseMobile extends React.Component {
               <div className="row">
 
                 <div className="col-12">
-                  <a href="http://localhost:5000/spotify-login"><button className=" ui button black turnWhite w100 mt10 ">Sign in with Spotify</button></a>
+                  <a href="/spotify-login"><button className=" ui button black turnWhite w100 mt10 ">Sign in with Spotify</button></a>
                 </div>
 
               </div>
