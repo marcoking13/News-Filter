@@ -1,19 +1,12 @@
 import React from "react";
 
-
-
 class ArtistInfo extends React.Component {
   render(){
-
     return(
-
       <div className="row">
         <div className="col-3"/>
         <div className="col-4">
-
           <img className="w70 rounded float-left" src= {this.props.artist.images[0].url}/>
-
-
         </div>
         <div className="col-5">
           <ul className="artDPUL mt5">
@@ -25,10 +18,8 @@ class ArtistInfo extends React.Component {
           </ul>
         </div>
       </div>
-    )
+    );
   }
-  }
-
-
+}
 
 export default ArtistInfo;

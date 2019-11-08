@@ -1,0 +1,101 @@
+.bold{
+  font-weight: bold;
+}
+.f17{
+  font-size: 17px;
+}
+.fl{
+  float: left;
+}
+.w33{
+  width:33%;
+}
+.b26{
+  background:#262626;
+}
+.bBB{
+  border:2px solid black;
+}
+.ml10{
+  margin-left:10%;
+}
+.ml15{
+  margin-left:15%;
+}
+.bHoverR:hover{
+  border:2px solid red;
+}
+.mt15{
+  margin-top:15%;
+}
+.posUp{
+  width:90%;
+  position: relative;
+  bottom:10px;
+}
+.w120{
+  width:120%;
+}
+.text-right{
+  text-align: right;
+}
+.arrowBack{
+  width:5%;
+  float:left;
+  position: absolute;
+  left:10%;
+  top:15%;
+
+}
+.f11{
+  font-size:11px;
+}
+.p0{
+  padding:0 !important;
+}
+.permUp{
+  position: relative;
+  bottom:15px !important;
+}
+.mt10{
+  margin-top:10%;
+}
+
+.rBB:hover{
+  border:4px solid red !important;
+}
+
+
+.mt2_5{
+  margin-top:2.5%;
+}
+
+
+@keyframes moveUp{
+  0%{
+    bottom:0px;
+  }
+  100%{
+    bottom:15px;
+  }
+}
+
+@keyframes moveDown{
+  0%{
+    bottom:15px;
+  }
+  100%{
+    bottom:0px;
+  }
+}
+
+.moveUpBox:hover{
+    animation:moveUp .3s 1 ease-in;
+    border:4px solid maroon;
+    bottom:15px;
+}
+.moveUpBox{
+  animation:moveDown .3s 1 ease-out;
+  position:relative;
+  bottom:0px;
+}

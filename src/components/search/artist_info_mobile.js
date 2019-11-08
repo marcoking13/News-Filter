@@ -1,19 +1,12 @@
 import React from "react";
 
-
-
 class ArtistInfoMobile extends React.Component {
   render(){
-    console.log(this.props.artist);
     return(
-
       <div className="row bbBW pb5">
         <div className="col-1"/>
         <div className="col-4">
-
           <img className="w100 rounded ml5 float-left" src= {this.props.artist.images[0].url}/>
-
-
         </div>
         <div className="col-6">
           <ul className=" mt5">
@@ -28,7 +21,5 @@ class ArtistInfoMobile extends React.Component {
     )
   }
 }
-
-
 
 export default ArtistInfoMobile;

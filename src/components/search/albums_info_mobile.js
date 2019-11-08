@@ -1,19 +1,17 @@
 import React from "react";
 
-import AlbumPage from "./album_page_mobile.js";
-
+import SongResults from "./song_results_mobile.js";
 
 class AlbumInfoMobile extends React.Component {
 
-
-  renderAlbumPageMobile(){
-    if(this.props.currentAlbum){
-      return <AlbumPage albums= {this.props.currentAlbum} songs = {this.props.songs} />
+  renderSongs(album){
+    console.log(album,this.props.currentAlbum);
+    if(this.props.currentAlbum === album){
+      return <SongResults albums= {this.props.currentAlbum} songs = {this.props.songs} />
     }else{
-      return <p className="cw">....</p>
+      return <div />
     }
   }
-
 
   renderAlbums(){
     if(this.props.artist && this.props.albums){
@@ -23,44 +21,35 @@ class AlbumInfoMobile extends React.Component {
         var imageURL = album.images[0].url;
 
         return (
-          <li className="list-group-item bb" onClick = {()=>{this.props.GetSongs(album.id,album)}}>
+          <li className="list-group-item bb" onClick = {()=>{this.props.SearchSongsFromAlbum(album.id,album)}}>
             <div className="row">
               <div className="col-4">
                 <img className="rounded albumRowImage" src={imageURL}/>
               </div>
-
               <div className="col-6">
-
                 <p className="cw  mt10 fl">{name}</p>
-
               </div>
-
             </div>
             <div className="container-fluid">
-                {this.renderAlbumPageMobile()}
+                {this.renderSongs(album)}
             </div>
           </li>
-        )
+        );
 
-    })
-
+    });
   }
 }
-
-
 
 render(){
   if(this.props.artist && this.props.albums){
       return(
         <div className="container-fluid mt5">
-            <br />
-              <br />
+          <br />
+          <br />
           <div>
               <h5 className=" text-center cw">Discography</h5>
               <ul className="list-group ">
-
                   {this.renderAlbums()}
-
               </ul>
             </div>
           </div>

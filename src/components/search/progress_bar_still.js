@@ -8,22 +8,13 @@ export default class Bar extends React.Component{
     }
   }
 
-  componentDidMount(){
-
-      this.timer = setInterval(()=>{
-          this.setState({
-            width: this.state.width + (100 / 60)
-          });
-
-        },1000);
-  }
 
   render(){
-      console.log(this.props.moving);
+
     return(
       <div class="progress mt5">
         <div
-          className="progress-bar progress-bar-striped  bg-danger"
+          className="progress-bar progress-bar-striped bg-danger"
           role="progressbar"
           aria-valuenow="75"
           aria-valuemin="0"

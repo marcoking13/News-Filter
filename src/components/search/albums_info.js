@@ -1,6 +1,7 @@
 import React from "react";
 
 
+import BackArrow from "./../../images/backArrow.png";
 
 class AlbumInfo extends React.Component {
 
@@ -11,16 +12,16 @@ class AlbumInfo extends React.Component {
         var name = album.name;
         var imageURL = album.images[0].url;
         var red;
-        console.log(album,this.props.currentAlbum);
+
         if(this.props.currentAlbum){
             if(this.props.currentAlbum.id === album.id){
-              red = "rBB";
+              red = "rBB permUp";
             }
           }
 
         return (
-          <div className="col-1" onClick = {()=>{this.props.getSongs(album.id,album)}} style={{marginLeft:"5px",marginTop:"15px"}}>
-            <img className={"rounded albumRowImage "+red} src={imageURL}/>
+          <div className="col-2" onClick = {()=>{this.props.SearchSongsFromAlbum(album.id,album)}} style={{marginLeft:"5px",marginTop:"15px"}}>
+            <img className={"rounded moveUpBox albumRowImage "+red} src={imageURL}/>
             <p className="cw f10 text-center">{name}</p>
           </div>
         )
@@ -36,7 +37,7 @@ render(){
   if(this.props.artist && this.props.albums){
       return(
         <div className="container-fluid ">
-            <br />
+            <img className="arrowBack" onClick = {()=>{this.props.SetToDisplayArtist()}} src = {BackArrow}/>
 
           <div>
               <h3 className=" text-center cw">Albums</h3>
