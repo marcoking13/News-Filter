@@ -72,7 +72,7 @@ class SongResults extends  React.Component {
       console.log(song.id);
     if(song.playing){
         return (
-          <audio className="au " id = {song.id}  data = {song.id} autoPlay muted loop>
+          <audio className="au " id = {song.id}  data = {song.id} autoPlay  loop>
               <source src = {song.url} type="audio/mp3"/>
           </audio>
         );
