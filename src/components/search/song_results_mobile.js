@@ -108,8 +108,8 @@ renderPlayer(song){
       );
       } else{
         return (
-          <div className="row">
-            <div className="col-6">
+          <div className="row mt2_5">
+            <div className="col-6 mt5">
                 <img className="w100" src = {Lock}/>
             </div>
           </div>
@@ -129,7 +129,7 @@ renderPlayer(song){
                   <img className="w100 ml5 mt5" src =  {this.props.albums.images[Math.floor(Math.random() * this.props.albums.images.length)].url}/>
               </div>
               <div className="col-5 p0 mt2_5">
-                  <p className="cw mt10  text-center">{song.name  }</p>
+                  <p className="cw mt10 ml5 text-center">{song.name  }</p>
               </div>
               <div className="col-5">
                 {this.renderPlayer(song)}
