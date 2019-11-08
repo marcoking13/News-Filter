@@ -144,8 +144,8 @@ renderPlayer(song){
                   <div className="col-2 p0 mt5">
                     <img className="w100" src = {this.props.albums.images[Math.floor(Math.random() * this.props.albums.images.length)].url} />
                   </div>
-                  <div className="col-7 p0 mt5">
-                    <p className="cw  ml15">{song.name}</p>
+                  <div className="col-10 p0 mt5">
+                    <p className="cw f11 ml15">{song.name}</p>
                   </div>
                   <div className="col-12 ">
                       {this.renderPlayer(song)}
