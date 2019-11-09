@@ -7,6 +7,7 @@ import Disc from "./../../images/disc.png";
 import Play from "./../../images/play.png";
 import Pause from "./../../images/pause.png";
 import Lock from "./../../images/lock.png";
+import RecordPlayer from "./../../images/record.jpg";
 
 
 
@@ -50,6 +51,15 @@ class SongResultsMobile extends React.Component {
 
       console.log(this.state.songs);
   }
+
+  renderImage(song){
+    if(song.playing){
+      return <img className="w100 rotating" src = {RecordPlayer} />
+    }else{
+      return <img className="w100" src = {RecordPlayer} />
+    }
+  }
+
 
   renderAudio(song){
       console.log(song);
@@ -126,7 +136,7 @@ renderPlayer(song){
           <div>
               <div className="row bHoverR bBB b26">
                 <div className="col-2 mt5  p0">
-                  <img className="w100 ml5 mt5" src =  {this.props.albums.images[Math.floor(Math.random() * this.props.albums.images.length)].url}/>
+                  {this.renderImage(song)}
               </div>
               <div className="col-5 p0 mt2_5">
                   <p className="cw mt10 ml5 text-center">{song.name  }</p>

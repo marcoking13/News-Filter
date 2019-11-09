@@ -69,7 +69,7 @@ class SongResults extends  React.Component {
 
 
   renderAudio(song){
-      
+
     if(song.playing){
         return (
           <audio className="au " id = {song.id}  data = {song.id} autoPlay  loop>
@@ -130,6 +130,13 @@ renderPlayer(song){
       }
  }
 
+  renderImage(song){
+    if(song.playing){
+      return <img className="w100 rotating" src = {RecordPlayer} />
+    }else{
+      return <img className="w100" src = {RecordPlayer} />
+    }
+  }
 
   renderSongs(){
 
@@ -142,7 +149,7 @@ renderPlayer(song){
 
               <div className="row">
                   <div className="col-2 p0 mt5">
-                    <img className="w100" src = {this.props.albums.images[Math.floor(Math.random() * this.props.albums.images.length)].url} />
+                    {this.renderImage(song)}
                   </div>
                   <div className="col-10 p0 mt5">
                     <p className="cw f11 ml15">{song.name}</p>
@@ -151,7 +158,6 @@ renderPlayer(song){
                       {this.renderPlayer(song)}
                   </div>
                   <div className="col-12">
-
                     <p className="cw fl mt5 f13">{"Views: "+Math.floor(Math.random() * 9000)}</p>
                   </div>
 
