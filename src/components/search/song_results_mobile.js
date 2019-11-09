@@ -54,7 +54,7 @@ class SongResultsMobile extends React.Component {
 
   renderImage(song){
     if(song.playing){
-      return <img className="w100 rotating" src = {RecordPlayer} />
+      return <img className="w100 rotating ml5" src = {RecordPlayer} />
     }else{
       return <img className="w100" src = {RecordPlayer} />
     }
