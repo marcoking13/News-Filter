@@ -2,6 +2,8 @@ import React from "react";
 import "./../css/navbar.css";
 import {Link} from "react-router-dom";
 
+import Logo from "./../images/note.png"
+
 class NavbarMobile extends React.Component{
   constructor(props){
     super(props);
@@ -21,7 +23,7 @@ class NavbarMobile extends React.Component{
         <div id="mySidenav" className="sidenav">
           <div className="closebtn" onClick={()=>{this.closeNav()}}>&times;</div>
           <div className="navLogoBox">
-            <img className="navLogo" src="assets/images/logo.png"/>
+            <img className="navLogo" src={Logo}/>
             <h6 className="navInt">Welcome Back!</h6>
           </div>
           <div className="list">

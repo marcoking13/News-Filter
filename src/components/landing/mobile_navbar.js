@@ -4,6 +4,8 @@ import {Link} from "react-router-dom";
 import "./../../css/search.css";
 import "./../../css/landing.css";
 
+import Logo from "./../images/note.png"
+
 export default class NavbarMobile extends React.Component {
   render(){
     return(
@@ -11,7 +13,7 @@ export default class NavbarMobile extends React.Component {
           <div className="row">
 
             <div className="col-6">
-              <img className="landingLogo fl w50" src="assets/images/logo.png"/>
+              <img className="landingLogo fl w50" src={Logo}/>
               <p className=" cw landingTitle mt10 bold fl">Divine Beats</p>
 
             </div>
