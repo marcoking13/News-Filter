@@ -69,7 +69,7 @@ class SongResults extends  React.Component {
 
 
   renderAudio(song){
-      console.log(song.id);
+      
     if(song.playing){
         return (
           <audio className="au " id = {song.id}  data = {song.id} autoPlay  loop>

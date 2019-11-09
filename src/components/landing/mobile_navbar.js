@@ -12,7 +12,7 @@ export default class NavbarMobile extends React.Component {
 
             <div className="col-6">
               <img className="landingLogo fl w50" src="assets/images/logo.png"/>
-              <p className=" cw landingTitle mt10 bold fl">Music Bender</p>
+              <p className=" cw landingTitle mt10 bold fl">Divine Beats</p>
 
             </div>
 
