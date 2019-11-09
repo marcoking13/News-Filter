@@ -20,7 +20,7 @@
   margin-left:10%;
 }
 
-.rotate{
+.rotating{
   animation: 3s rotator infinite ease-in-out;
 }
 
