@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import "./../../css/search.css";
 import "./../../css/landing.css";
 
-import Logo from "./../images/note.png"
+import Logo from "./../../images/note.png"
 
 export default class NavbarMobile extends React.Component {
   render(){
