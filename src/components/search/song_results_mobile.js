@@ -7,7 +7,7 @@ import Disc from "./../../images/disc.png";
 import Play from "./../../images/play.png";
 import Pause from "./../../images/pause.png";
 import Lock from "./../../images/lock.png";
-import RecordPlayer from "./../../images/record.jpg";
+import RecordPlayer from "./../../images/records.png";
 
 
 

@@ -9,7 +9,7 @@ import Disc from "./../../images/disc.png";
 import Lock from "./../../images/lock.png";
 import Pause from "./../../images/pause.png";
 import Play from "./../../images/play.png";
-import RecordPlayer from "./../../images/record.jpg";
+import RecordPlayer from "./../../images/records.png";
 
 class SongResults extends  React.Component {
   constructor(props){
