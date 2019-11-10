@@ -1,8 +1,6 @@
 import React from "react";
-import "./../css/search.css";
-import ArtistInfo from "./search/artist_info.js";
-import Navbar from "./navbar.js";
 
+import "./../../css/search.css";
 
 class MobileSearchBar extends React.Component {
   render(){

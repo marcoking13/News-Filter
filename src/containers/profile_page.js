@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Navbar from "./../components/navbar.js"
+import Navbar from "./../components/navbar/navbar.js"
 import "./../css/profile.css";
 import Profile from "./../images/profileEx.png"
 
@@ -8,14 +8,14 @@ class ProfilePage extends React.Component {
   constructor(props){
     super(props);
 
-
     this.state = {
       id:window.location.href.slice(227,243),
       account:null,
       emailChange:null,
       displayNameChange:null
   }
-  console.log(this.state.id);
+
+
 }
   componentDidMount(){
       axios.get("http://localhost:5000/api/accounts").then((response)=>{
@@ -36,7 +36,7 @@ class ProfilePage extends React.Component {
 
   ChangeInfo(info,infoValue){
 
-    if(info == "email"){
+    if(info === "email"){
       this.setState({emailChange:infoValue});
     }else{
       this.setState({displayNameChange:infoValue});
@@ -52,11 +52,7 @@ class ProfilePage extends React.Component {
       id:window.location.href.slice(209,233)
     }
 
-    axios.post("/api/accounts",{
-      email:email,
-      displayName:display,
-      id:window.location.href.slice(209,233)
-    }).then((res)=>{console.log(res)});
+    axios.post("/api/accounts",info).then((res)=>{console.log(res)});
 
   }
 
@@ -68,7 +64,7 @@ class ProfilePage extends React.Component {
         <div  className="col-2 ">
           <br />
           <br />
-          <img className="w100  rounded left" src={Profile}/>
+          <img alt = "profile" className="w100  rounded left" src={Profile}/>
         </div>
 
         <div className="col-6">

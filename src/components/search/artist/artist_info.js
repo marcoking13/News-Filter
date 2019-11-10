@@ -1,15 +1,15 @@
 import React from "react";
 
-class ArtistInfoMobile extends React.Component {
+class ArtistInfo extends React.Component {
   render(){
     return(
-      <div className="row bbBW pb5">
-        <div className="col-1"/>
+      <div className="row">
+        <div className="col-3"/>
         <div className="col-4">
-          <img className="w100 rounded ml5 float-left" src= {this.props.artist.images[0].url}/>
+          <img alt = "artist"  className="w70 rounded float-left" src= {this.props.artist.images[0].url}/>
         </div>
-        <div className="col-6">
-          <ul className=" mt5">
+        <div className="col-5">
+          <ul className="artDPUL mt5">
               <li className="list-circle mt5  cw">Name:<strong>{this.props.artist.name}</strong></li>
               <li className="list-circle mt5 cw">{"Type: "+this.props.artist.type}</li>
               <li className="list-circle mt5 cw">{"Genre: "+this.props.artist.genres[0]}</li>
@@ -18,8 +18,8 @@ class ArtistInfoMobile extends React.Component {
           </ul>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default ArtistInfoMobile;
+export default ArtistInfo;

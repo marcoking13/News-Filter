@@ -23,10 +23,11 @@ export default class Features extends React.Component {
   }
 
   renderFeatures(){
+    var i = 0;
     return this.state.features.map((feature)=>{
-
+      i++;
       return(
-        <div className="col-3 featureL"style={{background:feature.background}}>
+        <div className="col-3 featureL" key = {i} style={{background:feature.background}}>
           <div className="ribbon cw bw ">
               <h5 className="cw text-center bb mt40" >{feature.title}</h5>
           </div>

@@ -1,11 +1,11 @@
 import React from "react";
 
-import Navbar from "./../../navbar.js";
-import SearchBar from "./../../search_bar.js";
-import Loading from "./../loading_search.js";
-import ArtistInfo from "./../artist_info.js";
-import AlbumsInfo from "./../albums_info.js";
-import SongResults from "./../song_results.js";
+import Navbar from "./../../navbar/navbar.js";
+import SearchBar from "./../../search_bar/search_bar.js";
+import Loading from "./../artist/loading_search.js";
+import ArtistInfo from "./../artist/artist_info.js";
+import AlbumsInfo from "./../albums/albums_info.js";
+import SongResults from "./../songs/song_results.js";
 
 import Disc from "./../../../images/record.png";
 import Error  from "./../../../images/error.png";

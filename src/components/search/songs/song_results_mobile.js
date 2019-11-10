@@ -3,21 +3,28 @@ import React from "react";
 import BarStill from "./progress_bar_still.js";
 import Bar from "./progress_bar.js";
 
-import Disc from "./../../images/disc.png";
-import Play from "./../../images/play.png";
-import Pause from "./../../images/pause.png";
-import Lock from "./../../images/lock.png";
-import RecordPlayer from "./../../images/records.png";
-
-
+import Play from "./../../../images/play.png";
+import Pause from "./../../../images/pause.png";
+import Lock from "./../../../images/lock.png";
+import RecordPlayer from "./../../../images/records.png";
 
 class SongResultsMobile extends React.Component {
 
   constructor(props){
     super(props);
+
+
+    this.state  = {
+      songs:this.returnSongs(this.props.songs)
+    }
+
+  }
+
+  returnSongs(songs){
+
     var songC =[];
 
-    this.props.songs.map((song)=>{
+     songs.map((song)=>{
 
        songC.push({
         name:song.name,
@@ -28,9 +35,7 @@ class SongResultsMobile extends React.Component {
 
     });
 
-    this.state  = {
-      songs:songC
-    }
+    return songC;
 
   }
 
@@ -49,14 +54,13 @@ class SongResultsMobile extends React.Component {
 
       this.setState({ songs:songs });
 
-      console.log(this.state.songs);
   }
 
   renderImage(song){
     if(song.playing){
-      return <img className="w100 rotating ml5" src = {RecordPlayer} />
+      return <img   alt = "record" className="w100 rotating ml5" src = {RecordPlayer} />
     }else{
-      return <img className="w100" src = {RecordPlayer} />
+      return <img  alt = "record" className="w100" src = {RecordPlayer} />
     }
   }
 
@@ -79,14 +83,13 @@ class SongResultsMobile extends React.Component {
 
 }
 
-
-
 renderPlayer(song){
   if(song.url && !song.playing){
     return(
       <div className="row mt10">
         <div className="col-5 p0 ">
             <img
+             alt = "pause"
               className="w100 posUp"
               onClick = {()=>{
                  this.PlaySong(song);
@@ -104,6 +107,7 @@ renderPlayer(song){
           <div className="row m15">
             <div className="col-4">
                 <img
+                 alt = "play"
                   className="w120"
                   onClick = {()=>{
                     this.PlaySong(song);
@@ -120,13 +124,12 @@ renderPlayer(song){
         return (
           <div className="row mt2_5">
             <div className="col-6 mt5">
-                <img className="w100" src = {Lock}/>
+                <img  alt = "lock"className="w100" src = {Lock}/>
             </div>
           </div>
         );
       }
  }
-
 
   renderSongs(songs){
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-import SongResults from "./song_results_mobile.js";
+import SongResults from "./../songs/song_results_mobile.js";
 
 class AlbumInfoMobile extends React.Component {
 
@@ -24,7 +24,7 @@ class AlbumInfoMobile extends React.Component {
           <li className="list-group-item bb" onClick = {()=>{this.props.SearchSongsFromAlbum(album.id,album)}}>
             <div className="row">
               <div className="col-4">
-                <img className="rounded albumRowImage" src={imageURL}/>
+                <img  alt = "album" className="rounded albumRowImage" src={imageURL}/>
               </div>
               <div className="col-6">
                 <p className="cw  mt10 fl">{name}</p>

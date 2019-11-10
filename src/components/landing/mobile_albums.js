@@ -13,7 +13,7 @@ export default class Albums extends React.Component {
   renderMusicSamples(){
       var html = [];
       for(var i = 0; i <5;i++){
-        console.log(this.state.albums[index]);
+
         var index = i + this.props.offset;
 
         html.push(
@@ -22,7 +22,7 @@ export default class Albums extends React.Component {
             <div className="row">
               <div className="col-4">
 
-                <img className="w70 br10 changeSize" src={this.state.albums[index].background}/>
+                <img alt = "record"  className="w70 br10 changeSize" src={this.state.albums[index].background}/>
               </div>
               <div className="col-6">
                 <p className="cw"><strong>Artist:</strong>{ " "+this.state.albums[index].name}</p>

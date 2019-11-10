@@ -1,14 +1,14 @@
 import React from 'react';
 
-import Navbar from "./components/navbar.js";
+
 import HomePage  from "./containers/home_page.js";
 import LandingPage from "./containers/landing_page.js";
-import SearchBar from "./components/search_bar.js";
 import SearchPage from "./containers/search_page";
 import ProfilePage from "./containers/profile_page";
 
-import {BrowserRouter,Route,Link} from "react-router-dom";
+import {BrowserRouter,Route} from "react-router-dom";
 import cookie from "react-cookies";
+
 class App extends React.Component {
 
 
@@ -47,7 +47,7 @@ class App extends React.Component {
   }
 
   render(){
-    console.log(this.state.token);
+
     return(
       <div>
         <BrowserRouter>

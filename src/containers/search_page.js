@@ -40,18 +40,11 @@ class SearchPage extends React.Component {
     this.setState({isShowingArtist:false});
   }
 
-
-
-
   //-----------------------Spotify Api Calls-----------------------------------------
   CallArtistAndAlbums(artist){
 
       const BASE_URL = "https://api.spotify.com/v1/search?";
       const FETCH_URL = BASE_URL + "q=" + artist +"&type=artist&limit=5";
-      var url = window.location.href;
-
-      var accessToken = url.slice(76,244);
-      accessToken = accessToken.replace('/','Q');
 
       var options = {
         method:"GET",
@@ -98,14 +91,10 @@ class SearchPage extends React.Component {
           }
 
     SearchSongsFromAlbum(id,album){
-          console.log(this.props.token);
+
           const BASE_URL = "https://api.spotify.com/v1/albums/"+id+"/tracks?";
           const FETCH_URL = BASE_URL + "limit=5";
-          var url = window.location.href;
-
-          var accessToken = url.slice(76,244);
-          accessToken = accessToken.replace('/','Q');
-
+    
           var options = {
             method:"GET",
             headers:{

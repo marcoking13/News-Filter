@@ -1,14 +1,13 @@
 import React from "react";
-import Navbar from "./../../navbar.js";
-import SearchBarMobile from "./../../search_bar_mobile.js";
-import LoadingMobile from "./../loading_search_mobile.js";
-import ArtistInfoMobile from "./../artist_info_mobile.js";
-import AlbumsInfoMobile from "./../albums_info_mobile.js";
 
-import SongResultMobile from "./../song_results_mobile.js";
+import Navbar from "./../../navbar/navbar.js";
+import SearchBarMobile from "./../../search_bar/search_bar_mobile.js";
+import LoadingMobile from "./../artist/loading_search_mobile.js";
+import ArtistInfoMobile from "./../artist/artist_info_mobile.js";
+import AlbumsInfoMobile from "./../albums/albums_info_mobile.js";
 
 import Disc from "./../../../images/record.png";
-import Error from "./../../../images/error.png";
+
 
 class MobileSearchPage extends React.Component {
 

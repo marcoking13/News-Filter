@@ -1,12 +1,11 @@
 import React from "react";
-import Navbar from "./../components/navbar.js";
+import Navbar from "./../components/navbar/navbar.js";
 import "./../css/home.css";
-import axios from "axios";
 
 class HomePage extends React.Component{
     constructor(props){
       super(props);
-    
+
       // this.state.nowPlaying.name
         const params = this.getHashParams();
 
@@ -45,7 +44,7 @@ class HomePage extends React.Component{
       html.push(
 
         <div className="songBox col-2 col-2B">
-            <img className="cover" src="assets/images/sampleAlbumBackground.jpg"/>
+            <img  alt = "song" className="cover" src="assets/images/sampleAlbumBackground.jpg"/>
             <div style={{position:"absolute",bottom:0}} >
               <p className="songNameH">Song</p>
               <p className="artistNameH">Artist</p>
