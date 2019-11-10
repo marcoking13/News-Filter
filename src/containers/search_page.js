@@ -17,7 +17,15 @@ class SearchPage extends React.Component {
       albums:null,
       songs:null,
       currentAlbum:null,
-      isShowingArtist:true
+      isShowingArtist:true,
+      options:{
+        method:"GET",
+        headers:{
+          "Authorization": "Bearer "+ this.props.token
+        },
+        mode:"cors",
+        cache:"default"
+      }
     }
 
     this.CallArtistAndAlbums = this.CallArtistAndAlbums.bind(this);
@@ -46,14 +54,6 @@ class SearchPage extends React.Component {
       const BASE_URL = "https://api.spotify.com/v1/search?";
       const FETCH_URL = BASE_URL + "q=" + artist +"&type=artist&limit=5";
 
-      var options = {
-        method:"GET",
-        headers:{
-          "Authorization": "Bearer "+ this.props.token
-        },
-        mode:"cors",
-        cache:"default"
-      };
 
         fetch(FETCH_URL,options)
         .then(response =>response.json())
@@ -66,7 +66,7 @@ class SearchPage extends React.Component {
                 const BASE_URL = `https://api.spotify.com/v1/artists/${id}/albums?`;
                 const FETCH_URL = BASE_URL + "limit=10";
 
-                fetch(FETCH_URL,options).then(album => album.json())
+                fetch(FETCH_URL,this.state.options).then(album => album.json())
                   .then(album =>{
 
                     this.setState({
@@ -94,17 +94,8 @@ class SearchPage extends React.Component {
 
           const BASE_URL = "https://api.spotify.com/v1/albums/"+id+"/tracks?";
           const FETCH_URL = BASE_URL + "limit=5";
-    
-          var options = {
-            method:"GET",
-            headers:{
-              "Authorization": "Bearer "+ this.props.token
-            },
-            mode:"cors",
-            cache:"default"
-          };
 
-            fetch(FETCH_URL,options)
+            fetch(FETCH_URL,this.state.options)
               .then((response) =>response.json()).then(json=>{
                 this.setState(
                   {
@@ -118,7 +109,7 @@ class SearchPage extends React.Component {
 
 //-----------------------Render Method-----------------------------------------
   render(){
-    console.log(this.state.currentAlbum);
+  
     if(window.innerWidth <= 580){
       return (
         <SearchPageMobile
