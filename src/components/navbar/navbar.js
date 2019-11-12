@@ -25,30 +25,22 @@ class Navbar extends React.Component{
             <h6 className="navInt">Welcome Back!</h6>
           </div>
           <div className="list">
-
             <Link to = {"/prof/access_token="+this.props.token+"/"+this.props.email}><p >Profile</p></Link>
             <p >My Playlists</p>
             <p >Radio</p>
             <Link to = {"/sear/access_token="+this.props.token+"/"+this.props.email}><p >Search</p></Link>
-
               <div className="navBarr"/>
-
                 <p >My Artists</p>
 			          <p >My Artists</p>
                 <p className="g">+ Add Playlist</p>
-
               </div>
-
           </div>
-
             <span className="menuIC"onClick={()=>{this.openNav()}}>
               <div className="menuBarI"></div>
               <div className="menuBarI"></div>
               <div className="menuBarI"></div>
             </span>
-
           <div id="main"></div>
-
       </div>
     )
   }

@@ -19,5 +19,5 @@ export default class ShowcaseMobile extends React.Component {
           </div>
       </div>
       );
+    }
   }
-}

@@ -1,8 +1,5 @@
 import React from "react";
 
-import "./../../css/footnote.css";
-
-
 export default class Footnote extends React.Component {
 
   render(){
@@ -12,10 +9,7 @@ export default class Footnote extends React.Component {
         <div>
 
           <div className="row">
-              <div className="col-2">
-                <br />
-                <img className="w100" src="images/avatar.png"/>
-              </div>
+
             </div>
 
             <br />
@@ -57,26 +51,11 @@ export default class Footnote extends React.Component {
           </div>
 
               <div className="row">
-                <div className="col-12">
+                <div className="col-12"> </div>
 
-                    <div className="row">
-                        <div className="col-6"/>
-                        <div className="col-2">
-                          <img src= "./images/inst.png" className="w100"/>
-                        </div>
-                        <div className="col-2">
-                          <img src= "./images/linkd.png" className="w100"/>
-                        </div>
-                        <div className="col-2">
-                          <img src= "./images/face.png" className="w100"/>
-                        </div>
+             </div>
 
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
+          </div>
 
               <br/>
 

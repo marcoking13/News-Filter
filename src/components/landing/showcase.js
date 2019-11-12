@@ -5,10 +5,8 @@ export default class Showcase extends React.Component {
     var background = `url("assets/images/faded.jpg")`
     return(
       <div className="row pb10 oB"style={{background:background}}>
-
         <div className="col-3"/>
           <div className="col-6">
-
               <h3 className="cw ui  huge header mt10 ml2_5 Lato text-center">Login with Spotify to access a world of music</h3>
               <div className="row">
                 <div className="col-4"/>
@@ -20,8 +18,7 @@ export default class Showcase extends React.Component {
               <br/>
               <br/>
           </div>
-
       </div>
       );
+    }
   }
-}

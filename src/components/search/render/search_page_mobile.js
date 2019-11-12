@@ -5,6 +5,7 @@ import SearchBarMobile from "./../../search_bar/search_bar_mobile.js";
 import LoadingMobile from "./../artist/loading_search_mobile.js";
 import ArtistInfoMobile from "./../artist/artist_info_mobile.js";
 import AlbumsInfoMobile from "./../albums/albums_info_mobile.js";
+import Footnote  from "./../../footer/footnote_mobile";
 
 import Disc from "./../../../images/record.png";
 
@@ -45,10 +46,20 @@ class MobileSearchPage extends React.Component {
             artist = {this.props.artist}
             albums = {this.props.albums}/>
         </div>
+
         <br />
         <br />
 
         {this.renderResultsMobile()}
+
+        <br />
+        <br />
+        <br/>
+        <br/>
+        
+        <div className="mt10">
+          <Footnote />
+        </div>
 
       </div>
       );

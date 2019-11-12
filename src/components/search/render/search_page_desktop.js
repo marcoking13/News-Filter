@@ -6,6 +6,7 @@ import Loading from "./../artist/loading_search.js";
 import ArtistInfo from "./../artist/artist_info.js";
 import AlbumsInfo from "./../albums/albums_info.js";
 import SongResults from "./../songs/song_results.js";
+import Footnote  from "./../../footer/footnote";
 
 import Disc from "./../../../images/record.png";
 import Error  from "./../../../images/error.png";
@@ -61,6 +62,14 @@ class SearchPage extends React.Component {
         {this.renderResults()}
         <br />
         {this.renderAlbums()}
+        <br />
+        <br />
+        <br/>
+        <br/>
+        <div className="mt5">
+
+          <Footnote />
+        </div>
 
       </div>
     );

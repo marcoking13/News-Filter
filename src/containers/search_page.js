@@ -50,12 +50,11 @@ class SearchPage extends React.Component {
 
   //-----------------------Spotify Api Calls-----------------------------------------
   CallArtistAndAlbums(artist){
-
+      console.log(this.props.token);
       const BASE_URL = "https://api.spotify.com/v1/search?";
       const FETCH_URL = BASE_URL + "q=" + artist +"&type=artist&limit=5";
 
-
-        fetch(FETCH_URL,options)
+      fetch(FETCH_URL,this.state.options)
         .then(response =>response.json())
 
           .then(json => {
@@ -69,34 +68,32 @@ class SearchPage extends React.Component {
                 fetch(FETCH_URL,this.state.options).then(album => album.json())
                   .then(album =>{
 
-                    this.setState({
-                      albums:album.items,
-                      artist:json.artists.items[0],
-                      error:false
-                    });
+                      this.setState({
+                        albums:album.items,
+                        artist:json.artists.items[0],
+                        error:false
+                      });
 
-                  });
-                }else{
-                  this.setState(
-                    {
-                      error:true,
-                      albums:null,
-                      artist:null
-                    }
+                    });
+                  }else{
+                    this.setState(
+                      {
+                        error:true,
+                        albums:null,
+                        artist:null
+                      }
                   );
                 }
-
             });
-
-          }
+        }
 
     SearchSongsFromAlbum(id,album){
 
-          const BASE_URL = "https://api.spotify.com/v1/albums/"+id+"/tracks?";
-          const FETCH_URL = BASE_URL + "limit=5";
+        const BASE_URL = "https://api.spotify.com/v1/albums/"+id+"/tracks?";
+        const FETCH_URL = BASE_URL + "limit=5";
 
-            fetch(FETCH_URL,this.state.options)
-              .then((response) =>response.json()).then(json=>{
+        fetch(FETCH_URL,this.state.options)
+            .then((response) =>response.json()).then(json=>{
                 this.setState(
                   {
                     songs:json.items,
@@ -109,44 +106,43 @@ class SearchPage extends React.Component {
 
 //-----------------------Render Method-----------------------------------------
   render(){
-  
+
     if(window.innerWidth <= 580){
       return (
         <SearchPageMobile
-          artist = {this.state.artist}
-          SearchSongsFromAlbum = {this.SearchSongsFromAlbum}
-          CallArtistAndAlbums = {this.CallArtistAndAlbums}
-          songs = {this.state.songs}
-          albums = {this.state.albums}
-          SetToDisplayArtist = {this.SetToDisplayArtist}
-          SetToDisplaySongs = {this.SetToDisplaySongs}
-          changeData = {this.changeData}
-          currentAlbum = {this.state.currentAlbum}
-          data = {this.state.data}
-          error = {this.state.error}
-          isShowingArtist = {this.state.isShowingArtist}
+            artist = {this.state.artist}
+            SearchSongsFromAlbum = {this.SearchSongsFromAlbum}
+            CallArtistAndAlbums = {this.CallArtistAndAlbums}
+            songs = {this.state.songs}
+            albums = {this.state.albums}
+            SetToDisplayArtist = {this.SetToDisplayArtist}
+            SetToDisplaySongs = {this.SetToDisplaySongs}
+            changeData = {this.changeData}
+            currentAlbum = {this.state.currentAlbum}
+            data = {this.state.data}
+            error = {this.state.error}
+            isShowingArtist = {this.state.isShowingArtist}
           />
         );
     }else{
       return (
         <SearchPageDesktop
-          artist = {this.state.artist}
-          SearchSongsFromAlbum = {this.SearchSongsFromAlbum}
-          CallArtistAndAlbums = {this.CallArtistAndAlbums}
-          songs = {this.state.songs}
-          albums = {this.state.albums}
-          currentAlbum = {this.state.currentAlbum}
-          SetToDisplayArtist = {this.SetToDisplayArtist}
-          SetToDisplaySongs = {this.SetToDisplaySongs}
-          changeData = {this.changeData}
-          data = {this.state.data}
-          error = {this.state.error}
-          isShowingArtist = {this.state.isShowingArtist}
+            artist = {this.state.artist}
+            SearchSongsFromAlbum = {this.SearchSongsFromAlbum}
+            CallArtistAndAlbums = {this.CallArtistAndAlbums}
+            songs = {this.state.songs}
+            albums = {this.state.albums}
+            currentAlbum = {this.state.currentAlbum}
+            SetToDisplayArtist = {this.SetToDisplayArtist}
+            SetToDisplaySongs = {this.SetToDisplaySongs}
+            changeData = {this.changeData}
+            data = {this.state.data}
+            error = {this.state.error}
+            isShowingArtist = {this.state.isShowingArtist}
           />
         );
+      }
     }
   }
-
-}
 
 export default SearchPage;

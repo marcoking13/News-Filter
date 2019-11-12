@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default class Features extends React.Component {
   constructor(props){
     super(props);
@@ -40,10 +39,7 @@ export default class Features extends React.Component {
       return(
         <div className="row ">
           <div className="col-1"/>
-
               {this.renderFeatures()}
-
-
           <div className="col-1"/>
         </div>
       )

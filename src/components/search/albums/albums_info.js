@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import BackArrow from "./../../../images/backArrow.png";
 
 class AlbumInfo extends React.Component {
@@ -26,33 +25,27 @@ class AlbumInfo extends React.Component {
           </div>
         )
 
-    })
+    });
 
   }
+
 }
-
-
 
 render(){
   if(this.props.artist && this.props.albums){
       return(
         <div className="container-fluid ">
             <img alt = "back" className="arrowBack" onClick = {()=>{this.props.SetToDisplayArtist()}} src = {BackArrow}/>
-
           <div>
               <h3 className=" text-center cw">Albums</h3>
               <div className="row ml10 w90 ">
-
                   {this.renderAlbums()}
-
               </div>
             </div>
           </div>
       )
     }
-}
-
-
+  }
 
 }
 

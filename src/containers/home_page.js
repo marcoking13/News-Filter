@@ -1,5 +1,7 @@
 import React from "react";
 import Navbar from "./../components/navbar/navbar.js";
+import Footnote from "./../components/footer/footnote.js";
+
 import "./../css/home.css";
 
 class HomePage extends React.Component{
@@ -17,14 +19,11 @@ class HomePage extends React.Component{
           }
 
         }
-        console.log(window.location.href.slice(227,240));
 
     }
 
     componentDidMount(){
-
-        this.props.UpdateToken(window.location.href.slice(58,226));
-
+      this.props.UpdateToken(window.location.href.slice(58,226));
     }
 
    getHashParams() {
@@ -34,7 +33,9 @@ class HomePage extends React.Component{
       while ( e = r.exec(q)) {
          hashParams[e[1]] = decodeURIComponent(e[2]);
       }
+
       return hashParams;
+
     }
 
 
@@ -53,38 +54,38 @@ class HomePage extends React.Component{
 
       );
     }
+
     return html;
+
   }
 
   render(){
     return(
-      <div  className="homeBody container-fluid">
+      <div  className="container-fluid pb10">
         <Navbar token = {window.location.href.slice(58,226)} email = {window.location.href.slice(227,240)}/>
-
         <div className="main">
-
           <div classname="songCatagories">
-
-
               <div className="row rowB rowShort">
                 <p className="catagoryText"> New Releases</p>
                 {this.renderSongs()}
               </div>
-
               <div className="row rowB rowShort">
                 <p className="catagoryText"> Recommended</p>
                 {this.renderSongs()}
               </div>
-
               <div className="row rowB rowShort">
                 <p className="catagoryText"> Playlist: 1</p>
                 {this.renderSongs()}
               </div>
-
           </div>
-
         </div>
+          <br />
+          <br />
+          <br/>
+          <br/> 
 
+
+          <Footnote />
       </div>
     )
   }

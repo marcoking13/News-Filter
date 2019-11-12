@@ -256,13 +256,13 @@ app.get("/api/current_account",(req,res)=>{
 app.post("/api/accounts",(req,res)=>{
   MongoClient.connect(url,(err,db)=>{
     var dbO = db.db("heroku_08xmn3nc");
-  var id = req.body.id;
+    var id = req.body.id;
 
-  var newData = {
-    email:req.body.email,
-    displayName:req.body.email
-  }
-  console.log(req.params,req.body,req.body.id);
+    var newData = {
+      email:req.body.email,
+      displayName:req.body.email
+    }
+    console.log(req.params,req.body,req.body.id);
     dbO.collection("accounts").find({}).toArray((err,accounts)=>{
 
         for(var i =0; i<= accounts.length;i++){
@@ -292,6 +292,9 @@ app.post("/api/accounts",(req,res)=>{
 });
 
 });
+
+
+
 //---------------End of Oauth Spotify---------------
 app.get('/*', (req, res) => {
 
@@ -302,6 +305,26 @@ app.listen(port,(req,res)=>{
   MongoStartup();
   console.log(url);
   console.log("App is running on localhost:"+port);
+});
+
+
+app.get("/api/token",(req,res)=>{
+  MongoClient.connect(url,(err,db)=>{
+    var dbO = db.db("heroku_08xmn3nc");
+    dbO.collection("token").find({}).toArray((err,result)=>{
+        console.log(result);
+        res.json(result[0]);
+      });
+    });
+  });
+
+app.post("/api/token",(req,res)=>{
+  var token = req.body.token
+  console.log(req.body);
+  MongoClient.connect(url,(err,db)=>{
+    var dbO = db.db("heroku_08xmn3nc");
+    dbO.collection("token").insertOne({token:token});
+  });
 });
 
 

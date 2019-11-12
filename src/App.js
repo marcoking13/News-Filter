@@ -1,16 +1,16 @@
 import React from 'react';
-
+import {BrowserRouter,Route} from "react-router-dom";
+import cookie from "react-cookies";
+import axios from "axios";
 
 import HomePage  from "./containers/home_page.js";
 import LandingPage from "./containers/landing_page.js";
 import SearchPage from "./containers/search_page";
 import ProfilePage from "./containers/profile_page";
 
-import {BrowserRouter,Route} from "react-router-dom";
-import cookie from "react-cookies";
+
 
 class App extends React.Component {
-
 
   constructor(props){
 
@@ -32,8 +32,9 @@ class App extends React.Component {
   }
 
   UpdateToken(token){
-
+    axios.post("/api/token",{token:token});
     this.setState({token:token});
+
   }
 
   changeURL(url){
@@ -52,7 +53,6 @@ class App extends React.Component {
       <div>
         <BrowserRouter>
           <div>
-
             <Route path = "/" exact component = {LandingPage}></Route>
             <Route path = "/home/:accessToken/:email" render={props => <HomePage UpdateToken = {this.UpdateToken}  />} ></Route>
             <Route path = "/prof/:accessToken/:email" render={props => <ProfilePage UpdateToken = {this.UpdateToken}  />} ></Route>

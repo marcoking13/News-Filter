@@ -2,6 +2,7 @@
 import React from "react";
 
 import LandingAlbums from "./../../config/landing_page_albums.js";
+
 export default class Albums extends React.Component {
   constructor(props){
     super(props);
@@ -10,6 +11,7 @@ export default class Albums extends React.Component {
       albums:LandingAlbums
     }
   }
+
   renderMusicSamples(){
       var html = [];
       for(var i = 0; i <5;i++){
@@ -51,5 +53,6 @@ export default class Albums extends React.Component {
           </div>
         </div>
       );
-  }
+    }
+    
 }

@@ -1,7 +1,12 @@
 import React from "react";
 import axios from "axios";
+
 import Navbar from "./../components/navbar/navbar.js"
+import Footnote from "./../components/footer/footnote.js";
+
+
 import "./../css/profile.css";
+
 import Profile from "./../images/profileEx.png"
 
 class ProfilePage extends React.Component {
@@ -15,23 +20,23 @@ class ProfilePage extends React.Component {
       displayNameChange:null
   }
 
-
 }
+
   componentDidMount(){
-      axios.get("http://localhost:5000/api/accounts").then((response)=>{
+      console.log(this.props.token);
+      axios.get("/api/accounts").then((response)=>{
         var data = response.data;
-          console.log(data);
+
         for(var i = 0; i<data.length;i++){
 
           if(this.state.id === data[i].id){
             this.setState({account:data[i],emailChange:data[i].email,displayNameChange:data[i].email});
-          }else{
-            console.log("not found");
           }
 
         }
 
       });
+
   }
 
   ChangeInfo(info,infoValue){
@@ -57,6 +62,7 @@ class ProfilePage extends React.Component {
   }
 
   renderFollowerRow(){
+
     return(
       <div className="row b0b followRow">
         <div className="col-1"/>
@@ -88,25 +94,20 @@ class ProfilePage extends React.Component {
         </div>
 
       </div>
-    )
+    );
+
   }
 
   renderInput(title,value,type){
     return(
-      <div className="row mt5 ">
-
-        <div className="col-1"/>
-          <div className="col-3">
-            <p className="cw   text-center"> {title}</p>
-          </div>
-
-        <div className="col-6">
-            <input className="form-control bInput text-center" value = {value}onChange = {(e)=>{
-              console.log(e.target.value)
-              this.ChangeInfo(type,e.target.value)
-            }}placeholder="Username"/>
-        </div>
-
+        <div className="row mt5 ">
+            <div className="col-1"/>
+            <div className="col-3">
+                <p className="cw   text-center"> {title}</p>
+            </div>
+            <div className="col-6">
+                <input className="form-control bInput text-center" value = {value}onChange = {(e)=>{this.ChangeInfo(type,e.target.value)}} placeholder="Username"/>
+            </div>
         </div>
     )
   }
@@ -143,7 +144,7 @@ class ProfilePage extends React.Component {
 
     if(this.state.account){
       return(
-          <div className="container-fluid ">
+          <div className="container-fluid pb10 ">
 
             <Navbar token = {window.location.href.slice(39,208)} id = {window.location.href.slice(209,233)}/>
 
@@ -157,6 +158,9 @@ class ProfilePage extends React.Component {
 
             {this.renderUpdateButton()}
 
+            <div>
+              <Footnote />
+            </div>
         </div>
     )
     }else{

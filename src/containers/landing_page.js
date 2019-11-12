@@ -18,11 +18,14 @@ import ShowcaseMobile from "./../components/landing/mobile_showcase.js";
 import Albums from "./../components/landing/albums.js";
 import MobileAlbums from "./../components/landing/mobile_albums.js";
 
+import Footnote from "./../components/footer/footnote.js";
+import FootnoteMobile from "./../components/footer/footnote_mobile.js";
+
 class LandingPage extends React.Component {
 
   renderDesktopPage(){
     return(
-        <div>
+        <div className="pb10">
             <Navbar />
           <div>
             <Showcase />
@@ -38,13 +41,18 @@ class LandingPage extends React.Component {
           <div className="bbBW pb2_5">
             <Register />
           </div>
+          <br />
+          <br />
+          <br/>
+          <br/> 
+            <Footnote/>
         </div>
     );
   }
 
   renderMobilePage(){
     return(
-        <div>
+        <div className="pb10">
             <NavbarMobile />
           <div>
             <ShowcaseMobile />
@@ -60,6 +68,11 @@ class LandingPage extends React.Component {
           <div className="bbBW pb2_5">
             <Register />
           </div>
+          <br />
+          <br />
+          <br/>
+          <br/>
+          <FootnoteMobile />
         </div>
     );
   }

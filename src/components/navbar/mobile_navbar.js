@@ -19,37 +19,29 @@ class NavbarMobile extends React.Component{
       <div>
         <div id="mySidenav" className="sidenav">
           <div  alt = "x" className="closebtn" onClick={()=>{this.closeNav()}}>&times;</div>
-
           <div className="navLogoBox">
             <img  alt = "logo" className="navLogo" src={Logo}/>
             <h6 className="navInt">Welcome Back!</h6>
           </div>
-
           <div className="list">
-
             <p >Browse</p>
             <p >Discover</p>
             <p >Radio</p>
             <Link to = {"/sear/access_token="+this.props.token}><p >Search</p></Link>
-
             <div className="navBarr"/>
               <p >My Playlists</p>
               <p >My Songs</p>
               <p className="g">+ Add Playlist</p>
             </div>
-
           </div>
-
           <span className="menuIC"onClick={()=>{this.openNav()}}>
               <div className="menuBarI"></div>
               <div className="menuBarI"></div>
               <div className="menuBarI"></div>
           </span>
-
-        <div id="main"></div>
-
-      </div>
-    )
+         <div id="main"></div>
+       </div>
+    );
   }
 }
 

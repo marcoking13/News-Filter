@@ -2,7 +2,6 @@ import React from "react";
 
 export default class Register extends React.Component {
   render(){
-
     return(
       <div>
           <br />
@@ -15,6 +14,6 @@ export default class Register extends React.Component {
               <div className="col-3"/>
             </div>
           </div>
-      );
+        );
+    }
   }
-}

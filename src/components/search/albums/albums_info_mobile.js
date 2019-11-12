@@ -5,12 +5,13 @@ import SongResults from "./../songs/song_results_mobile.js";
 class AlbumInfoMobile extends React.Component {
 
   renderSongs(album){
-    console.log(album,this.props.currentAlbum);
+
     if(this.props.currentAlbum === album){
       return <SongResults albums= {this.props.currentAlbum} songs = {this.props.songs} />
     }else{
       return <div />
     }
+
   }
 
   renderAlbums(){
@@ -49,7 +50,7 @@ render(){
           <div>
               <h5 className=" text-center cw">Discography</h5>
               <ul className="list-group ">
-                  {this.renderAlbums()}
+                {this.renderAlbums()}
               </ul>
             </div>
           </div>
