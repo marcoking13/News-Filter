@@ -23,7 +23,7 @@ class HomePage extends React.Component{
     }
 
     componentDidMount(){
-      this.props.UpdateToken(window.location.href.slice(58,226));
+      this.props.UpdateToken(window.location.href.slice(58,224));
     }
 
    getHashParams() {
@@ -82,7 +82,7 @@ class HomePage extends React.Component{
           <br />
           <br />
           <br/>
-          <br/> 
+          <br/>
 
 
           <Footnote />
