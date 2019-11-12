@@ -14,7 +14,6 @@ class ProfilePage extends React.Component {
     super(props);
 
     this.state = {
-      id:window.location.href.slice(227,243),
       account:null,
       emailChange:null,
       displayNameChange:null
@@ -30,7 +29,7 @@ class ProfilePage extends React.Component {
 
         for(var i = 0; i<data.length;i++){
 
-          if(this.state.id === data[i].id){
+          if(this.props.user === data[i].id){
             this.setState({account:data[i],emailChange:data[i].email,displayNameChange:data[i].email});
           }
 
