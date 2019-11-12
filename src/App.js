@@ -23,10 +23,12 @@ class App extends React.Component {
       url:url,
       isSpotify:true,
       token:null,
+      user:null,
       isUserLoggedIn:false
     }
       this.changeURL = this.changeURL.bind(this);
       this.UpdateToken = this.UpdateToken.bind(this);
+      this.UpdateUser = this.UpdateUser.bind(this);
       this.didSpot = this.didSpot.bind(this);
 
   }
@@ -34,6 +36,12 @@ class App extends React.Component {
   UpdateToken(token){
     axios.post("/api/token",{token:token});
     this.setState({token:token});
+
+  }
+
+  UpdateUser(user){
+
+    this.setState({user:user});
 
   }
 
