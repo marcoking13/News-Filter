@@ -24,6 +24,7 @@ class ProfilePage extends React.Component {
 
   componentDidMount(){
       console.log(this.props.token);
+      console.log(this.props.user);
       axios.get("/api/accounts").then((response)=>{
         var data = response.data;
 
