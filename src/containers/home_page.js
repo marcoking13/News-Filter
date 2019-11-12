@@ -24,7 +24,7 @@ class HomePage extends React.Component{
 
     componentDidMount(){
       this.props.UpdateToken(window.location.href.slice(58,224));
-      his.props.UpdateUser(window.location.href.slice(226,238));
+      this.props.UpdateUser(window.location.href.slice(226,238));
     }
 
    getHashParams() {

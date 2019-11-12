@@ -62,8 +62,8 @@ class App extends React.Component {
         <BrowserRouter>
           <div>
             <Route path = "/" exact component = {LandingPage}></Route>
-            <Route path = "/home/:accessToken/:email" render={props => <HomePage UpdateToken = {this.UpdateToken}  />} ></Route>
-            <Route path = "/prof/:accessToken/:email" render={props => <ProfilePage UpdateToken = {this.UpdateToken} token={this.state.token} />} ></Route>
+            <Route path = "/home/:accessToken/:email" render={props => <HomePage UpdateToken = {this.UpdateToken} UpdateUser  = {this.UpdateUser} />} ></Route>
+            <Route path = "/prof/:accessToken/:email" render={props => <ProfilePage UpdateToken = {this.UpdateToken} user = {this.state.user} token={this.state.token} />} ></Route>
             <Route path = "/sear/:accessToken/:email"  render={(props) => <SearchPage {...props} token={this.state.token} />} />} />
             <Route path = "/search2" render = { (props) => <SearchPage token = {this.state.token}/>}></Route>
           </div>
