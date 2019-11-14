@@ -39,7 +39,7 @@ class RadioPage extends React.Component{
         .then(json => {
           console.log(json);
             var current = {
-              artist: json.artists.name,
+              artist: json.artists[0].name,
               songName:json.name,
               url:json.preview_url,
               image:json.album.images[0].url
