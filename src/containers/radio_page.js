@@ -37,7 +37,7 @@ class RadioPage extends React.Component{
       .then(response =>response.json())
 
         .then(json => {
-          console.log(json.album);
+          console.log(json.album.images[0].url);
             var current = {
               artist: json.artists.name,
               songName:json.name,
