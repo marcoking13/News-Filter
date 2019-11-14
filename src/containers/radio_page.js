@@ -55,17 +55,21 @@ class RadioPage extends React.Component{
 
   render(){
 
-    return(
-      <div className="container-fluid bb">
-        <Navbar />
-        <br />
-        <SongBox song = {this.state.current} />
-        <PlayBar song = {{isPlaying:false}} />
-        <br />
-        <br />
-        <Footnote />
-      </div>
-    );
+    if(this.state.current){
+      return(
+        <div className="container-fluid bb">
+          <Navbar />
+          <br />
+          <SongBox song = {this.state.current} />
+          <PlayBar song = {{isPlaying:false}} />
+          <br />
+          <br />
+          <Footnote />
+        </div>
+      );
+    }else{
+      return null;
+    }
   }
 }
 
