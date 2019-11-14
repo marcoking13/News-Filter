@@ -16,6 +16,9 @@ body{
   background:black !important;
 }
 
+.br10px{
+  border-radius:10px;
+}
 .redlineInput{
   border-bottom:2px solid white;
   border-top:2px solid black !important;

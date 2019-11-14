@@ -7,8 +7,7 @@ import HomePage  from "./containers/home_page.js";
 import LandingPage from "./containers/landing_page.js";
 import SearchPage from "./containers/search_page";
 import ProfilePage from "./containers/profile_page";
-
-
+import RadioPage from "./containers/radio_page";
 
 class App extends React.Component {
 
@@ -40,9 +39,7 @@ class App extends React.Component {
   }
 
   UpdateUser(user){
-
     this.setState({user:user});
-
   }
 
   changeURL(url){
@@ -61,11 +58,11 @@ class App extends React.Component {
       <div>
         <BrowserRouter>
           <div>
-            <Route path = "/" exact component = {LandingPage}></Route>
-            <Route path = "/home/:accessToken/:email" render={props => <HomePage UpdateToken = {this.UpdateToken} UpdateUser  = {this.UpdateUser} />} ></Route>
-            <Route path = "/prof/:accessToken/:email" render={props => <ProfilePage UpdateToken = {this.UpdateToken} user = {this.state.user} token={this.state.token} />} ></Route>
-            <Route path = "/sear/:accessToken/:email"  render={(props) => <SearchPage {...props} token={this.state.token} />} />} />
-            <Route path = "/search2" render = { (props) => <SearchPage token = {this.state.token}/>}></Route>
+            <Route path = "/" exact component = {LandingPage} />
+            <Route path = "/home/:accessToken/:email" render={props => <HomePage UpdateToken = {this.UpdateToken} UpdateUser  = {this.UpdateUser} />} />
+            <Route path = "/prof/:accessToken/:email" render={props => <ProfilePage UpdateToken = {this.UpdateToken} user = {this.state.user} token={this.state.token} />} />
+            <Route path = "/sear/:accessToken/:email" render={props => <SearchPage {...props} token={this.state.token} />} />} />
+            <Route path = "/mixr/:accessToken/:email" render = {props => <RadioPage {...props} token={this.state.token}/>} />
           </div>
         </BrowserRouter>
 

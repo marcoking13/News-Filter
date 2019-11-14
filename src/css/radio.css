@@ -1,0 +1,9 @@
+@media screen and (max-width:600px){
+  .playerM{
+    width:400%;
+  }
+  .shuffle{
+    position: relative;
+    bottom:40px;
+  }
+}

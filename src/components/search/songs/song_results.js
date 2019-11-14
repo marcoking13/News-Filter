@@ -1,7 +1,7 @@
 import React from "react";
 
-import Bar from "./progress_bar";
-import BarStill from "./progress_bar_still";
+import Bar from "./../../progress/progress_bar";
+import BarStill from "./../../progress/progress_bar_still";
 
 import Lock from "./../../../images/lock.png";
 import Pause from "./../../../images/pause.png";

@@ -7,7 +7,7 @@ import Footnote from "./../components/footer/footnote.js";
 
 import "./../css/profile.css";
 
-import Profile from "./../images/profileEx.png"
+import Profile from "./../images/profileEx.png";
 
 class ProfilePage extends React.Component {
   constructor(props){
@@ -22,43 +22,31 @@ class ProfilePage extends React.Component {
 }
 
   componentDidMount(){
-      console.log(this.props.token);
-      console.log(this.props.user);
       axios.get("/api/accounts").then((response)=>{
         var data = response.data;
-
         for(var i = 0; i<data.length;i++){
-
           if(this.props.user === data[i].id){
             this.setState({account:data[i],emailChange:data[i].email,displayNameChange:data[i].email});
           }
-
         }
-
       });
-
   }
 
   ChangeInfo(info,infoValue){
-
     if(info === "email"){
       this.setState({emailChange:infoValue});
     }else{
       this.setState({displayNameChange:infoValue});
     }
-
   }
 
   UpdateInfo(display,email){
-
     var info = {
       email:email,
       displayName:display,
-      id:window.location.href.slice(209,233)
+      id:this.props.user
     }
-
     axios.post("/api/accounts",info).then((res)=>{console.log(res)});
-
   }
 
   renderFollowerRow(){
@@ -106,7 +94,7 @@ class ProfilePage extends React.Component {
                 <p className="cw   text-center"> {title}</p>
             </div>
             <div className="col-6">
-                <input className="form-control bInput text-center" value = {value}onChange = {(e)=>{this.ChangeInfo(type,e.target.value)}} placeholder="Username"/>
+                <input className="form-control bInput text-center" value = {value} onChange = {(e)=>{this.ChangeInfo(type,e.target.value)}} placeholder="Username"/>
             </div>
         </div>
     )
@@ -125,7 +113,6 @@ class ProfilePage extends React.Component {
     return(
       <div className="row mt5" >
         <div className="col-3"/>
-
         <div className="col-6">
             <button className="w100   favB inverted blue button ui" onClick = {
               ()=>{
@@ -133,9 +120,7 @@ class ProfilePage extends React.Component {
               }
             }>Update Account</button>
         </div>
-
-          <div className="col-3"/>
-
+        <div className="col-3"/>
       </div>
     )
   }
