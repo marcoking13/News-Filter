@@ -12,9 +12,9 @@ class SongBox extends React.Component{
 
             <div className="col-3"/>
             <div className="col-6">
-            <img className="w100 br10px" src = {Sample} />
-            <h6 className="text-center cw bold">{this.props.data.songName}</h6>
-            <p className="text-center cw"> {this.props.data.artistName} </p>
+            <img className="w100 br10px" src = {this.props.song.image} />
+            <h6 className="text-center cw bold">{this.props.song.songName}</h6>
+            <p className="text-center cw"> {this.props.song.artist} </p>
           </div>
 
           <div className="col-2">
@@ -28,9 +28,9 @@ class SongBox extends React.Component{
           <div className="row">
             <div className="col-4"/>
             <div className="col-4">
-              <img className="w100 br10px" src = {Sample} />
-              <h6 className="text-center cw bold"> {this.props.data.songName} </h6>
-              <p className="text-center cw"> {this.props.data.artistName} </p>
+              <img className="w100 br10px" src =  {this.props.song.image} />
+              <h6 className="text-center cw bold"> {this.props.song.songName} </h6>
+              <p className="text-center cw"> {this.props.song.artist} </p>
             </div>
             <div className="col-2"/>
             <div className="col-1">

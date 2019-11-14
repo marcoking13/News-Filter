@@ -28,6 +28,7 @@ class RadioPage extends React.Component{
       }
     }
 
+    this.CallSongs();
   }
   CallSongs(song){
     const BASE_URL = "https://api.spotify.com/v1/tracks/"
@@ -36,18 +37,28 @@ class RadioPage extends React.Component{
       .then(response =>response.json())
 
         .then(json => {
-            console.log(json);
+            var current = {
+              artist: json.artists.name,
+              songName:json.name,
+              url:json.preview_url,
+              image:json.album.images[0].url
+            }
+            this.setState({
+              current:current
+            })
         })
 
   }
 
+
+
   render(){
-    this.CallSongs();
+
     return(
       <div className="container-fluid bb">
         <Navbar />
         <br />
-        <SongBox data = {{songName:";",artistName:"l"}} />
+        <SongBox current = {this.state.current} />
         <PlayBar song = {{isPlaying:false}} />
         <br />
         <br />
