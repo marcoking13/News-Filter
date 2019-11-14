@@ -58,7 +58,7 @@ class RadioPage extends React.Component{
       <div className="container-fluid bb">
         <Navbar />
         <br />
-        <SongBox current = {this.state.current} />
+        <SongBox song = {this.state.current} />
         <PlayBar song = {{isPlaying:false}} />
         <br />
         <br />
