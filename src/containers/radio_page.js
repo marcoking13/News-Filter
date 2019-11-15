@@ -67,7 +67,7 @@ class RadioPage extends React.Component{
           <Navbar />
           <br />
           <SongBox song = {this.state.current} />
-          <PlayBar song = {{isPlaying:false}} />
+          <PlayBar song = {this.state.current} />
           <br />
           <br />
           <Footnote />
