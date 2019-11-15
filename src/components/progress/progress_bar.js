@@ -15,7 +15,7 @@ export default class Bar extends React.Component{
             width: this.state.width + (100 / 60)
           });
 
-        },1000);
+        },900);
   }
 
   render(){
