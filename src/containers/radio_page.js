@@ -76,7 +76,7 @@ class RadioPage extends React.Component{
     if(this.state.current){
       return(
         <div className="container-fluid bb">
-          <audio autoPlay>
+          <audio autoPlay loop>
             <source type="audio/mp3" src = {this.state.current.url}></source>
           </audio>
           <Navbar />
