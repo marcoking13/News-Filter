@@ -36,7 +36,7 @@ class RadioPage extends React.Component{
     var timer = 0;
     this.timer = setInterval(()=>{
       timer++;
-      if(timer === 20 ){
+      if(timer === 30 ){
         timer = 0;
         this.CallSongs(this.state.songs);
       }

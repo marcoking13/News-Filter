@@ -12,10 +12,10 @@ export default class Bar extends React.Component{
 
       this.timer = setInterval(()=>{
           this.setState({
-            width: this.state.width + (100 / 60)
+            width: this.state.width + (100 / 30)
           });
 
-        },900);
+        },1000);
   }
 
   render(){
