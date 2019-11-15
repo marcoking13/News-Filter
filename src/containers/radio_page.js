@@ -44,7 +44,8 @@ class RadioPage extends React.Component{
               artist: json.artists[0].name,
               songName:json.name,
               url:json.preview_url,
-              image:json.album.images[0].url
+              image:json.album.images[0].url,
+              isPlaying:true
             }
             this.setState({
               current:current
