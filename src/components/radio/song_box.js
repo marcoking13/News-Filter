@@ -12,7 +12,7 @@ class SongBox extends React.Component{
 
             <div className="col-3"/>
             <div className="col-6">
-            <img className="w100 br10px" src = {this.props.song.image} />
+            <img className="w100 br10px bounce" src = {this.props.song.image} />
             <h6 className="text-center cw bold">{this.props.song.songName}</h6>
             <p className="text-center cw"> {this.props.song.artist} </p>
           </div>

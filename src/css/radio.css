@@ -7,3 +7,24 @@
     bottom:40px;
   }
 }
+@keyframes bouncer{
+  0%{
+    width:100%;
+    height:inherit;
+    border-color:maroon;
+  }
+  10%{
+    width:98%;
+    height:98%;
+    border-color:red;
+  }
+  100%{
+    width:100%;
+    height:100%;
+    border-color:maroon;
+  }
+}
+.bounce{
+  animation:.5s infinite ease-in-out bouncer;
+  border:2px solid maroon;
+}
