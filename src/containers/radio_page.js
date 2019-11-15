@@ -18,6 +18,7 @@ class RadioPage extends React.Component{
     this.state = {
       songs:Songs,
       current:null,
+      next:false,
       options:{
         method:"GET",
         headers:{
@@ -30,6 +31,18 @@ class RadioPage extends React.Component{
 
     this.CallSongs(this.state.songs);
   }
+
+  componentDidMount(){
+    var timer = 0;
+    this.timer = setInterval(()=>{
+      timer++;
+      if(timer === 20 ){
+        timer = 0;
+        this.CallSongs(this.state.songs);
+      }
+    },1000);
+  }
+
   CallSongs(song){
 
     var songID = song[Math.floor(Math.random() * song.length)];
@@ -43,6 +56,7 @@ class RadioPage extends React.Component{
             var current = {
               artist: json.artists[0].name,
               songName:json.name,
+              finish:false,
               url:json.preview_url,
               image:json.album.images[0].url,
               isPlaying:true
