@@ -3,6 +3,8 @@ import React from "react";
 import Arrow from "./../../images/random.png";
 import Sample from "./../../images/sample.jpg";
 
+import "./../radio.css";
+
 class SongBox extends React.Component{
 
   render(){
