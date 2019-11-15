@@ -18,7 +18,7 @@ class RadioPage extends React.Component{
     this.state = {
       songs:Songs,
       current:null,
-      next:false,
+      reset:false,
       options:{
         method:"GET",
         headers:{
