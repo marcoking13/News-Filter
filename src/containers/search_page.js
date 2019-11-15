@@ -94,6 +94,7 @@ class SearchPage extends React.Component {
 
         fetch(FETCH_URL,this.state.options)
             .then((response) =>response.json()).then(json=>{
+              console.log(json.items);
                 this.setState(
                   {
                     songs:json.items,
