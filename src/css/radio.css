@@ -14,8 +14,8 @@
     border-color:maroon;
   }
   10%{
-    width:98%;
-    height:98%;
+    width:98% !important;
+    height:98% !important;
     border-color:red;
   }
   100%{
