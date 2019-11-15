@@ -20,7 +20,7 @@ class SongBox extends React.Component{
           </div>
 
           <div className="col-2">
-              <img className="w100 shuffle br10px" src = {Arrow} />
+              <img className="w100 shuffle br10px"  onClick  = {()=>{this.props.CallSongs(this.props.songs)}}src = {Arrow} />
           </div>
         </div>
         )

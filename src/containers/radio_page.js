@@ -30,6 +30,7 @@ class RadioPage extends React.Component{
     }
 
     this.CallSongs(this.state.songs);
+    this.CallSongs = this.CallSongs.bind(this);
   }
 
   componentDidMount(){
@@ -80,8 +81,8 @@ class RadioPage extends React.Component{
           </audio>
           <Navbar />
           <br />
-          <SongBox song = {this.state.current} />
-          <PlayBar song = {this.state.current} />
+          <SongBox song = {this.state.current} songs = {this.state.songs} CallSongs = {this.CallSongs} />
+          <PlayBar song = {this.state.current} CallSongs = {this.CallSongs} />
           <br />
           <br />
           <Footnote />
