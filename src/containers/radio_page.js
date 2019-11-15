@@ -28,11 +28,13 @@ class RadioPage extends React.Component{
       }
     }
 
-    this.CallSongs();
+    this.CallSongs(this.state.songs);
   }
   CallSongs(song){
+
+    var songID = song[Math.floor(Math.random() * song.length)];
     const BASE_URL = "https://api.spotify.com/v1/tracks/"
-    const FETCH_URL = BASE_URL + "3n3Ppam7vgaVa1iaRUc9Lp";
+    const FETCH_URL = BASE_URL + songID;
     fetch(FETCH_URL,this.state.options)
       .then(response =>response.json())
 
