@@ -15,6 +15,7 @@ class PlayBar extends React.Component{
       return <Bar />
     }
   }
+  
   render(){
     if(this.props.song.isPlaying){
       return(

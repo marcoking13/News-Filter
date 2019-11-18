@@ -48,6 +48,8 @@ class RadioPage extends React.Component{
     },1000);
   }
 
+
+
   CallSongs(song){
 
     var songID = song[Math.floor(Math.random() * song.length)];
@@ -81,15 +83,24 @@ class RadioPage extends React.Component{
     )
   }
 
+  renderAudio(){
+    if(this.state.timer == 0 ){
+      return null
+    } else{
+      return (
+        <audio autoPlay loop>
+          <source type="audio/mp3" src = {this.state.current.url}></source>
+        </audio>
+      )
+    }
+  }
 
   render(){
 
     if(this.state.reset){
       return(
         <div className="container-fluid bb">
-          <audio autoPlay loop>
-            <source type="audio/mp3" src = {this.state.current.url}></source>
-          </audio>
+          {this.renderAudio()}
           <Navbar />
           <br />
           {this.renderSong()}
