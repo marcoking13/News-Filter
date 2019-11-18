@@ -11,8 +11,14 @@ export default class NavbarMobile extends React.Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-6">
-              <img  alt = "x" sclassName="landingLogo fl w50" src={Logo}/>
-              <p className=" cw landingTitle mt10 bold fl">Divine Beats</p>
+              <div className="row">
+                <div className="col-3">
+                  <img  alt = "x" sclassName="w100" src={Logo}/>
+                </div>
+                <div className="col-5">
+                    <p className=" cw text-center  mt10 bold fl">Divine Beats</p>
+                </div>
+              </div>
             </div>
             <div className="col-6">
               <div className="links">
