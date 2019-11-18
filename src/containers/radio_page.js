@@ -76,7 +76,7 @@ class RadioPage extends React.Component{
   }
 
   Countdown(current){
-    setTimeout(()=>{this.setState({reset:true,current:current},1000);
+    setTimeout(()=>{this.setState({reset:true,current:current},1000)});
   }
 
   render(){
