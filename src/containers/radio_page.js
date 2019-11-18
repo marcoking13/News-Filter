@@ -28,7 +28,8 @@ class RadioPage extends React.Component{
         },
         mode:"cors",
         cache:"default"
-      }
+      },
+      timer:0
     }
 
     this.CallSongs(this.state.songs);
@@ -36,12 +37,13 @@ class RadioPage extends React.Component{
   }
 
   componentDidMount(){
-    var timer = 0;
-    this.timer = setInterval(()=>{
-      timer++;
-      if(timer === 30 ){
-        timer = 0;
+
+    this.timerCount = setInterval(()=>{
+
+      if(this.state.timer === 30 ){
         this.CallSongs(this.state.songs);
+      }else{
+        this.setState({timer:this.state.timer + 1})
       }
     },1000);
   }
@@ -64,15 +66,21 @@ class RadioPage extends React.Component{
               image:json.album.images[0].url,
               isPlaying:true
             }
-            this.setState({reset:true,current:current},1000)
+          this.setState({reset:true,current:current,timer:0});
 
         })
 
   }
 
-  Countdown(current){
-    setTimeout(()=>{this.setState({reset:true,current:current},1000)});
+  renderSong(){
+    return(
+      <div>
+        <SongBox song = {this.state.current} songs = {this.state.songs} CallSongs = {this.CallSongs} />
+        <PlayBar timer = {this.state.timer} song = {this.state.current} CallSongs = {this.CallSongs} />
+      </div>
+    )
   }
+
 
   render(){
 
@@ -84,15 +92,14 @@ class RadioPage extends React.Component{
           </audio>
           <Navbar />
           <br />
-          <SongBox song = {this.state.current} songs = {this.state.songs} CallSongs = {this.CallSongs} />
-          <PlayBar song = {this.state.current} CallSongs = {this.CallSongs} />
+          {this.renderSong()}
           <br />
           <br />
           <Footnote />
         </div>
       );
     }else{
-      return <Loader />;
+      return (<Loader />)
     }
   }
 }

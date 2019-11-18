@@ -8,7 +8,13 @@ import Bar from "./../progress/progress_bar.js";
 
 
 class PlayBar extends React.Component{
-
+  renderBar(timer){
+    if(timer == 0){
+      return <BarStill />
+    }else{
+      return <Bar />
+    }
+  }
   render(){
     if(this.props.song.isPlaying){
       return(
@@ -18,7 +24,7 @@ class PlayBar extends React.Component{
             <img src = {Pause} className="w100 playerM"/>
           </div>
           <div className="col-8">
-            <Bar />
+            {this.renderBar(this.props.timer)}
           </div>
           <div className="col-1"/>
         </div>
