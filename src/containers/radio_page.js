@@ -5,10 +5,12 @@ import Footnote from "./../components/footer/footnote.js";
 
 import SongBox from "./../components/radio/song_box.js";
 import PlayBar from "./../components/radio/play_bar.js";
+import Loader from "./../components/radio/loading_page.js";
 
 import "./../css/radio.css";
 
 import Songs from "./../config/randomSongs";
+
 
 
 
@@ -62,18 +64,24 @@ class RadioPage extends React.Component{
               image:json.album.images[0].url,
               isPlaying:true
             }
+
             this.setState({
-              current:current
-            })
+              reset:false,
+            });
+
+            this.Countdown(current);
+
         })
 
   }
 
-
+  Countdown(current){
+    setTimeout(()=>{this.setState({reset:true,current:current},1000);
+  }
 
   render(){
 
-    if(this.state.current){
+    if(this.state.reset){
       return(
         <div className="container-fluid bb">
           <audio autoPlay loop>
@@ -89,7 +97,7 @@ class RadioPage extends React.Component{
         </div>
       );
     }else{
-      return null;
+      return <Loader />;
     }
   }
 }
