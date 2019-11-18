@@ -64,7 +64,7 @@ class RadioPage extends React.Component{
               image:json.album.images[0].url,
               isPlaying:true
             }
-            this.Countdown(current);
+            this.setState({reset:true,current:current},1000)
 
         })
 

@@ -3,9 +3,6 @@ import React from "react";
 import Disc from "./../../images/disc.png";
 
 class LoadingPage extends React.Component {
-  constructor(props){
-    super(props);
-  }
 
   render(){
     return(
