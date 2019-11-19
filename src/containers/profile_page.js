@@ -17,7 +17,7 @@ class ProfilePage extends React.Component {
       emailChange:null,
       displayNameChange:null
   }
-console.log(this.state.user);
+console.log(this.props.user);
 }
 
   componentDidMount(){
