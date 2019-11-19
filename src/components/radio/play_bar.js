@@ -8,6 +8,7 @@ import BarStill from "./../progress/progress_bar_still.js";
 import Bar from "./../progress/progress_bar.js";
 import GreyStar from "./../../images/grey_star.png";
 import YellowStar from "./../../images/yellow_star.png";
+import MusicNote from "./../../images/music_note.png";
 
 class PlayBar extends React.Component{
   constructor(props){
@@ -25,7 +26,7 @@ class PlayBar extends React.Component{
   }
 
   renderBar(timer){
-    if(timer == 0){
+    if(timer <= 0){
       return <BarStill />
     }else{
       return <Bar />
@@ -41,8 +42,13 @@ class PlayBar extends React.Component{
   }
 
   renderShuffle(){
-    return <img src = {Shuffle} onClick = {()=>{this.props.CallSongs(this.props.song)}}className="w50 ml25" />
+    return <img src = {Shuffle} onClick = {()=>{this.props.CallSongs(this.props.songs)}}className="w50 ml25" />
   }
+
+  renderNote(){
+    return <img src = {MusicNote} onClick = {()=>{window.open("http://google.com")}}className="w50 ml25" />
+  }
+
   renderButton(){
     if(this.props.song.isPlaying){
       return <img src = {Pause} className="w50 ml25"/>
@@ -54,11 +60,11 @@ class PlayBar extends React.Component{
   render(){
 
       return(
-        <div className="container-fluid">
+        <div className="container-fluid positionUpward">
           <div className="row">
             <div className="col-4"/>
             <div className="col-1">
-              {this.renderStar()}
+              {this.renderNote()}
             </div>
             <div className="col-1">
               {this.renderButton()}

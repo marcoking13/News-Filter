@@ -7,24 +7,27 @@
     bottom:40px;
   }
 }
+
 @keyframes bouncer{
   0%{
 
     border-color:maroon !important;
   }
-  10%{
+  50%{
 
     border-color:red !important;
   }
   100%{
 
-    border-color:maroon important;
+    border-color:maroon !important;
   }
 }
+
 .positionUpward{
   position:relative;
-  bottom:30px;
+  bottom:60px;
 }
+
 @keyframes rotation{
   0%{
     transform:rotate(0deg);
@@ -39,11 +42,12 @@
     transform:rotate(0deg);
   }
 }
+
 .rotation {
   animation: infinite 3s ease-in-out rotation;
 }
 
 .bounce{
   animation:.5s infinite ease-in-out bouncer;
-  border:2px solid maroon;
+  border:4px solid maroon;
 }
