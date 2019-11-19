@@ -8,7 +8,7 @@
   }
 }
 
-@keyframes bouncer{
+@keyframes bouncer2{
   0%{
 
     border-color:maroon !important;
@@ -48,6 +48,6 @@
 }
 
 .bounce{
-  animation:.5s infinite ease-in-out bouncer;
+  animation:.5s infinite ease-in-out bouncer2;
   border:4px solid maroon;
 }
