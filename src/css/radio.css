@@ -51,6 +51,10 @@
 .rotation {
   animation: infinite 3s ease-in-out rotation;
 }
+.rotationFast {
+  animation: infinite .6s ease-in-out rotation;
+}
+
 
 .bounce{
   animation:3s infinite ease-in-out bouncer2;

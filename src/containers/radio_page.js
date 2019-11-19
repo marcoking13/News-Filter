@@ -33,6 +33,7 @@ class RadioPage extends React.Component{
     }
 
     this.CallSongs(this.state.songs);
+    this.props.UpdateToken(window.location.href.slice(58,224));
     this.CallSongs = this.CallSongs.bind(this);
   }
 
@@ -69,7 +70,7 @@ class RadioPage extends React.Component{
               image:json.album.images[0].url,
               isPlaying:true
             }
-          this.setState({reset:true,current:current,timer:0});
+            this.setState({reset:true,current:current,timer:0});
 
         })
 
@@ -98,7 +99,7 @@ class RadioPage extends React.Component{
 
   render(){
 
-    if(this.state.reset){
+    if(this.state.timer > .5){
       return(
         <div className="container-fluid bb">
           {this.renderAudio()}

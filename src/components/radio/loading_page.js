@@ -10,7 +10,7 @@ class LoadingPage extends React.Component {
               <div className="row">
                 <div className="col-4"/>
                 <div className="col-4">
-                  <img src = {Disc} className="w100 rotation"/>
+                  <img src = {Disc} className="w100 rotationFast"/>
                 </div>
                 <div className="col-4"/>
               </div>

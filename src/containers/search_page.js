@@ -34,6 +34,8 @@ class SearchPage extends React.Component {
     this.SetToDisplaySongs = this.SetToDisplaySongs.bind(this);
     this.SetToDisplayArtist = this.SetToDisplayArtist.bind(this);
 
+    this.props.UpdateToken(window.location.href.slice(58,224));
+
   }
 //-----------------------State Changers-----------------------------------------
   changeData(data){

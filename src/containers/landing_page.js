@@ -3,7 +3,6 @@ import React from "react";
 import "./../css/search.css";
 import "./../css/landing.css";
 
-
 import Navbar from "./../components/landing/navbar.js";
 import NavbarMobile from "./../components/landing/mobile_navbar.js";
 
@@ -44,7 +43,7 @@ class LandingPage extends React.Component {
           <br />
           <br />
           <br/>
-          <br/> 
+          <br/>
             <Footnote/>
         </div>
     );
@@ -79,7 +78,7 @@ class LandingPage extends React.Component {
   // mae the navbar with bootstrap features and sematic ui
   render(){
 
-      if(window.innerWidth <= 580){
+      if(window.innerWidth <= 600){
         return <div>{this.renderMobilePage()}</div>
       }else{
        return <div>{this.renderDesktopPage()}</div>

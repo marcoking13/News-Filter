@@ -10,16 +10,13 @@ export default class NavbarMobile extends React.Component {
     return(
         <div className="container-fluid">
           <div className="row">
-            <div className="col-4">
-              <div className="row">
-                <div className="col-3">
-                  <img  alt = "x" sclassName="w100" src={Logo}/>
-                </div>
-                <div className="col-5">
+
+
+
+                <div className="col-4">
                     <p className=" cw text-center  mt10 bold fl">Divine Beats</p>
                 </div>
-              </div>
-            </div>
+
             <div className="col-7">
               <div className="links">
                   <ul>

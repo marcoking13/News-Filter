@@ -10,11 +10,14 @@ export default class Navbar extends React.Component {
     return(
         <div className="container-fluid">
           <div className="row">
-            <div className="col-2">
-              <img  alt = "logo" className="landingLogo fl w50" src={Logo}/>
-              <p className=" cw landingTitle mt10 fl">Divine Beats</p>
+            <div className="col-1">
+              <img  alt = "logo" className="w100" src={Logo}/>
             </div>
-            <div className="col-5"/>
+
+            <div className="col-3">
+                <p className="cw landingTitle mt10 fl">Divine Beats</p>
+            </div>
+            <div className="col-3"/>
             <div className="col-5">
               <div className="links">
                   <ul>
