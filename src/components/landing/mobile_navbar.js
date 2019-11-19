@@ -10,7 +10,7 @@ export default class NavbarMobile extends React.Component {
     return(
         <div className="container-fluid">
           <div className="row">
-            <div className="col-6">
+            <div className="col-4">
               <div className="row">
                 <div className="col-3">
                   <img  alt = "x" sclassName="w100" src={Logo}/>
@@ -20,7 +20,7 @@ export default class NavbarMobile extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="col-6">
+            <div className="col-7">
               <div className="links">
                   <ul>
                     <li className="cw nol ml2_5 f10 turnBold brW fr"> About</li>

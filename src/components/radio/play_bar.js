@@ -16,6 +16,7 @@ class PlayBar extends React.Component{
     this.state = {
       fav:false
     }
+    console.log(this.props.song);
   }
   renderStar(){
     if(this.state.fav){
@@ -33,14 +34,12 @@ class PlayBar extends React.Component{
     }
   }
 
-
-
   renderShuffle(){
-    return <img src = {Shuffle} onClick = {()=>{this.props.CallSongs(this.props.songs)}}className="w50 ml25" />
+    return <img src = {Shuffle} onClick = {()=>{this.props.CallSongs()}}className="w50 ml25" />
   }
 
   renderNote(){
-    return <img src = {MusicNote} onClick = {()=>{window.open("http://google.com")}}className="w50 ml25" />
+    return <img src = {MusicNote} onClick = {()=>{window.open(this.props.song.external)}}className="w50 ml25" />
   }
 
   renderButton(){
@@ -54,7 +53,7 @@ class PlayBar extends React.Component{
   render(){
 
       return(
-        <div className="container-fluid positionUpward">
+        <div className="container-fluid positionUpward b26 ptb1">
           <div className="row">
             <div className="col-4"/>
             <div className="col-1">

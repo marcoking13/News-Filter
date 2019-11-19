@@ -50,21 +50,22 @@ class RadioPage extends React.Component{
 
 
 
-  CallSongs(song){
+  CallSongs(){
 
-    var songID = song[Math.floor(Math.random() * song.length)];
+    var songID = this.state.songs[Math.floor(Math.random() * this.state.songs.length)];
     const BASE_URL = "https://api.spotify.com/v1/tracks/"
     const FETCH_URL = BASE_URL + songID;
     fetch(FETCH_URL,this.state.options)
       .then(response =>response.json())
 
         .then(json => {
-          console.log(json);
+          console.log(json.external_urls);
             var current = {
               artist: json.artists[0].name,
               songName:json.name,
               finish:false,
               url:json.preview_url,
+              external:json.external_urls.spotify,
               image:json.album.images[0].url,
               isPlaying:true
             }

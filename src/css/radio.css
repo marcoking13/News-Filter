@@ -11,15 +11,15 @@
 @keyframes bouncer2{
   0%{
 
-    border-color:maroon !important;
+    border-color:maroon ;
   }
   50%{
 
-    border-color:red !important;
+    border-color:red ;
   }
   100%{
 
-    border-color:maroon !important;
+    border-color:maroon ;
   }
 }
 
@@ -27,7 +27,10 @@
   position:relative;
   bottom:60px;
 }
-
+.ptb1{
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
 @keyframes rotation{
   0%{
     transform:rotate(0deg);
@@ -42,12 +45,14 @@
     transform:rotate(0deg);
   }
 }
-
+.b26{
+  background:#262626;
+}
 .rotation {
   animation: infinite 3s ease-in-out rotation;
 }
 
 .bounce{
-  animation:.5s infinite ease-in-out bouncer2;
+  animation:3s infinite ease-in-out bouncer2;
   border:4px solid maroon;
 }
