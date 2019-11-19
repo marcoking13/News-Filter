@@ -25,9 +25,9 @@ class PlayBar extends React.Component{
 
   renderStar(){
     if(this.state.fav){
-      return <img src = {YellowStar} onClick = {()=>{this.favSong(true)}} className="w50 ml25" />
+      return <div onClick = {()=>{this.favSong(true)}} className="col-1"><img src = {YellowStar}  className="w50 ml25" /></div>
     }else{
-      return <img src = {GreyStar} onClick = {()=>{this.favSong(false)}} className="w50 ml25" />
+      return <div onClick = {()=>{this.favSong(false)}} className="col-1"><img src = {GreyStar} className="w50 ml25" /></div>
     }
   }
 
@@ -67,9 +67,9 @@ class PlayBar extends React.Component{
             <div className="col-1">
               {this.renderButton()}
             </div>
-            <div className="col-1">
+
               {this.renderStar()}
-            </div>
+
             <div className="col-1">
               {this.renderShuffle()}
             </div>
