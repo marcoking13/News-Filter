@@ -58,6 +58,9 @@ class PlayBar extends React.Component{
           <div className="row">
             <div className="col-4"/>
             <div className="col-1">
+              {this.renderStar()}
+            </div>
+            <div className="col-1">
               {this.renderButton()}
             </div>
             <div className="col-1">
