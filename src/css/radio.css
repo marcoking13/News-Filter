@@ -21,7 +21,10 @@
     border-color:maroon important;
   }
 }
-
+.positionUpward{
+  position:relative;
+  bottom:30px;
+}
 @keyframes rotation{
   0%{
     transform:rotate(0deg);
