@@ -4,7 +4,6 @@ import axios from "axios";
 import Navbar from "./../components/navbar/navbar.js"
 import Footnote from "./../components/footer/footnote.js";
 
-
 import "./../css/profile.css";
 
 import Profile from "./../images/profileEx.png";

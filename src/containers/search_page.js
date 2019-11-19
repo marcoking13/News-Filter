@@ -113,6 +113,7 @@ class SearchPage extends React.Component {
     if(window.innerWidth <= 580){
       return (
         <SearchPageMobile
+            token = {this.props.token}
             artist = {this.state.artist}
             SearchSongsFromAlbum = {this.SearchSongsFromAlbum}
             CallArtistAndAlbums = {this.CallArtistAndAlbums}
@@ -131,6 +132,7 @@ class SearchPage extends React.Component {
       return (
         <SearchPageDesktop
             artist = {this.state.artist}
+            token = {this.props.token}
             SearchSongsFromAlbum = {this.SearchSongsFromAlbum}
             CallArtistAndAlbums = {this.CallArtistAndAlbums}
             songs = {this.state.songs}

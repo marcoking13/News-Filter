@@ -103,7 +103,7 @@ class RadioPage extends React.Component{
       return(
         <div className="container-fluid bb">
           {this.renderAudio()}
-          <Navbar />
+          <Navbar token = {this.props.token}/>
           <br />
           {this.renderSong()}
           <br />

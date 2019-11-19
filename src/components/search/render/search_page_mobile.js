@@ -37,7 +37,7 @@ class MobileSearchPage extends React.Component {
     return(
 
       <div>
-        <Navbar />
+         <Navbar token = {this.props.token}/>
         <div className="container-fluid">
           <SearchBarMobile
             data = {this.props.data}
@@ -56,7 +56,7 @@ class MobileSearchPage extends React.Component {
         <br />
         <br/>
         <br/>
-        
+
         <div className="mt10">
           <Footnote />
         </div>

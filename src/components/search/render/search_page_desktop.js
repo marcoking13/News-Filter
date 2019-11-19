@@ -45,7 +45,7 @@ class SearchPage extends React.Component {
     return(
 
       <div>
-        <Navbar />
+        <Navbar token = {this.props.token}/>
         <div className="container-fluid">
 
           <SearchBar
