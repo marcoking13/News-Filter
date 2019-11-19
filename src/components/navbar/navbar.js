@@ -8,7 +8,7 @@ import Logo from "./../../images/note.png";
 class Navbar extends React.Component{
 
   openNav() {
-      document.getElementById("mySidenav").style.width = "175px";
+      document.getElementById("mySidenav").style.width = "200px";
    }
 
   closeNav() {
@@ -25,14 +25,16 @@ class Navbar extends React.Component{
             <h6 className="navInt">Welcome Back!</h6>
           </div>
           <div className="list">
+            <br/>
             <Link to = {"/prof/access_token="+this.props.token+"/"+this.props.email}><p >Profile</p></Link>
-            <p >Home</p>
-            <p >My Playlists</p>
+            <Link to = {"/home/access_token="+this.props.token+"/"+this.props.email}>  <p >Home</p> </Link>
             <Link to = {"/mixr/access_token="+this.props.token+"/"+this.props.email}>  <p >Radio</p> </Link>
             <Link to = {"/sear/access_token="+this.props.token+"/"+this.props.email}><p >Search</p></Link>
+            <p className="cp">Ambient Beats</p>
               <div className="navBarr"/>
                 <p >Favorite Artists</p>
 			          <p >Favorite Songs</p>
+                <p >My Playlists</p>
                 <p className="g">+ Add Playlist</p>
               </div>
           </div>

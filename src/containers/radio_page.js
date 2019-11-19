@@ -11,9 +11,6 @@ import "./../css/radio.css";
 
 import Songs from "./../config/randomSongs";
 
-
-
-
 class RadioPage extends React.Component{
   constructor(props){
     super(props);
@@ -40,7 +37,7 @@ class RadioPage extends React.Component{
   componentDidMount(){
 
     this.props.UpdateToken(window.location.href.slice(58,224));
-    
+
     this.timerCount = setInterval(()=>{
 
       if(this.state.timer === 30 ){

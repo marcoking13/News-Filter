@@ -18,11 +18,16 @@ class PlayBar extends React.Component{
     }
     console.log(this.props.song);
   }
+
+  favSong(bool){
+    this.setState({fav:bool});
+  }
+
   renderStar(){
     if(this.state.fav){
-      return <img src = {YellowStar} className="w50 ml25" />
+      return <img src = {YellowStar} onClick = {()=>{this.favSong(true)}} className="w50 ml25" />
     }else{
-      return <img src = {GreyStar} className="w50 ml25" />
+      return <img src = {GreyStar} onClick = {()=>{this.favSong(false)}} className="w50 ml25" />
     }
   }
 

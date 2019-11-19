@@ -7,6 +7,7 @@ import Footnote from "./../components/footer/footnote.js";
 import "./../css/profile.css";
 
 import Profile from "./../images/profileEx.png";
+import Disc from "./../images/records.png";
 
 class ProfilePage extends React.Component {
   constructor(props){
@@ -21,8 +22,7 @@ console.log(this.props.user);
 }
 
   componentDidMount(){
-    this.props.UpdateToken(window.location.href.slice(58,224));
-    this.props.UpdateUser(window.location.href.slice(225,238));
+
       axios.get("/api/accounts").then((response)=>{
         var data = response.data;
         for(var i = 0; i<data.length;i++){
@@ -150,7 +150,34 @@ console.log(this.props.user);
         </div>
     )
     }else{
-      return <div />
+      return(
+          <div className="container-fluid pb10 ">
+
+            <Navbar token = {window.location.href.slice(39,208)} id = {window.location.href.slice(209,233)}/>
+
+            <div className="spacer"/>
+
+            <div className='row'>
+              <div className="col-4"/>
+              <div className="col-4">
+                  <img src = {Disc} className=" w50 mt5 ml25 rotationFast" />
+              </div>
+              <div className="col-4"/>
+            </div>
+
+            <div classsName="spacer"/>
+            <br />
+              <br />
+                <br />
+                  <br />
+                    <br />
+                      <br />
+            <div className="mt5">
+              <Footnote />
+            </div>
+
+        </div>
+    )
     }
   }
 }
