@@ -33,12 +33,13 @@ class RadioPage extends React.Component{
     }
 
     this.CallSongs(this.state.songs);
-    this.props.UpdateToken(window.location.href.slice(58,224));
+
     this.CallSongs = this.CallSongs.bind(this);
   }
 
   componentDidMount(){
-
+    
+    this.props.UpdateToken(window.location.href.slice(58,224));
     this.timerCount = setInterval(()=>{
 
       if(this.state.timer === 30 ){

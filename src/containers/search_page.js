@@ -28,13 +28,15 @@ class SearchPage extends React.Component {
       }
     }
 
+    this.props.UpdateToken(window.location.href.slice(58,224));
+
     this.CallArtistAndAlbums = this.CallArtistAndAlbums.bind(this);
     this.changeData = this.changeData.bind(this);
     this.SearchSongsFromAlbum = this.SearchSongsFromAlbum.bind(this);
     this.SetToDisplaySongs = this.SetToDisplaySongs.bind(this);
     this.SetToDisplayArtist = this.SetToDisplayArtist.bind(this);
 
-    this.props.UpdateToken(window.location.href.slice(58,224));
+
 
   }
 //-----------------------State Changers-----------------------------------------
@@ -107,6 +109,9 @@ class SearchPage extends React.Component {
             });
     }
 
+    componentDidMount(){
+        this.props.UpdateToken(window.location.href.slice(58,224));
+    }
 //-----------------------Render Method-----------------------------------------
   render(){
 
