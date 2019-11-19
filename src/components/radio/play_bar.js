@@ -25,9 +25,9 @@ class PlayBar extends React.Component{
 
   renderStar(){
     if(this.state.fav){
-      return <div onClick = {()=>{this.favSong(true)}} className="col-1"><img src = {YellowStar}  className="w50 ml25" /></div>
+      return <div onClick = {()=>{this.favSong(false)}} className="col-1"><img src = {YellowStar}  className="w50 ml25" /></div>
     }else{
-      return <div onClick = {()=>{this.favSong(false)}} className="col-1"><img src = {GreyStar} className="w50 ml25" /></div>
+      return <div onClick = {()=>{this.favSong(true)}} className="col-1"><img src = {GreyStar} className="w50 ml25" /></div>
     }
   }
 
