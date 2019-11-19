@@ -21,6 +21,8 @@ class ProfilePage extends React.Component {
 }
 
   componentDidMount(){
+    this.props.UpdateToken(window.location.href.slice(58,224));
+    this.props.UpdateUser(window.location.href.slice(225,238));
       axios.get("/api/accounts").then((response)=>{
         var data = response.data;
         for(var i = 0; i<data.length;i++){

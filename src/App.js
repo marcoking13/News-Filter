@@ -60,9 +60,9 @@ class App extends React.Component {
           <div>
             <Route path = "/" exact component = {LandingPage} />
             <Route path = "/home/:accessToken/:email" render={props => <HomePage UpdateToken = {this.UpdateToken} UpdateUser  = {this.UpdateUser} />} />
-            <Route path = "/prof/:accessToken/:email" render={props => <ProfilePage UpdateToken = {this.UpdateToken} user = {this.state.user} token={this.state.token} />} />
-            <Route path = "/sear/:accessToken/:email" render={props => <SearchPage {...props} UpdateToken = {this.UpdateToken} token={this.state.token} />} />} />
-            <Route path = "/mixr/:accessToken/:email" render = {props => <RadioPage {...props} UpdateToken = {this.UpdateToken} token={this.state.token}/>} />
+            <Route path = "/prof/:accessToken/:email" render={props => <ProfilePage UpdateToken = {this.UpdateToken}  UpdateUser  = {this.UpdateUser}  user = {this.state.user} token={this.state.token} />} />
+            <Route path = "/sear/:accessToken/:email" render={props => <SearchPage {...props} UpdateToken = {this.UpdateToken}  UpdateUser  = {this.UpdateUser}   token={this.state.token} />} />} />
+            <Route path = "/mixr/:accessToken/:email" render = {props => <RadioPage {...props} UpdateToken = {this.UpdateToken}  UpdateUser  = {this.UpdateUser}  token={this.state.token}/>} />
           </div>
         </BrowserRouter>
 

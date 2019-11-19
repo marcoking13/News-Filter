@@ -110,7 +110,8 @@ class SearchPage extends React.Component {
     }
 
     componentDidMount(){
-        this.props.UpdateToken(window.location.href.slice(58,224));
+      this.props.UpdateToken(window.location.href.slice(58,224));
+      this.props.UpdateUser(window.location.href.slice(225,238));
     }
 //-----------------------Render Method-----------------------------------------
   render(){
