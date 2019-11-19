@@ -1,6 +1,6 @@
 import React from "react";
 
-import Disc from "./../../images/disc.png";
+import Disc from "./../../images/records.png";
 
 class LoadingPage extends React.Component {
 

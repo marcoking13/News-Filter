@@ -25,21 +25,15 @@ class PlayBar extends React.Component{
     }
   }
 
-  renderBar(timer){
-    if(timer <= 0){
+  renderBar(){
+    if(this.props.timer <= 1){
       return <BarStill />
     }else{
       return <Bar />
     }
   }
 
-  renderBar(){
-    if(this.props.song.isPlaying){
-      return <Bar />
-    }else{
-      return <BarStill />
-    }
-  }
+
 
   renderShuffle(){
     return <img src = {Shuffle} onClick = {()=>{this.props.CallSongs(this.props.songs)}}className="w50 ml25" />
