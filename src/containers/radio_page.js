@@ -40,7 +40,7 @@ class RadioPage extends React.Component{
   componentDidMount(){
 
     this.props.UpdateToken(window.location.href.slice(58,224));
-    this.props.UpdateUser(window.location.href.slice(225,238));
+    
     this.timerCount = setInterval(()=>{
 
       if(this.state.timer === 30 ){
