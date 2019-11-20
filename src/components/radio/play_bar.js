@@ -25,9 +25,9 @@ class PlayBar extends React.Component{
 
   renderStar(){
     if(this.state.fav){
-      return <div onClick = {()=>{this.favSong(false)}} className="col-1"><img src = {YellowStar}  className="w50 ml25" /></div>
+      return <img onClick = {()=>{this.favSong(false)}}  src = {YellowStar}  className="w50 ml25" />
     }else{
-      return <div onClick = {()=>{this.favSong(true)}} className="col-1"><img src = {GreyStar} className="w50 ml25" /></div>
+      return <img onClick = {()=>{this.favSong(true)}}  src = {GreyStar} className="w50 ml25" />
     }
   }
 
@@ -54,36 +54,77 @@ class PlayBar extends React.Component{
       return <img src = {Play} className="w50 ml25"/>
     }
   }
+  renderMobile(){
+    return(
+      <div className="container-fluid prl0 positionUpward mt10 b26 ptb1">
+        <div className="row">
 
-  render(){
-
-      return(
-        <div className="container-fluid positionUpward b26 ptb1">
-          <div className="row">
-            <div className="col-4"/>
-            <div className="col-1">
-              {this.renderNote()}
-            </div>
-            <div className="col-1">
-              {this.renderButton()}
-            </div>
-
-              {this.renderStar()}
-
-            <div className="col-1">
-              {this.renderShuffle()}
-            </div>
-            <div className="col-4"/>
+          <div className="col-3">
+            {this.renderNote()}
           </div>
-          <div className="row">
-              <div className="col-2"/>
-              <div className="col-8">
-                {this.renderBar()}
-              </div>
+          <div className="col-3">
+            {this.renderButton()}
+          </div>
+          <div className="col-3">
+            {this.renderStar()}
+          </div>
+          <div className="col-3">
+            {this.renderShuffle()}
           </div>
         </div>
-      )
+        <div className="row prl0">
+            <div className="col-3"/>
+            <div className="col-10">
+              {this.renderBar()}
+            </div>
+        </div>
+      </div>
+    )
+  }
+  renderDesktop(){
+    return(
+      <div className="container-fluid prl0 positionUpward b26 ptb1">
+        <div className="row">
+          <div className="col-4"/>
+          <div className="col-1">
+            {this.renderNote()}
+          </div>
+          <div className="col-1">
+            {this.renderButton()}
+          </div>
 
+            <div className="col-1">
+              {this.renderStar()}
+            </div>
+
+          <div className="col-1">
+            {this.renderShuffle()}
+          </div>
+          <div className="col-4"/>
+        </div>
+        <div className="row prl0">
+            <div className="col-2"/>
+            <div className="col-8">
+              {this.renderBar()}
+            </div>
+        </div>
+      </div>
+    )
+  }
+  render(){
+    if(window.innerWidth <= 600) {
+      return(
+        <div>
+          {this.renderMobile()}
+        </div>
+      )
+    }else{
+      return(
+        <div>
+          {this.renderDesktop()}
+        </div>
+      )
+    }
   }
 }
 
