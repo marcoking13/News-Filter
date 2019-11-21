@@ -7,10 +7,19 @@
     bottom:40px;
   }
 }
+
 .prl0{
   padding-left: 0 !important;
   padding-right:0 !important;
 }
+
+.musicalnotes{
+
+    width:100%;
+    height:300px;
+
+}
+
 @keyframes bouncer2{
   0%{
 
@@ -48,6 +57,55 @@
     transform:rotate(0deg);
   }
 }
+
+.ce{
+  position: absolute;
+  top:55%;
+  left:50%;
+  transform: translate(-50%,-50%);
+
+}
+.bp{
+  background: purple
+}
+.br{
+  background: red;
+}
+.bg{
+  background: green;
+}
+.bbb{
+  background: blue;
+}
+.pulse{
+  width:100%;
+
+  background:red;
+  text-align: center;
+  font-size: 20px;
+  border-radius:50%;
+  font-variant: verdana;
+  line-height: 100px;
+  animation: animate 3s linear infinite;
+  text-transform: uppercase;
+  color:#f4f4f4;
+}
+
+@keyfreames animate{
+  0%{
+    box-shadow: 0 0 0 0 rgba(255,109,74,.7), 0 0 0 0 rgba(255,109,74,.7);
+  }
+  40%{
+    box-shadow: 0 0 0 50px rgba(255,109,74,0), 0 0 0 0 rgba(255,109,74,.7);
+  }
+  80%{
+    box-shadow: 0 0 0 50px rgba(255,109,74,0), 0 0 0 30px rgba(255,109,74,0);
+  }
+  100%{
+    box-shadow: 0 0 0 0 rgba(255,109,74,.7), 0 0 0 30px rgba(255,109,74,0);
+  }
+}
+
 .b26{
   background:#262626;
 }
@@ -58,6 +116,9 @@
   animation: infinite .6s ease-in-out rotation;
 }
 
+.rotationSlow {
+  animation: infinite 6s ease-in-out rotation;
+}
 
 .bounce{
   animation:3s infinite ease-in-out bouncer2;

@@ -11,6 +11,11 @@ import MobileFeatures from "./../components/landing/mobile_features.js";
 
 import Register from "./../components/landing/register.js";
 
+import RadioShowcase from "./../components/landing/radio_showcase";
+import PlaylistShowcase from "./../components/landing/playlist_showcase";
+import AmbientShowcase from "./../components/landing/ambient_showcase";
+
+
 import Showcase from "./../components/landing/showcase.js";
 import ShowcaseMobile from "./../components/landing/mobile_showcase.js";
 
@@ -33,9 +38,18 @@ class LandingPage extends React.Component {
             <Albums offset = {0} title = "Newest Artists"/>
             <Albums offset = {5} title = "Most Popular"/>
           </div>
+
           <div className="bbBW pb2_5">
-            <Features/>
+            <RadioShowcase />
           </div>
+
+          <div className="bbBW pb2_5">
+              <AmbientShowcase />
+          </div>
+
+        <div className="bbBW pb2_5">
+            <PlaylistShowcase />
+        </div>
 
           <div className="bbBW pb2_5">
             <Register />

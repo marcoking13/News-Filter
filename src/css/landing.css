@@ -9,6 +9,13 @@
   }
 }
 
+.BWRR{
+  border-right:2px solid white;
+  padding-right:10px;
+}
+.br50{
+  border-radius:50%;
+}
 @keyframes minimize{
   0%{
     width:72%;
@@ -163,4 +170,19 @@ body{
 }
 .mt10{
   margin-top: 10% !important;
+}
+
+.appear{
+  animation: appear .5s ease-in 1;
+}
+
+@keyframes appear{
+  0%{
+  opacity:0;
+  }
+
+  100%{
+    opacity:1
+  }
+
 }
