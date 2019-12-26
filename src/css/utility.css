@@ -1,42 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .bold{
   font-weight: bold;
 }
@@ -61,6 +24,10 @@
 
 .rotating{
   animation: 3s rotator infinite ease-in-out;
+}
+
+.mt1{
+  margin-top:1%;
 }
 
 @keyframes rotator {

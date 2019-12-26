@@ -1,4 +1,5 @@
 import React from "react";
+import "./../../../css/utility.css";
 
 export default class Bar extends React.Component{
   constructor(props){
@@ -11,7 +12,7 @@ export default class Bar extends React.Component{
   render(){
 
     return(
-      <div class="progress mt5">
+      <div class="progress mt1">
         <div
           className="progress-bar progress-bar-striped bg-danger"
           role="progressbar"
