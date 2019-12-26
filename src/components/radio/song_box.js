@@ -12,8 +12,8 @@ class SongBox extends React.Component{
         return (
           <div className="row  ">
 
-            <div className="col-3"/>
-            <div className="col-6">
+            <div className="col-4"/>
+            <div className="col-4">
               <img className="w100 bounce" src = {this.props.song.image} />
               <h6 className="text-center cw bold">{this.props.song.songName}</h6>
               <p className="text-center cw"> {this.props.song.artist} </p>
