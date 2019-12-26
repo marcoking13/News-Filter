@@ -18,6 +18,7 @@ class SongBox extends React.Component{
               <h6 className="text-center cw bold">{this.props.song.songName}</h6>
               <p className="text-center cw"> {this.props.song.artist} </p>
             </div>
+              <div className="col-4"/>
 
 
 
