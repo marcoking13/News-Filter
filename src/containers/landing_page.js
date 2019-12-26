@@ -28,6 +28,7 @@ import FootnoteMobile from "./../components/footer/footnote_mobile.js";
 class LandingPage extends React.Component {
 
   renderDesktopPage(){
+
     return(
         <div className="pb10">
             <Navbar />
@@ -47,20 +48,22 @@ class LandingPage extends React.Component {
               <AmbientShowcase />
           </div>
 
-        <div className="bbBW pb2_5">
-            <PlaylistShowcase />
-        </div>
+          <div className="bbBW pb2_5">
+              <PlaylistShowcase />
+          </div>
 
           <div className="bbBW pb2_5">
             <Register />
           </div>
+
           <br />
           <br />
-          <br/>
-          <br/>
-            <Footnote/>
+
+          <Footnote/>
+
         </div>
     );
+
   }
 
   renderMobilePage(){
@@ -70,10 +73,12 @@ class LandingPage extends React.Component {
           <div>
             <ShowcaseMobile />
           </div>
+
           <div>
             <MobileAlbums offset = {0} title = "Newest Artists"/>
             <MobileAlbums offset = {5} title = "Most Popular"/>
           </div>
+
           <div className="bbBW pb2_5">
             <MobileFeatures/>
           </div>
@@ -81,10 +86,11 @@ class LandingPage extends React.Component {
           <div className="bbBW pb2_5">
             <Register />
           </div>
+
           <br />
           <br />
           <br/>
-          <br/>
+
           <FootnoteMobile />
         </div>
     );
@@ -97,7 +103,9 @@ class LandingPage extends React.Component {
       }else{
        return <div>{this.renderDesktopPage()}</div>
       }
+
   }
+  
 }
 
 export default LandingPage;

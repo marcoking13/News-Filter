@@ -6,17 +6,20 @@ import Shuffle from "./../../images/random.png";
 
 import BarStill from "./../progress/progress_bar_still.js";
 import Bar from "./../progress/progress_bar.js";
+
 import GreyStar from "./../../images/grey_star.png";
 import YellowStar from "./../../images/yellow_star.png";
 import MusicNote from "./../../images/music_note.png";
 
 class PlayBar extends React.Component{
+
   constructor(props){
     super(props);
+
     this.state = {
       fav:false
     }
-    console.log(this.props.song);
+
   }
 
   favSong(bool){
@@ -54,6 +57,7 @@ class PlayBar extends React.Component{
       return <img src = {Play} className="w50 ml25"/>
     }
   }
+
   renderMobile(){
     return(
       <div className="container-fluid prl0 positionUpward mt10 b26 ptb1">
@@ -81,6 +85,7 @@ class PlayBar extends React.Component{
       </div>
     )
   }
+
   renderDesktop(){
     return(
       <div className="container-fluid prl0 positionUpward b26 ptb1">
@@ -111,6 +116,7 @@ class PlayBar extends React.Component{
       </div>
     )
   }
+
   render(){
     if(window.innerWidth <= 600) {
       return(
@@ -118,7 +124,8 @@ class PlayBar extends React.Component{
           {this.renderMobile()}
         </div>
       )
-    }else{
+    }
+    else{
       return(
         <div>
           {this.renderDesktop()}
@@ -127,10 +134,5 @@ class PlayBar extends React.Component{
     }
   }
 }
-
-
-
-
-
 
 export default PlayBar;

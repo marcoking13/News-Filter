@@ -30,7 +30,8 @@ class HomePage extends React.Component{
    getHashParams() {
       var hashParams = {};
       var e, r = /([^&;=]+)=?([^&;]*)/g,
-          q = window.location.href.substring(1);
+      q = window.location.href.substring(1);
+      
       while ( e = r.exec(q)) {
          hashParams[e[1]] = decodeURIComponent(e[2]);
       }

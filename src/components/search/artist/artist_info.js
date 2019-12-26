@@ -1,9 +1,11 @@
 import React from "react";
 
+import "./../../../css/utility.css";
+
 class ArtistInfo extends React.Component {
   render(){
     return(
-      <div className="row">
+      <div className="row jumbotron b26">
         <div className="col-3"/>
         <div className="col-4">
           <img alt = "artist"  className="w70 rounded float-left" src= {this.props.artist.images[0].url}/>

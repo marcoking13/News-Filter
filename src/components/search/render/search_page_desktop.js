@@ -53,19 +53,24 @@ class SearchPage extends React.Component {
             Search = {this.props.CallArtistAndAlbums}
             changeData = {this.props.changeData}
             artist = {this.props.artist}
-            albums = {this.props.albums}/>
-        </div>
+            albums = {this.props.albums}
+          />
+          
+         </div>
 
         <br />
         <br />
 
         {this.renderResults()}
+
         <br />
+        <br />
+
         {this.renderAlbums()}
+
         <br />
         <br />
-        <br/>
-        <br/>
+
         <div className="mt5">
 
           <Footnote />
