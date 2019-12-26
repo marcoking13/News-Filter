@@ -1,5 +1,5 @@
 import React from "react";
-import "./../../../css/utility.css";
+import "./../../css/utility.css";
 
 export default class Bar extends React.Component{
   constructor(props){
