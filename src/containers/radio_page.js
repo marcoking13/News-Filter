@@ -7,9 +7,14 @@ import SongBox from "./../components/radio/song_box.js";
 import PlayBar from "./../components/radio/play_bar.js";
 import Loader from "./../components/radio/loading_page.js";
 
+import Colors from "./../config/colors.js";
+
 import "./../css/radio.css";
 
 import Songs from "./../config/randomSongs";
+
+var background = `url("./assets/images/b1.jpg")`
+
 
 class RadioPage extends React.Component{
   constructor(props){
@@ -77,9 +82,20 @@ class RadioPage extends React.Component{
   }
 
   renderSong(){
+
     return(
+
       <div>
-        <SongBox song = {this.state.current} songs = {this.state.songs} CallSongs = {this.CallSongs} />
+        <div className="row">
+          <div className="col-2"/>
+          <div className="col-10">
+              <div className="row">
+                <SongBox song = {this.state.current} songs = {this.state.songs} CallSongs = {this.CallSongs} />
+              </div>
+          </div>
+          <div className="col-2"/>
+        </div>
+        <br />
         <PlayBar timer = {this.state.timer} song = {this.state.current} CallSongs = {this.CallSongs} />
       </div>
     )
@@ -101,9 +117,11 @@ class RadioPage extends React.Component{
 
     if(this.state.timer > .5){
       return(
-        <div className="container-fluid bb">
+        <div className="container-fluid ">
           {this.renderAudio()}
-          <Navbar token = {this.props.token}/>
+          <div>
+            <Navbar token = {this.props.token}/>
+          </div>
           <br />
           {this.renderSong()}
           <br />

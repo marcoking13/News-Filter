@@ -6,6 +6,20 @@
 .f17{
   font-size: 17px;
 }
+.fixSide{
+  position: fixed;
+  left:1%;
+  top:1%;
+}
+body{
+  background:url("../images/black.png") !important;
+}
+.pt2_5{
+  padding-top: 2.5%;
+}
+.bb{
+  background:black;
+}
 .fl{
   float: left;
 }
