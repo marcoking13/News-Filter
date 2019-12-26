@@ -89,9 +89,9 @@ class RadioPage extends React.Component{
         <div className="row">
           <div className="col-2"/>
           <div className="col-10">
-              <div className="row">
+
                 <SongBox song = {this.state.current} songs = {this.state.songs} CallSongs = {this.CallSongs} />
-              </div>
+            
           </div>
           <div className="col-2"/>
         </div>
