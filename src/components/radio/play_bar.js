@@ -72,7 +72,7 @@ class PlayBar extends React.Component{
             {this.renderShuffle()}
           </div>
         </div>
-        <div className="row prl0">
+        <div className="row p0 prl0">
             <div className="col-3"/>
             <div className="col-10">
               {this.renderBar()}
@@ -102,7 +102,7 @@ class PlayBar extends React.Component{
           </div>
           <div className="col-4"/>
         </div>
-        <div className="row prl0">
+        <div className="row p0 prl0">
             <div className="col-2"/>
             <div className="col-8">
               {this.renderBar()}
