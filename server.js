@@ -155,6 +155,7 @@ app.get('/callback', function(req, res) {
             followers:body.followers.total,
             email:body.email,
             image:body.images[0],
+            token:body.email,
             playlist:[],
             songs:[],
             artists:[],
@@ -334,7 +335,7 @@ app.post("/api/accounts/add/song",(req,res)=>{
     var dbO = db.db("heroku_08xmn3nc");
     dbO.collection("accounts").find({}).toArrary((err,result)=>{
       for(var i = 0; i < result.length; i++){
-        if(req.body.user == result[i].token){
+        if(req.body.token == result[i].token){
           var songs = result[i].songs;
           songs.push(req.body.song);
           var newUser = {
@@ -350,6 +351,7 @@ app.post("/api/accounts/add/song",(req,res)=>{
           dbO.collection("accounts").remove(result[i]);
           dbO.collection("accounts").insertOne(newUser);
         }
+        break;
       }
     });
   });
