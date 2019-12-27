@@ -58,12 +58,14 @@ class SearchPage extends React.Component {
       const BASE_URL = "https://api.spotify.com/v1/search?";
       const FETCH_URL = BASE_URL + "q=" + artist +"&type=artist&limit=5";
 
+    
+
       fetch(FETCH_URL,this.state.options)
         .then(response =>response.json())
 
           .then(json => {
 
-            if(json.artists.items.length > 1 ){
+            if(json.artists){
                 var id = json.artists.items[0].id;
 
                 const BASE_URL = `https://api.spotify.com/v1/artists/${id}/albums?`;
