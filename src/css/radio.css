@@ -15,6 +15,9 @@
   margin-top:0;
 }
 
+.ml10{
+  margin-left: 10%;
+}
 .musicalnotes{
 
     width:100%;
@@ -22,6 +25,16 @@
 
 }
 
+.bH:hover{
+  border-color:orange;
+  animation: zoomIn .3 1 ease-in !important;
+}
+.bH{
+  border-bottom:2px solid #262626;
+  animation: zoomOut .3 1 ease-in !important;
+
+
+}
 
 @keyframes bouncer2{
   0%{

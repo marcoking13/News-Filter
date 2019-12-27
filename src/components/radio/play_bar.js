@@ -17,7 +17,8 @@ class PlayBar extends React.Component{
     super(props);
 
     this.state = {
-      fav:false
+      fav:false,
+      isPlaying:true
     }
 
   }
@@ -28,33 +29,35 @@ class PlayBar extends React.Component{
 
   renderStar(){
     if(this.state.fav){
-      return <img onClick = {()=>{this.favSong(false)}}  src = {YellowStar}  className="w50 ml25" />
+      return <img onClick = {()=>{this.favSong(false)}}  src = {YellowStar}  className="w50 bH ml25" />
     }else{
-      return <img onClick = {()=>{this.favSong(true)}}  src = {GreyStar} className="w50 ml25" />
+      return <img onClick = {()=>{this.favSong(true)}}  src = {GreyStar} className="w50 bH ml25" />
     }
   }
 
   renderBar(){
-    if(this.props.timer <= 1){
+    console.log(this.props.isPlaying);
+    if(this.props.timer <= 1 || !this.props.isPlaying){
       return <BarStill />
     }else{
       return <Bar />
     }
   }
 
+
   renderShuffle(){
-    return <img src = {Shuffle} onClick = {()=>{this.props.CallSongs()}}className="w50 ml25" />
+    return <img src = {Shuffle} onClick = {()=>{this.props.CallSongs()}}className="w50 bH ml25" />
   }
 
   renderNote(){
-    return <img src = {MusicNote} onClick = {()=>{window.open(this.props.song.external)}}className="w50 ml25" />
+    return <img src = {MusicNote} onClick = {()=>{window.open(this.props.song.external)}}className="w50 bH ml25" />
   }
 
   renderButton(){
-    if(this.props.song.isPlaying){
-      return <img src = {Pause} onClick = {this.props.togglePause(false)} className="w50 ml25"/>
+    if(this.props.isPlaying){
+      return <img src = {Pause} onClick = {()=>{this.props.togglePause(false)}} className="w50 bH ml25"/>
     }else{
-      return <img src = {Play} onClick = {this.props.togglePause(false)} className="w50 ml25"/>
+      return <img src = {Play} onClick = {()=>{this.props.togglePause(true)}} className="w50 bH ml25"/>
     }
   }
 

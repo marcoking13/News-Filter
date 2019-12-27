@@ -9,15 +9,20 @@ import SearchPage from "./containers/search_page";
 import ProfilePage from "./containers/profile_page";
 import RadioPage from "./containers/radio_page";
 
+import "./css/animations.css";
+
 class App extends React.Component {
 
   constructor(props){
 
     super(props);
+
     var url = "landing";
+
     if(cookie.load("url",{path:"/"})){
         url = cookie.load("url",{path:"/"});
     }
+
     this.state = {
       url:url,
       isSpotify:true,
@@ -25,6 +30,7 @@ class App extends React.Component {
       user:null,
       isUserLoggedIn:false
     }
+
       this.changeURL = this.changeURL.bind(this);
       this.UpdateToken = this.UpdateToken.bind(this);
       this.UpdateUser = this.UpdateUser.bind(this);
@@ -58,14 +64,44 @@ class App extends React.Component {
       <div>
         <BrowserRouter>
           <div>
-            <Route path = "/" exact component = {LandingPage} />
-            <Route path = "/home/:accessToken/:email" render={props => <HomePage UpdateToken = {this.UpdateToken} UpdateUser  = {this.UpdateUser} />} />
-            <Route path = "/prof/:accessToken/:email" render={props => <ProfilePage UpdateToken = {this.UpdateToken}  UpdateUser  = {this.UpdateUser}  user = {this.state.user} token={this.state.token} />} />
-            <Route path = "/sear/:accessToken/:email" render={props => <SearchPage {...props} UpdateToken = {this.UpdateToken}  UpdateUser  = {this.UpdateUser}   token={this.state.token} />} />} />
-            <Route path = "/mixr/:accessToken/:email" render = {props => <RadioPage {...props} UpdateToken = {this.UpdateToken}  UpdateUser  = {this.UpdateUser}  token={this.state.token}/>} />
+            <Route
+              path = "/"
+              exact component = {LandingPage}
+              />
+            <Route
+              path = "/home/:accessToken/:email"
+              render={props => <HomePage
+                UpdateToken = {this.UpdateToken}
+                UpdateUser  = {this.UpdateUser}
+                />}
+              />
+            <Route
+              path = "/prof/:accessToken/:email"
+              render={props => <ProfilePage
+                UpdateToken = {this.UpdateToken}
+                UpdateUser  = {this.UpdateUser}
+                user = {this.state.user}
+                token={this.state.token}
+                />}
+              />
+            <Route
+              path = "/sear/:accessToken/:email"
+              render={props => <SearchPage {...props}
+                UpdateToken = {this.UpdateToken}
+                UpdateUser  = {this.UpdateUser}
+                token={this.state.token} />}
+                />}
+               />
+            <Route
+              path = "/mixr/:accessToken/:email"
+              render = {props => <RadioPage {...props}
+                UpdateToken = {this.UpdateToken}
+                UpdateUser  = {this.UpdateUser}
+                token={this.state.token}
+                  />} 
+                />
           </div>
         </BrowserRouter>
-
       </div>
     )
   }

@@ -23,6 +23,7 @@ class RadioPage extends React.Component{
       songs:Songs,
       current:null,
       reset:false,
+      isPlaying:true,
       options:{
         method:"GET",
         headers:{
@@ -40,11 +41,9 @@ class RadioPage extends React.Component{
     this.CallSongs = this.CallSongs.bind(this);
   }
 
-  togglePause(song,toggle){
-      song.isPlaying =  toggle;
+  togglePause(toggle){
 
-      this.setState({current:song});
-
+      this.setState({isPlaying:toggle,timer:.005})
 
   }
 
@@ -69,11 +68,12 @@ class RadioPage extends React.Component{
     var songID = this.state.songs[Math.floor(Math.random() * this.state.songs.length)];
     const BASE_URL = "https://api.spotify.com/v1/tracks/"
     const FETCH_URL = BASE_URL + songID;
+
     fetch(FETCH_URL,this.state.options)
       .then(response =>response.json())
 
         .then(json => {
-          console.log(json.external_urls);
+
             var current = {
               artist: json.artists[0].name,
               songName:json.name,
@@ -99,21 +99,21 @@ class RadioPage extends React.Component{
           <div className="col-2"/>
           <div className="col-10">
 
-                <SongBox  togglePause = {this.togglePause} song = {this.state.current} songs = {this.state.songs} CallSongs = {this.CallSongs} />
+                <SongBox  isPlaying = {this.state.isPlaying} togglePause = {this.togglePause} song = {this.state.current} songs = {this.state.songs} CallSongs = {this.CallSongs} />
 
           </div>
           <div className="col-2"/>
         </div>
         <br />
-        <PlayBar timer = {this.state.timer}  togglePause = {this.togglePause} song = {this.state.current} CallSongs = {this.CallSongs} />
+        <PlayBar  isPlaying = {this.state.isPlaying} timer = {this.state.timer}  togglePause = {this.togglePause} song = {this.state.current} CallSongs = {this.CallSongs} />
       </div>
     )
   }
 
   renderAudio(){
-    if(this.state.timer == 0 ){
+    if(this.state.timer == 0  && !this.state.isPlaying){
       return null
-    } else{
+    } else if(this.state.isPlaying){
       return (
         <audio autoPlay loop>
           <source type="audio/mp3" src = {this.state.current.url}></source>
@@ -124,7 +124,7 @@ class RadioPage extends React.Component{
 
   render(){
 
-    if(this.state.timer > .5){
+    if(this.state.timer > 0){
       return(
         <div className="container-fluid ">
           {this.renderAudio()}
