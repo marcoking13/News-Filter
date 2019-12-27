@@ -29,6 +29,7 @@ class PlayBar extends React.Component{
     if(bool){
       var user = cookie.load("account",{path:"/"});
       var song = this.props.song;
+      console.log(user,song);
       axios.post("/api/accounts/add/song",{token:user,song:song});
     }
     this.setState({fav:bool});

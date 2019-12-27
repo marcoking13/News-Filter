@@ -335,9 +335,11 @@ app.post("/api/accounts/add/song",(req,res)=>{
     var dbO = db.db("heroku_08xmn3nc");
     dbO.collection("accounts").find({}).toArrary((err,result)=>{
       for(var i = 0; i < result.length; i++){
+            console.log(result[i]);
         if(req.body.token == result[i].token){
           var songs = result[i].songs;
           songs.push(req.body.song);
+          console.log(songs,result[i]);
           var newUser = {
             followers:0,
             email:result[i].email,
