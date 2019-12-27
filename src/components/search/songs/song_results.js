@@ -192,19 +192,20 @@ class SongResults extends  React.Component {
         <div className="container-fluid">
           {this.renderAudio(audioURL)}
           <div className="row">
+
             <div className="col-3"/>
+
             <div className="col-6">
+
               <div className="row">
-                <div className="col-1"/>
-                <div className="col-10">
-                  <div className="row">
                   <br />
                   {this.renderSongs()}
-                  </div>
-                </div>
               </div>
+
             </div>
+
           </div>
+          
         </div>
     )
   }
