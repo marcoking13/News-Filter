@@ -334,8 +334,22 @@ app.post("/api/accounts/add/song",(req,res)=>{
     var dbO = db.db("heroku_08xmn3nc");
     dbO.collection("accounts").find({}).toArrary((err,result)=>{
       for(var i = 0; i < result.length; i++){
-        if(req.body.user == result[i])
-        dbO.collection("accounts").insertOne({token:token});
+        if(req.body.user == result[i].token){
+          var songs = result[i].songs;
+          songs.push(req.body.song);
+          var newUser = {
+            followers:0,
+            email:result[i].email,
+            image:result[i].image,
+            playlist:result[i].playlist,
+            token:result[i].token,
+            songs:songs,
+            artists:result[i].artists,
+            id:result[i].id
+          }
+          dbO.collection("accounts").remove(result[i]);
+          dbO.collection("accounts").insertOne(newUser);
+        }
       }
     });
   });
@@ -357,6 +371,7 @@ const MongoStartup = ()=>{
         image:null,
         playlist:[],
         songs:[],
+        token:"dum"
         artists:[],
         id:"30o230o0303032003230ek2dodewmwecmwepcmcm"
 
