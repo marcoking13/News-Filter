@@ -375,7 +375,7 @@ const MongoStartup = ()=>{
         image:null,
         playlist:[],
         songs:[],
-        token:"dum"
+        token:"dum",
         artists:[],
         id:"30o230o0303032003230ek2dodewmwecmwepcmcm"
 
