@@ -145,13 +145,16 @@ class SongResults extends  React.Component {
   renderSongs(){
 
     return this.state.album.map((song)=>{
-
+        var border = "";
+        if(song.playing){
+          border = "bordRR"
+        }
         return(
 
           <div className="col-6">
 
 
-              <div className="row bordR">
+              <div className={"row bordR " +border}>
                   <div className="col-3"/>
                   <div className="col-6">
                     {this.renderImage(song)}
