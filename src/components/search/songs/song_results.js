@@ -92,7 +92,7 @@ class SongResults extends  React.Component {
      return(
         <div className="row ">
 
-            <div className="col-2 mt10 p0">
+            <div className="col-2  p0">
               <img alt = "song"  src ={Play}  className="w100 " onClick = {()=>{
                 this.PlaySong(song);
               }}/>
@@ -109,7 +109,7 @@ class SongResults extends  React.Component {
         return(
           <div className="row ">
 
-            <div className="col-2 p0 mt10">
+            <div className="col-2 p0 ">
               <img alt = "pause"  src ={Pause}  className="w100 " onClick = {()=>{
                 this.PlaySong(song);
               }}/>
@@ -154,7 +154,7 @@ class SongResults extends  React.Component {
                   <div className="col-12 ">
                     <p className="cw  text-center ml15">{song.name}</p>
                   </div>
-                  <div className="col-12 mt5">
+                  <div className="col-12 ">
                       {this.renderPlayer(song)}
                   </div>
                   <div className="col-12">

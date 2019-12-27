@@ -62,11 +62,12 @@ class SearchPage extends React.Component {
 
         {this.renderResults()}
 
-        <br />
 
         {this.renderAlbums()}
 
         <br />
+          <br />
+            <br />
 
         <Footnote />
 
