@@ -58,7 +58,7 @@ class SearchPage extends React.Component {
 
          </div>
 
-        <br />
+      
 
         {this.renderResults()}
 
