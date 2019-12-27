@@ -148,12 +148,12 @@ class SongResults extends  React.Component {
 
         return(
 
-          <div className="col-4">
+          <div className="col-6">
 
 
               <div className="row bordR">
-                  <div className="col-4"/>
-                  <div className="col-4">
+                  <div className="col-3"/>
+                  <div className="col-6">
                     {this.renderImage(song)}
                   </div>
                   <div className="col-12 ">
