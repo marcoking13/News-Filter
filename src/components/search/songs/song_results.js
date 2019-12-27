@@ -31,11 +31,14 @@ class SongResults extends  React.Component {
       });
 
     });
+
     return songC;
+
   }
 
 
   makeRandomCharacters(){
+
     var chars = ["a","b","c","d","e","f","g","h","i","j"];
 
     var newChar = ""
@@ -67,25 +70,25 @@ class SongResults extends  React.Component {
 
 
   returnAudioURL(song){
+
     for(var i = 0; i < song.length; i++){
+
       if(song[i].playing){
         return song[i].url
         break
       }
+
     }
+
   }
 
-
-  renderAudio(song){
-
-
-        return (
-          <audio className="au " autoPlay  loop>
-              <source src = {song} type="audio/mp3"/>
-          </audio>
-        );
-
-      }
+ renderAudio(song){
+    return (
+      <audio className="au " autoPlay  loop>
+        <source src = {song} type="audio/mp3"/>
+      </audio>
+    );
+ }
 
  renderPlayer(song){
    if(song.url && !song.playing){
@@ -145,16 +148,18 @@ class SongResults extends  React.Component {
   renderSongs(){
 
     return this.state.album.map((song)=>{
+
         var border = "";
+
         if(song.playing){
           border = "bordRR"
         }
+
         return(
 
           <div className="col-4">
-
-
-              <div className={"row bordR " +border}>
+              <br />
+              <div className={"row " +border}>
                   <div className="col-3"/>
                   <div className="col-6">
                     {this.renderImage(song)}
@@ -177,11 +182,12 @@ class SongResults extends  React.Component {
    }
 
   render(){
-    console.log(this.returnAudioURL(this.state.album));
+
+    var audioURL = this.returnAudioURL(this.state.album);
 
     return(
         <div className="container-fluid">
-          {this.renderAudio(this.returnAudioURL(this.state.album))}
+          {this.renderAudio(audioURL)}
           <div className="row">
             <div className="col-3"/>
             <div className="col-6">
