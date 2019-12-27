@@ -143,22 +143,22 @@ class SongResults extends  React.Component {
     return this.state.album.map((song)=>{
 
         return(
-          <div className="col-5 ">
+          <div className="col-6 ">
 
 
               <div className="row">
-                  <div className="col-2"/>
-                  <div className="col-7">
+                  <div className="col-4"/>
+                  <div className="col-4">
                     {this.renderImage(song)}
                   </div>
-                  <div className="col-12 mt5">
-                    <p className="cw  ml15">{song.name}</p>
-                  </div>
                   <div className="col-12 ">
+                    <p className="cw  text-center ml15">{song.name}</p>
+                  </div>
+                  <div className="col-12 mt5">
                       {this.renderPlayer(song)}
                   </div>
                   <div className="col-12">
-                    <p className="cw fl mt5 f13">{"Views: "+Math.floor(Math.random() * 9000)}</p>
+                    <p className="cw text-center mt5 f13">{"Views: "+Math.floor(Math.random() * 9000)}</p>
                   </div>
 
               </div>
