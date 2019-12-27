@@ -79,8 +79,6 @@ app.get('/spotify-login', function(req, res) {
   // state is random code
   var state = generateRandomString(16);
 
-
-
   // saves state to cookie
   res.cookie(stateKey, state);
    console.log("spotify");
@@ -167,41 +165,29 @@ app.get('/callback', function(req, res) {
             for(var i = 0; i <= data.length - 1; i++ ){
 
               if(data[i].id === body.id ){
-                console.log(data[i])
                 console.log("User already exists");
-
                 break;
               }
               if(i >= data.length - 1){
                   dbO.collection("accounts").insertOne(userData,(e,data)=>{console.log("Insert New User")});
-
               }
             }
 
-
-
           res.redirect(`/home/${"access_token="+access_token}/${data[i].id}`);
-
-
-
-        });
-
-
-
 
         });
 
       });
+
+    });
         // logs in the returned data
         // use the access token to access the Spotify Web API
         // we can also pass the token to the browser to make requests from there
-
-
-      } // if there is an error redirect user to same url and send error message
-      else {
-        res.redirect('/#' +
-          querystring.stringify({
-            error: 'invalid_token'
+  } // if there is an error redirect user to same url and send error message
+    else {
+      res.redirect('/#' +
+        querystring.stringify({
+          error: 'invalid_token'
           }));
       }
     });
@@ -263,7 +249,7 @@ app.post("/api/accounts",(req,res)=>{
       email:req.body.email,
       displayName:req.body.email
     }
-    console.log(req.params,req.body,req.body.id);
+
     dbO.collection("accounts").find({}).toArray((err,accounts)=>{
 
         for(var i =0; i<= accounts.length;i++){
@@ -305,7 +291,7 @@ app.get('/*', (req, res) => {
 
 app.listen(port,(req,res)=>{
   MongoStartup();
-  console.log(url);
+
   console.log("App is running on localhost:"+port);
 });
 
@@ -314,7 +300,7 @@ app.get("/api/token",(req,res)=>{
   MongoClient.connect(url,(err,db)=>{
     var dbO = db.db("heroku_08xmn3nc");
     dbO.collection("token").find({}).toArray((err,result)=>{
-        console.log(result);
+
         res.json(result[0]);
       });
     });
@@ -322,24 +308,24 @@ app.get("/api/token",(req,res)=>{
 
 app.post("/api/token",(req,res)=>{
   var token = req.body.token
-  console.log(req.body);
+
   MongoClient.connect(url,(err,db)=>{
     var dbO = db.db("heroku_08xmn3nc");
     dbO.collection("token").insertOne({token:token});
   });
 });
 
-
 app.post("/api/accounts/add/song",(req,res)=>{
   MongoClient.connect(url,(err,db)=>{
     var dbO = db.db("heroku_08xmn3nc");
     dbO.collection("accounts").find({}).toArray((err,result)=>{
+
       for(var i = 0; i < result.length; i++){
-            console.log(result[i]);
-        if(req.body.token == result[i].id){
+            console.log(result[i].id)
+        if(req.body.token > result[i].id){
           var songs = result[i].songs;
           songs.push(req.body.song);
-          console.log(songs,result[i]);
+          console.log("Added Song");
           var newUser = {
             followers:0,
             email:result[i].email,
@@ -350,10 +336,12 @@ app.post("/api/accounts/add/song",(req,res)=>{
             artists:result[i].artists,
             id:result[i].id
           }
-          dbO.collection("accounts").remove(result[i]);
+
+          dbO.collection("accounts").remove(result[i]).then((r,re)=>{console.log(r,re)});
           dbO.collection("accounts").insertOne(newUser);
+          break;
         }
-        break;
+
       }
     });
   });
@@ -367,7 +355,7 @@ const MongoStartup = ()=>{
       console.log(result.length);
     if(result.length > 0){
       console.log("Accounts are in database");
-      console.log(result[0]);
+
     }else{
       dbO.collection("accounts").insertOne({
         followers:0,
