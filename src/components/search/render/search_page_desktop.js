@@ -68,6 +68,7 @@ class SearchPage extends React.Component {
         <br />
           <br />
             <br />
+            <br />
 
         <Footnote />
 
