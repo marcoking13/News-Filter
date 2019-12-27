@@ -1,4 +1,5 @@
 import React from "react";
+import cookie from "react-cookies";
 
 import Play from "./../../images/play.png";
 import Pause from "./../../images/pause.png";
@@ -24,6 +25,9 @@ class PlayBar extends React.Component{
   }
 
   favSong(bool){
+    if(bool){
+      console.log(cookie.load("account",{path:"/"}))
+    }
     this.setState({fav:bool});
   }
 

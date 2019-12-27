@@ -27,6 +27,7 @@ class App extends React.Component {
       url:url,
       isSpotify:true,
       token:null,
+
       user:null,
       isUserLoggedIn:false
     }
@@ -40,11 +41,14 @@ class App extends React.Component {
 
   UpdateToken(token){
     axios.post("/api/token",{token:token});
+
     this.setState({token:token});
 
   }
 
   UpdateUser(user){
+    cookie.save("account",user,{path:"/"});
+    console.log(user);
     this.setState({user:user});
   }
 
@@ -59,7 +63,7 @@ class App extends React.Component {
   }
 
   render(){
-
+    console.log(this.state.user);
     return(
       <div>
         <BrowserRouter>
@@ -98,7 +102,7 @@ class App extends React.Component {
                 UpdateToken = {this.UpdateToken}
                 UpdateUser  = {this.UpdateUser}
                 token={this.state.token}
-                  />} 
+                  />}
                 />
           </div>
         </BrowserRouter>

@@ -24,14 +24,15 @@ class HomePage extends React.Component{
 
     componentDidMount(){
       this.props.UpdateToken(window.location.href.slice(58,224));
-      this.props.UpdateUser(window.location.href.slice(225,238));
+    
+      this.props.UpdateUser(window.location.href.slice(225,window.location.href.length));
     }
 
    getHashParams() {
       var hashParams = {};
       var e, r = /([^&;=]+)=?([^&;]*)/g,
       q = window.location.href.substring(1);
-      
+
       while ( e = r.exec(q)) {
          hashParams[e[1]] = decodeURIComponent(e[2]);
       }

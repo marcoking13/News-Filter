@@ -271,6 +271,7 @@ app.post("/api/accounts",(req,res)=>{
 
             var newAccount = {
               email:newData.email,
+              token:accounts[i].email,
               id:accounts[i].id,
               songs:accounts[i].songs,
               artists:accounts[i].artists,
@@ -328,6 +329,17 @@ app.post("/api/token",(req,res)=>{
 });
 
 
+app.post("/api/accounts/add/song",(req,res)=>{
+  MongoClient.connect(url,(err,db)=>{
+    var dbO = db.db("heroku_08xmn3nc");
+    dbO.collection("accounts").find({}).toArrary((err,result)=>{
+      for(var i = 0; i < result.length; i++){
+        if(req.body.user == result[i])
+        dbO.collection("accounts").insertOne({token:token});
+      }
+    });
+  });
+});
 
 
 const MongoStartup = ()=>{
@@ -337,6 +349,7 @@ const MongoStartup = ()=>{
       console.log(result.length);
     if(result.length > 0){
       console.log("Accounts are in database");
+      console.log(result[0]);
     }else{
       dbO.collection("accounts").insertOne({
         followers:0,
