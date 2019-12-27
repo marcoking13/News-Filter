@@ -193,9 +193,9 @@ class SongResults extends  React.Component {
 
           <div className="row">
 
-            <div className="col-3"/>
+            <div className="col-2"/>
 
-            <div className="col-6">
+            <div className="col-8">
 
               <div className="row">
                   <br />
