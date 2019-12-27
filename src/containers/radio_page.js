@@ -105,7 +105,7 @@ class RadioPage extends React.Component{
           <div className="col-2"/>
         </div>
         <br />
-        <PlayBar timer = {this.state.timer} song = {this.state.current} CallSongs = {this.CallSongs} />
+        <PlayBar timer = {this.state.timer}  togglePause = {this.togglePause} song = {this.state.current} CallSongs = {this.CallSongs} />
       </div>
     )
   }
