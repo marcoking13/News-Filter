@@ -123,8 +123,12 @@ class SongResults extends  React.Component {
       );
       } else{
         return (
-          <div className="col-5 mt5">
-            <img alt = "lock" src ={Lock}  className="w100 mt10" />;
+          <div className="row">
+            <div className="col-4"/>
+            <div className="col-4 ">
+              <img alt = "lock" src ={Lock}  className="w100 mt10" />;
+            </div>
+              <div className="col-4"/>
           </div>
         );
       }
