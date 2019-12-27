@@ -25,6 +25,8 @@ class SearchPage extends React.Component {
       }
   }
 
+
+
   renderAlbums(){
     if(this.props.albums){
       return (
@@ -48,6 +50,7 @@ class SearchPage extends React.Component {
         <div className="pb10">
           <Navbar token = {this.props.token}/>
           <div className="container-fluid ">
+
 
             <SearchBar
               data = {this.props.data}

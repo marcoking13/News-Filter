@@ -84,8 +84,8 @@ class SongResults extends  React.Component {
 
  renderAudio(song){
     return (
-      <audio className="au " autoPlay  loop>
-        <source src = {song} type="audio/mp3"/>
+      <audio className="au " autoplay  loop>
+        <source src = {song} type="audio/mp3"></source>
       </audio>
     );
  }
@@ -186,11 +186,11 @@ class SongResults extends  React.Component {
 
   render(){
 
-    var audioURL = this.returnAudioURL(this.state.album);
+
 
     return(
         <div className="container-fluid">
-          {this.renderAudio(audioURL)}
+
           <div className="row">
 
             <div className="col-3"/>
