@@ -148,7 +148,7 @@ class SongResults extends  React.Component {
 
         return(
 
-          <div className="col-8">
+          <div className="col-12">
 
 
               <div className="row bordR">
@@ -184,7 +184,11 @@ class SongResults extends  React.Component {
             <div className="col-6">
               <div className="row">
                 <div className="col-2"/>
-                {this.renderSongs()}
+                <div className="col-8">
+                  <div className="row">
+                  {this.renderSongs()}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
