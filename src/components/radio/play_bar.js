@@ -1,5 +1,6 @@
 import React from "react";
 import cookie from "react-cookies";
+import axios from "axios";
 
 import Play from "./../../images/play.png";
 import Pause from "./../../images/pause.png";
