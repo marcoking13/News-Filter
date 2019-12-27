@@ -44,9 +44,9 @@ class SearchPage extends React.Component {
 
     return(
 
-      <div>
+      <div className="pb10">
         <Navbar token = {this.props.token}/>
-        <div className="container-fluid pb10">
+        <div className="container-fluid ">
 
           <SearchBar
             data = {this.props.data}
@@ -58,7 +58,7 @@ class SearchPage extends React.Component {
 
          </div>
 
-      
+
 
         {this.renderResults()}
 
@@ -66,10 +66,7 @@ class SearchPage extends React.Component {
 
         {this.renderAlbums()}
 
-        <br />
-          <br />
-            <br />
-            <br />
+
 
         <Footnote />
 

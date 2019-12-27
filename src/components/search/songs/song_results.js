@@ -92,8 +92,8 @@ class SongResults extends  React.Component {
      return(
         <div className="row ">
 
-            <div className="col-2  p0">
-              <img alt = "song"  src ={Play}  className="w100 " onClick = {()=>{
+            <div className="col-2  mt5 p0">
+              <img alt = "song" src ={Play}  className="w100 " onClick = {()=>{
                 this.PlaySong(song);
               }}/>
             </div>
@@ -148,7 +148,7 @@ class SongResults extends  React.Component {
 
         return(
 
-          <div className="col-12">
+          <div className="col-4">
 
 
               <div className="row bordR">
