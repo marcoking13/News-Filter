@@ -44,33 +44,34 @@ class SearchPage extends React.Component {
 
     return(
 
-      <div className="pb10">
-        <Navbar token = {this.props.token}/>
-        <div className="container-fluid ">
+      <div>
+        <div className="pb10">
+          <Navbar token = {this.props.token}/>
+          <div className="container-fluid ">
 
-          <SearchBar
-            data = {this.props.data}
-            Search = {this.props.CallArtistAndAlbums}
-            changeData = {this.props.changeData}
-            artist = {this.props.artist}
-            albums = {this.props.albums}
-          />
+            <SearchBar
+              data = {this.props.data}
+              Search = {this.props.CallArtistAndAlbums}
+              changeData = {this.props.changeData}
+              artist = {this.props.artist}
+              albums = {this.props.albums}
+              />
 
-         </div>
+              </div>
 
-         <br />
+              <br />
 
-        {this.renderResults()}
+              {this.renderResults()}
 
-        <br />
+              <br />
 
-        {this.renderAlbums()}
+            {this.renderAlbums()}
 
 
+            </div>
+            <Footnote />
 
-        <Footnote />
-
-      </div>
+          </div>
     );
     }
   }
