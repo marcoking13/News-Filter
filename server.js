@@ -333,7 +333,7 @@ app.post("/api/token",(req,res)=>{
 app.post("/api/accounts/add/song",(req,res)=>{
   MongoClient.connect(url,(err,db)=>{
     var dbO = db.db("heroku_08xmn3nc");
-    dbO.collection("accounts").find({}).toArrary((err,result)=>{
+    dbO.collection("accounts").find({}).toArray((err,result)=>{
       for(var i = 0; i < result.length; i++){
             console.log(result[i]);
         if(req.body.token == result[i].token){
