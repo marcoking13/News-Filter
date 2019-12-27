@@ -5,12 +5,12 @@ import "./../../../css/utility.css";
 class ArtistInfo extends React.Component {
   render(){
     return(
-      <div className="row jumbotron b26">
+      <div className="row jumbotron">
         <div className="col-3"/>
-        <div className="col-4">
+        <div className="col-4 bb">
           <img alt = "artist"  className="w70 rounded float-left" src= {this.props.artist.images[0].url}/>
         </div>
-        <div className="col-5">
+        <div className="col-5 bb">
           <ul className="artDPUL mt5">
               <li className="list-circle mt5  cw">Name:<strong>{this.props.artist.name}</strong></li>
               <li className="list-circle mt5 cw">{"Type: "+this.props.artist.type}</li>
