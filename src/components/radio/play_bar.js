@@ -52,9 +52,9 @@ class PlayBar extends React.Component{
 
   renderButton(){
     if(this.props.song.isPlaying){
-      return <img src = {Pause} className="w50 ml25"/>
+      return <img src = {Pause} onClick = {this.props.togglePause(false)} className="w50 ml25"/>
     }else{
-      return <img src = {Play} className="w50 ml25"/>
+      return <img src = {Play} onClick = {this.props.togglePause(false)} className="w50 ml25"/>
     }
   }
 

@@ -35,8 +35,17 @@ class RadioPage extends React.Component{
     }
 
     this.CallSongs(this.state.songs);
+    this.togglePause = this.togglePause.bind(this);
 
     this.CallSongs = this.CallSongs.bind(this);
+  }
+
+  togglePause(song,toggle){
+      song.isPlaying =  toggle;
+
+      this.setState({current:song});
+
+
   }
 
   componentDidMount(){
@@ -90,7 +99,7 @@ class RadioPage extends React.Component{
           <div className="col-2"/>
           <div className="col-10">
 
-                <SongBox song = {this.state.current} songs = {this.state.songs} CallSongs = {this.CallSongs} />
+                <SongBox  togglePause = {this.togglePause} song = {this.state.current} songs = {this.state.songs} CallSongs = {this.CallSongs} />
 
           </div>
           <div className="col-2"/>
@@ -124,7 +133,7 @@ class RadioPage extends React.Component{
           </div>
           <br />
           {this.renderSong()}
-          
+
           <Footnote />
         </div>
       );
