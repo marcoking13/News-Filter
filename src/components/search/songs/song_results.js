@@ -124,7 +124,8 @@ class SongResults extends  React.Component {
 
         </div>
       );
-      } else{
+      }
+      else{
         return (
           <div className="row">
             <div className="col-4"/>
@@ -138,11 +139,13 @@ class SongResults extends  React.Component {
  }
 
   renderImage(song){
+
     if(song.playing){
       return <img alt = "record" className="w100 rotating" src = {RecordPlayer} />
     }else{
       return <img alt = "record" className="w100" src = {RecordPlayer} />
     }
+
   }
 
   renderSongs(){
@@ -160,8 +163,8 @@ class SongResults extends  React.Component {
           <div className="col-4">
               <br />
               <div className={"row " +border}>
-                  <div className="col-3"/>
-                  <div className="col-6">
+                  <div className="col-2"/>
+                  <div className="col-8">
                     {this.renderImage(song)}
                   </div>
                   <div className="col-12 ">
@@ -195,6 +198,7 @@ class SongResults extends  React.Component {
                 <div className="col-1"/>
                 <div className="col-10">
                   <div className="row">
+                  <br />
                   {this.renderSongs()}
                   </div>
                 </div>
