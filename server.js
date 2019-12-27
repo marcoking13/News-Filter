@@ -336,7 +336,7 @@ app.post("/api/accounts/add/song",(req,res)=>{
     dbO.collection("accounts").find({}).toArray((err,result)=>{
       for(var i = 0; i < result.length; i++){
             console.log(result[i]);
-        if(req.body.token == result[i].token){
+        if(req.body.token == result[i].id){
           var songs = result[i].songs;
           songs.push(req.body.song);
           console.log(songs,result[i]);
