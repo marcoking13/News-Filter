@@ -234,7 +234,7 @@ app.get("/api/accounts",(req,res)=>{
 app.get("/api/current_account",(req,res)=>{
   MongoClient.connect(url,(err,db)=>{
     var dbO = db.db("heroku_08xmn3nc");
-   dbO.collection("currentAccount").find({}).toArray((err,result)=>{
+    dbO.collection("currentAccount").find({}).toArray((err,result)=>{
     res.json(result);
   });
   });
@@ -322,7 +322,7 @@ app.post("/api/accounts/add/song",(req,res)=>{
 
       for(var i = 0; i < result.length; i++){
             console.log(result[i].id)
-        if(req.body.token > result[i].id){
+        if(req.body.token === result[i].id){
           var songs = result[i].songs;
           songs.push(req.body.song);
           console.log("Added Song");
@@ -337,7 +337,7 @@ app.post("/api/accounts/add/song",(req,res)=>{
             id:result[i].id
           }
 
-          dbO.collection("accounts").remove(result[i]).then((r,re)=>{console.log(r,re)});
+          dbO.collection("accounts").remove({id:result[i].id}).then((r,re)=>{console.log(r,re)});
           dbO.collection("accounts").insertOne(newUser);
           break;
         }
