@@ -162,7 +162,7 @@ class SongResults extends  React.Component {
 
           <div className="col-4">
               <br />
-              <div className={"row h100px " +border}>
+              <div className={"row " +border}>
                   <div className="col-2"/>
                   <div className="col-8">
                     {this.renderImage(song)}
@@ -205,7 +205,7 @@ class SongResults extends  React.Component {
             </div>
 
           </div>
-          
+
         </div>
     )
   }
