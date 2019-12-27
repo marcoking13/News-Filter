@@ -70,7 +70,6 @@ class SearchPage extends React.Component {
 
         <Footnote />
 
-
       </div>
     );
     }

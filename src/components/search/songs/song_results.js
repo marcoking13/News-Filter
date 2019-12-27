@@ -66,22 +66,25 @@ class SongResults extends  React.Component {
   }
 
 
+  returnAudioURL(song){
+    for(var i = 0; i < song.length; i++){
+      if(song[i].playing){
+        return song[i].url
+        break
+      }
+    }
+  }
+
+
   renderAudio(song){
 
-    if(song.playing){
+
         return (
-          <audio className="au " id = {song.id}  data = {song.id} autoPlay  loop>
-              <source src = {song.url} type="audio/mp3"/>
+          <audio className="au " autoPlay  loop>
+              <source src = {song} type="audio/mp3"/>
           </audio>
         );
-      }
-      else{
-        return(
-            <audio className="au">
-              <source src = {song.url} type="audio/mp3"/>
-            </audio>
-          );
-        }
+
       }
 
  renderPlayer(song){
@@ -140,15 +143,15 @@ class SongResults extends  React.Component {
     return this.state.album.map((song)=>{
 
         return(
-          <div className="col-3 bb">
+          <div className="col-5 ">
 
-            {this.renderAudio(song)}
 
               <div className="row">
-                  <div className="col-6 mt5">
+                  <div className="col-2"/>
+                  <div className="col-7">
                     {this.renderImage(song)}
                   </div>
-                  <div className="col-12 p0 mt5">
+                  <div className="col-12 mt5">
                     <p className="cw  ml15">{song.name}</p>
                   </div>
                   <div className="col-12 ">
@@ -166,9 +169,11 @@ class SongResults extends  React.Component {
    }
 
   render(){
-    console.log(this.state.album[0].id);
+    console.log(this.returnAudioURL(this.state.album));
+
     return(
         <div className="container-fluid">
+          {this.renderAudio(this.returnAudioURL(this.state.album))}
           <div className="row">
             <div className="col-3"/>
             <div className="col-6">
