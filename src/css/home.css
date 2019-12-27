@@ -19,8 +19,15 @@
   background:black;
 
 }
+.bordR{
+  border:2px solid #262626;
+
+}
+.bordR:hover{
+  border-color:red !important;
+}
 .p0{
-  
+
 }
 @keyframes goRed{
   0%{

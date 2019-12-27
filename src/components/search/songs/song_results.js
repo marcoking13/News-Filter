@@ -146,7 +146,7 @@ class SongResults extends  React.Component {
           <div className="col-6 ">
 
 
-              <div className="row">
+              <div className="row bordR">
                   <div className="col-4"/>
                   <div className="col-4">
                     {this.renderImage(song)}
