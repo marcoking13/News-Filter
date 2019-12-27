@@ -186,8 +186,8 @@ class SongResults extends  React.Component {
             <div className="col-3"/>
             <div className="col-6">
               <div className="row">
-                <div className="col-2"/>
-                <div className="col-8">
+                <div className="col-1"/>
+                <div className="col-10">
                   <div className="row">
                   {this.renderSongs()}
                   </div>
