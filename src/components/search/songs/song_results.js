@@ -151,7 +151,7 @@ class SongResults extends  React.Component {
         }
         return(
 
-          <div className="col-6">
+          <div className="col-4">
 
 
               <div className={"row bordR " +border}>
