@@ -147,7 +147,8 @@ class SongResults extends  React.Component {
     return this.state.album.map((song)=>{
 
         return(
-          <div className="col-6 ">
+
+          <div className="col-8">
 
 
               <div className="row bordR">
@@ -182,6 +183,7 @@ class SongResults extends  React.Component {
             <div className="col-3"/>
             <div className="col-6">
               <div className="row">
+                <div className="col-2"/>
                 {this.renderSongs()}
               </div>
             </div>
